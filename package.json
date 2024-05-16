@@ -3,6 +3,7 @@
 	"displayName": "BetterErrorsCompiler",
 	"description": "a better errors compiler for OCaml, based on \"Getting Into The Flow: Better Type Error Messages for Constraint-Based Type Inference          \" ",
 	"version": "0.0.1",
+	"icon": "./hammer.png",
 	"engines": {
 		"vscode": "^1.89.0"
 	},
@@ -15,11 +16,20 @@
 		"commands": [
 			{
 				"command": "BEC.compileOCaml",
-				"title": "BE compile OCaml"
-			},
+				"title": "BE compile OCaml",
+				"category": "BEC",
+				"icon": {
+					"light": "./hammer.png",
+					"dark": "./hammer.png"
+				}
+			}
+		],
+		"keybindings": [
 			{
-				"command": "BEC.compileJavaScript",
-				"title": "BE compile JavaScript"
+				"command": "BEC.compileOCaml",
+				"key": "ctrl+alt+b",
+				"mac": "cmd+opt+b",
+				"when": "editorTextFocus"
 			}
 		]
 	},

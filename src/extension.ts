@@ -7,7 +7,7 @@ import { logMessage, checkOCamlInstallation,
  } from './helpers';
 import { log } from 'console';
 
-
+let statusBar: vscode.StatusBarItem;
 
 export async function activate(context: vscode.ExtensionContext) {
 	console.log('Congratulations, your extension "BEC" is now active!');
@@ -45,6 +45,13 @@ export async function activate(context: vscode.ExtensionContext) {
 			
 		}
 	);
+
+	statusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left,1);
+	statusBar.command = "BEC.compileOCaml";
+	statusBar.text = "$(debug-console) BEC";
+	statusBar.tooltip = "Compile OCaml code with Better Errors";
+	statusBar.backgroundColor = new vscode.ThemeColor("statusBarItem.errorBackground");
+	statusBar.show();
 
 	context.subscriptions.push(ocamlCompilerDisposable);
 }
