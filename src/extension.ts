@@ -87,8 +87,25 @@ function runChildExec( context: vscode.ExtensionContext, ocamlFile: string){
 			errors,
 			warnings
 		);
-
-		highlightTextInEditor();
+		
+		// Highlight the error line in the editor
+		for(const line of errors.split(os.EOL)){
+			//find the line number
+			let lineNumber = line.indexOf("line ");
+			if (lineNumber !== -1) {
+				lineNumber = parseInt(line.substring(lineNumber + 5, line.indexOf(",", lineNumber)));
+			}
+			let startChar = line.indexOf("characters ");
+			let endChar=-1;
+			if (startChar !== -1) {
+				startChar = parseInt(line.substring(startChar + 10, line.indexOf("-", startChar)));
+				endChar = parseInt(line.substring(line.indexOf("-", startChar) + 1, line.indexOf(":", line.indexOf("-", startChar) + 1)));
+			}
+			if (lineNumber !== -1 && startChar !== -1 && endChar !== -1) {
+				highlightTextInEditor(lineNumber, startChar, lineNumber, endChar);
+			}
+		}
+		
 	});
 }
 
@@ -118,7 +135,12 @@ async function runChildSpawn( context: vscode.ExtensionContext, ocamlFile: strin
 	ocamlToplevel.stdout.on("data", (data) => {
 		const message = data.toString();
 		// Check if the message contains any indication of an error or warning
-		if (message.includes("Error") || message.includes("Fatal error")) {
+		if (
+			message.includes("Error") ||
+			message.includes("Fatal error") ||
+			message.includes("Exception") ||
+			message.includes("Syntax error")
+		) {
 			output_errors += message;
 		} else if (message.includes("Warning")) {
 			output_warnings += message;
@@ -175,7 +197,12 @@ async function runChildSpawnSimplified( context: vscode.ExtensionContext, ocamlF
 	ocamlToplevel.stdout.on("data", (data) => {
 		const message = data.toString();
 		// Check if the message contains any indication of an error or warning
-		if (message.includes("Error") || message.includes("Fatal error")) {
+		if (
+			message.includes("Error") ||
+			message.includes("Fatal error") ||
+			message.includes("Exception") ||
+			message.includes("Syntax error")
+		) {
 			output_errors += message;
 		} else if (message.includes("Warning")) {
 			output_warnings += message;

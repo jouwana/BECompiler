@@ -5,7 +5,10 @@ import * as child_process from 'child_process';
 import * as os from 'os';
 
 
-
+/**
+ * 
+ * @returns True if OCaml is installed, false otherwise
+ */
 export function checkOCamlInstallation(): boolean {
 	const platform = os.platform();
 	let command: string;
@@ -23,6 +26,10 @@ export function checkOCamlInstallation(): boolean {
 	}
 }
 
+/**
+ * 
+ * @returns The installation instructions for OCaml based on the user's platform
+ */
 export function getInstallInstructions(): string {
 	const platform = os.platform();
 	switch (platform) {
@@ -37,13 +44,24 @@ export function getInstallInstructions(): string {
 	}
 }
 
-// Function to highlight text in the editor
-export function highlightTextInEditor() {
+
+/**
+ * 
+ * @param startLine  The start line of the range to be highlighted
+ * @param startChar  The start character of the range to be highlighted
+ * @param endLine  The end line of the range to be highlighted
+ * @param endChar  The end character of the range to be highlighted
+ * Highlights a range of text in the active editor
+ */
+export function highlightTextInEditor( startLine: number,startChar:number, endLine: number, endChar: number) {
+	// the line numbers start from 0, so we need to subtract 1
+	startLine--;
+	endLine--;
 	const editor = vscode.window.activeTextEditor;
 	if (editor) {
 		// Define a range to be highlighted
-		const startPosition = new vscode.Position(1, 0); // Example start position
-		const endPosition = new vscode.Position(1, 10); // Example end position
+		const startPosition = new vscode.Position(startLine, startChar); // Example start position
+		const endPosition = new vscode.Position(endLine, endChar); // Example end position
 		const range = new vscode.Range(startPosition, endPosition);
 
 		// Apply a decoration to the range
@@ -63,7 +81,11 @@ export function highlightTextInEditor() {
 
 
 
-// Function to parse OCaml compiler output and format it
+/**
+ * 
+ * @param output The output from the OCaml compiler
+ * @returns The parsed output from the OCaml compiler, with some additional print statements and empty lines removed
+ */
 export function parseOCamlCompilerOutput(output : string) : string {
 	const lines = output.trim().split("\n");
 	let result = "";
@@ -106,13 +128,23 @@ export function parseOCamlCompilerOutput(output : string) : string {
 	return result;
 }
 
-// Function to log messages to a file
-export function logMessage(context: vscode.ExtensionContext, message: string) {
-    const logFilePath = path.join(context.extensionPath, 'webview-log.txt');
+/**
+ * 
+ * @param context  The extension context
+ * @param message The message to log
+ * @param file The file to log the message to, defaults to 'webview-log.txt'
+ * Logs a message to a file in the extension directory
+ */
+export function logMessage(context: vscode.ExtensionContext, message: string, file: string = 'webview-log.txt') {
+    const logFilePath = path.join(context.extensionPath, file);
     fs.appendFileSync(logFilePath, message + '\n');
 }
 
-
+/**
+ * 
+ * @param ocamlFile  The path to the OCaml file
+ * @returns  The path to the temporary file with extra print statements that emulates the OCaml toplevel (problematic)
+ */
 export async function generateFileWithExtraPrints(ocamlFile: string) {
 	// Read the content of the OCaml file
     const content = fs.readFileSync(ocamlFile, 'utf-8');
@@ -148,6 +180,5 @@ export async function generateFileWithExtraPrints(ocamlFile: string) {
 
     // Open the temporary file in a new editor tab
     const document = await vscode.workspace.openTextDocument(tempFilePath);
-    vscode.window.showTextDocument(document);
 	return tempFilePath;
 }
