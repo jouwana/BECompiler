@@ -6,7 +6,8 @@ export function generateWebViewContent(
     context: vscode.ExtensionContext,
 	compiledCode: string,
 	errors: string | null,
-	warnings: string | null
+	warnings: string | null,
+    parse: boolean = false
 ): string {
 
     let parsedCompiledCode = parseOCamlCompilerOutput(compiledCode);
@@ -65,7 +66,7 @@ export function generateWebViewContent(
             <pre>${compiledCode}</pre>
     `;
 
-    if (parsedCompiledCode) {
+    if (parse && parsedCompiledCode) {
         content += `
             <h1>Parsed OCaml Compiler Result</h1>
             <pre>${parsedCompiledCode}</pre>

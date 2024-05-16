@@ -28,3 +28,16 @@ toggle panel clicked in webview
 output_errors: 
 output_warnings: 
 toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+output_errors: 
+output_warnings: 
+toggle panel clicked in webview
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+toggle panel clicked in webview
+toggle panel clicked in webview
+toggle panel clicked in webview
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+toggle panel clicked in webview
+toggle panel clicked in webview
