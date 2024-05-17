@@ -1,6 +1,6 @@
 import { logMessage } from "./helpers";
 import * as vscode from "vscode";
-import { parseOCamlCompilerOutput } from "./helpers";
+import {parseOCamlCompilerOutput} from "./parsers";
 
 export function generateWebViewContent(
     context: vscode.ExtensionContext,
