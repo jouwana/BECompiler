@@ -25,6 +25,15 @@
 					"light": "./hammer.png",
 					"dark": "./hammer.png"
 				}
+			},
+			{
+				"command": "BEC.incrementRequest",
+				"title": "BE increment request",
+				"category": "BEC",
+				"icon": {
+					"light": "./hammer.png",
+					"dark": "./hammer.png"
+				}
 			}
 		],
 		"keybindings": [
@@ -33,8 +42,34 @@
 				"key": "ctrl+alt+b",
 				"mac": "cmd+opt+b",
 				"when": "editorTextFocus"
+			},
+			{
+				"command": "BEC.incrementRequest",
+				"key": "ctrl+alt+r",
+				"mac": "cmd+opt+r",
+				"when": "editorTextFocus"
 			}
-		]
+		],
+		"configuration": {
+			"title": "BEC",
+			"properties": {
+				"BEC.requestsThisMinute": {
+					"type": "number",
+					"default": -1,
+					"description": "Number of requests made this minute"
+				},
+				"BEC.requestsPerDay": {
+					"type": "number",
+					"default": -1,
+					"description": "Number of requests made today"
+				},
+				"BEC.lastResetDate": {
+					"type": "string",
+					"default": "",
+					"description": "Timestamp of the last reset"
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -56,6 +91,7 @@
 		"typescript": "^5.4.5"
 	},
 	"dependencies": {
-		"node": "^20.13.1"
+		"node": "^20.13.1",
+		"openai": "^4.47.1"
 	}
 }
