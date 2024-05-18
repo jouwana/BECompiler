@@ -69,13 +69,48 @@ export function logMessage(context: vscode.ExtensionContext, message: string, fi
 
 /**
  * 
+ * @param errors The error messages used to highlight
+ * Highlights the error line in the active editor
+ */
+export function highlightFromError(errors: string) {
+			// Highlight the error line in the editor
+		for (const line of errors.split(os.EOL)) {
+			//find the line number
+			let lineNumber = line.indexOf("line ");
+			if (lineNumber !== -1) {
+				lineNumber = parseInt(
+					line.substring(lineNumber + 5, line.indexOf(",", lineNumber))
+				);
+			}
+			let startChar = line.indexOf("characters ");
+			let endChar = -1;
+			if (startChar !== -1) {
+				startChar = parseInt(
+					line.substring(startChar + 10, line.indexOf("-", startChar))
+				);
+				endChar = parseInt(
+					line.substring(
+						line.indexOf("-", startChar) + 1,
+						line.indexOf(":", line.indexOf("-", startChar) + 1)
+					)
+				);
+			}
+			if (lineNumber !== -1 && startChar !== -1 && endChar !== -1) {
+				highlightTextInEditor(lineNumber, startChar, lineNumber, endChar);
+			}
+		}
+	}
+
+
+/**
+ * 
  * @param startLine  The start line of the range to be highlighted
  * @param startChar  The start character of the range to be highlighted
  * @param endLine  The end line of the range to be highlighted
  * @param endChar  The end character of the range to be highlighted
  * Highlights a range of text in the active editor
  */
-export function highlightTextInEditor( startLine: number,startChar:number, endLine: number, endChar: number) {
+ function highlightTextInEditor( startLine: number,startChar:number, endLine: number, endChar: number) {
 	// the line numbers start from 0, so we need to subtract 1
 	startLine--;
 	endLine--;

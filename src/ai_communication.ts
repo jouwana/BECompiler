@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import { logMessage } from "./helpers";
+import { PROMPT_REQUEST_EXPLANATION, PRMOPT_PRE_CODE, PRMOPT_PRE_ERROR, PROMPT_RESPONSE_DESIGN, PROMPT_HEADER } from "./consts";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const AWANLLM_API_KEY = "b79fefdf-fd1e-48cb-b943-c560c240916b";
@@ -8,47 +9,17 @@ const GEMMA_API_KEY = "AIzaSyAjvF9UQP7c8B7o4SiMM_-qlipEWna062o";
 const genAI = new GoogleGenerativeAI(GEMMA_API_KEY);
 // For text-only input, use the gemini-pro model
 const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+	
 
-const explanationText =
-	"i will send you a section of OCAML code, and a compilation error for it.\n" +
-	"i want you to explain the error to me and suggest a solution.\n" +
-	"you must follow this exact format of response:\n" +
-	"a one line explanation of error type.\n" +
-	"a short multi bullet point explanation of where the error originates from.\n" +
-	"a short multi bullet point based data flow explanation of the error.\n" +
-	"a short solution suggestion.\n"+
-    "the solution suggestion is just text, and no need to write code\n\n" +
-    "for type mismatch error, make sure to remember and consider the types of the variables involved.\n" +
-    "for syntax errors, make sure to remember and consider the syntax rules of OCAML.\n" +
-    "for other errors, make sure to remember and consider the rules of OCAML.\n\n" +
-    "dont forget the titles for each subsection.\n" +
-
-    "you must also format the answer in a way that works inside a <pre> html tag.\n" +
-    "makes sure the text is not too wide and it fits the screenview given to it\n" +
-    "such that it reamins readable and well formatted.\n\n" +
-	"this is the provided code:\n" +
-	"(* example 1 - tuple field types mismatch *)\n" +
-	"let parse_version (s: string): string =\n" +
-	"  (* Dummy implementation that just returns the input string *)\n" +
-	"  s\n\n" +
-	"let show_major (s: string): string =\n" +
-	"  (* Dummy implementation that returns a string indicating major version *)\n" +
-	'  "Major version: " ^ s\n\n' +
-	'let appInfo = ("My Application", 1.5)\n\n' +
-	"let process (name, vers) = name ^ show_major (parse_version vers)\n\n" +
-	"let test = process appInfo\n\n" +
-	"this is the compilation error:\n" +
-	"val parse_version : string -> string =\n" +
-	"val show_major : string -> string =\n" +
-	'val appInfo : string * float = ("My Application", 1.5)\n' +
-	"val process : string * string -> string =\n" +
-	'File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:\n' +
-	"14 | let test = process appInfo\n" +
-	"^^^^^^^\n" +
-	"Error: This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string\n";
-
-
-export async function sendAwanllmRequest(inputText: string, context: vscode.ExtensionContext): Promise<string> {
+export async function sendAwanllmRequest(context: vscode.ExtensionContext, code: string, errors: string): Promise<string> {
+	const prompt =
+		PROMPT_HEADER +
+		PROMPT_REQUEST_EXPLANATION +
+		PRMOPT_PRE_CODE +
+		code +
+		PRMOPT_PRE_ERROR +
+		errors +
+		PROMPT_RESPONSE_DESIGN;
 	try {
         logMessage(context, "API KEY: " + AWANLLM_API_KEY);
 		let response: any = await fetch("https://api.awanllm.com/v1/chat/completions", {
@@ -59,7 +30,7 @@ export async function sendAwanllmRequest(inputText: string, context: vscode.Exte
 			},
 			body: JSON.stringify({
 				model: "Awanllm-Llama-3-8B-Dolfin",
-				messages: [{ role: "user", content: explanationText}],
+				messages: [{ role: "user", content: prompt}],
 			}),
 		}).then((response) => response.json());
         logMessage(context, "Sent request to OpenAI");
@@ -72,8 +43,15 @@ export async function sendAwanllmRequest(inputText: string, context: vscode.Exte
 	}
 }
 
-export async function sendGeminiRequest(context: vscode.ExtensionContext) {
-	const prompt = explanationText;
+export async function sendGeminiRequest(context: vscode.ExtensionContext, code: string, errors: string): Promise<string> {
+	const prompt =
+		PROMPT_HEADER +
+		PROMPT_REQUEST_EXPLANATION +
+		PRMOPT_PRE_CODE +
+		code +
+		PRMOPT_PRE_ERROR +
+		errors +
+		PROMPT_RESPONSE_DESIGN;
 
 	const result = await model.generateContent(prompt);
 	const response = await result.response;

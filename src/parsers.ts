@@ -94,3 +94,24 @@ export function parseOCamlCompilerOutput(output : string) : string {
 
 	return result;
 }
+
+
+export function splitResultFromError(output: string) : { error: string, result: string }{
+	// the output here will always have an error message
+	// it will have a line start with 'File' leading to say where the error is
+	// or it will be an exception message
+	// we need to split the output into the error message and the result
+	let error = "";
+	let result = "";
+	let lines = output.split("\n");
+	let errorLine = 0;
+	for (let i = 0; i < lines.length; i++) {
+		if (lines[i].startsWith("File ")) {
+			errorLine = i;
+			break;
+		}
+	}
+	error = lines.slice(errorLine).join("\n");
+	result = lines.slice(0, errorLine).join("\n");
+	return { error, result };
+}

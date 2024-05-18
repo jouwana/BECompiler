@@ -42,12 +42,6 @@
 				"key": "ctrl+alt+b",
 				"mac": "cmd+opt+b",
 				"when": "editorTextFocus"
-			},
-			{
-				"command": "BEC.incrementRequest",
-				"key": "ctrl+alt+r",
-				"mac": "cmd+opt+r",
-				"when": "editorTextFocus"
 			}
 		],
 		"configuration": {

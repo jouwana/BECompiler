@@ -1,8 +1,91 @@
 import { logMessage } from "./helpers";
 import * as vscode from "vscode";
 import {parseOCamlCompilerOutput} from "./parsers";
+import { error } from "console";
 
-export function generateWebViewContent(
+
+export function generateLoadingWebViewContent(): string {
+    return `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Better Errors OCaml Compiler</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    height: 90vh;
+                    width: 90vw;
+                }
+                .loader {
+                    border: 16px solid #f3f3f3; /* Light grey */
+                    border-top: 16px solid #3498db; /* Blue */
+                    border-radius: 50%;
+                    width: 120px;
+                    height: 120px;
+                    animation: spin 2s linear infinite;
+                    }
+
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Loading...</h1>
+            <div class="loader"></div>
+        </body>
+        </html>
+    `;
+}
+
+export function genereateAIResultsWebViewContent(
+    context: vscode.ExtensionContext,
+    response: string,
+    errors: string | null,
+): string {
+    let content = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AI Results</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 20px;
+                    height: 90vh;
+                    width: 90vw;
+                    display: flex;
+                    flex-direction: column;
+                    
+                }
+                .resp {
+                    display: flex;
+                    flex-direction: column;
+                    oveflow-wrap: break-word;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>AI Generated Results</h1>
+            <div class="resp">${response}</div>
+            </ br>
+        </body>
+        </html>
+        `;
+    return content;
+}
+
+export function generateCompilerWebViewContent(
     context: vscode.ExtensionContext,
 	compiledCode: string,
 	errors: string | null,
@@ -23,6 +106,7 @@ export function generateWebViewContent(
                 body {
                     font-family: Arial, sans-serif;
                     padding: 20px;
+                    width: 90vw;
                 }
                 .error-panel, .warning-panel {
                     display: none;
@@ -62,14 +146,19 @@ export function generateWebViewContent(
             </script>
         </head>
         <body>
-            <h1>JavaScript Compiler Result</h1>
-            <pre>${compiledCode}</pre>
     `;
 
     if (parse && parsedCompiledCode) {
         content += `
             <h1>Parsed OCaml Compiler Result</h1>
             <pre>${parsedCompiledCode}</pre>
+        `;
+    }
+
+    if(!parse){
+        content += `
+            <h1>OCaml Compiler Result</h1>
+            <pre>${compiledCode}</pre>
         `;
     }
 
@@ -94,7 +183,7 @@ export function generateWebViewContent(
 	content += `
         <button id="error-panel-button" onclick="togglePanel('error-panel')">Hide Errors</button>
         <button id="warning-panel-button" onclick="togglePanel('warning-panel')">Hide Warnings</button>
-        
+        </ br>
         </body>
         </html>
     `;

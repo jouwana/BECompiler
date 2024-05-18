@@ -1,16 +1,31 @@
 import * as vscode from "vscode";
 import * as child_process from "child_process";
-import * as os from "os";
-import { generateWebViewContent } from "./panels";
-import { logMessage, highlightTextInEditor} from "./helpers";
-import { generateFileWithExtraPrints } from "./parsers";
+import * as fs from "fs";
+import { generateCompilerWebViewContent } from "./panels";
+import { generateFileWithExtraPrints, splitResultFromError } from "./parsers";
+import { highlightFromError, logMessage } from "./helpers";
+import { checkAndRunRequests } from "./ai_helpers";
 
+export function runChildProcess(context: vscode.ExtensionContext, ocamlFile: string) {
 
-export function runChildExec(
-	context: vscode.ExtensionContext,
-	ocamlFile: string
-): boolean {
-	// Compile the OCaml code using ocamlc compiler
+/**this is the easiest way to get all the warnings and errors separated from the output
+ * but it is not the best way to do it as it is blocking the main thread
+ * and when its async, we cannot send the output to other compilers
+ **/
+
+	// try{
+	// let buffer = child_process.execSync(`ocaml ${ocamlFile}`);
+	// let output = buffer.toString();
+	// let warnings = output.match(/Warning:.*\n/g);
+	// let compiledCode = output.replace(/Error:.*\n/g, "").replace(/Warning:.*\n/g, "");
+	// logMessage(context, "output: " + output);
+	// logMessage(context, "warnings: " + warnings);
+	// logMessage(context, "compiledCode: " + compiledCode);
+	// }
+	// catch(e){
+	// 	logMessage(context, "error: " + e);
+	// }
+
 	child_process.exec(`ocaml ${ocamlFile}`, (error, stdout, stderr) => {
 		let compiledCode = "";
 		let errors = null;
@@ -24,54 +39,7 @@ export function runChildExec(
 				warnings = stderr;
 			}
 		}
-
-		if (!errors) {
-			return true;
-		}
-		// Create a webview panel
-		const panel = vscode.window.createWebviewPanel(
-			"ocamlCompiler", // Identifies the type of the webview. Used internally
-			"OCaml Compiler Minimal", // Title of the panel displayed to the user
-			vscode.ViewColumn.Two, // Editor column to show the new webview panel in
-			{ enableScripts: true }
-		);
-
-		// Set the HTML content of the webview panel
-		panel.webview.html = generateWebViewContent(
-			context,
-			compiledCode,
-			errors,
-			warnings
-		);
-
-		// Highlight the error line in the editor
-		for (const line of errors.split(os.EOL)) {
-			//find the line number
-			let lineNumber = line.indexOf("line ");
-			if (lineNumber !== -1) {
-				lineNumber = parseInt(
-					line.substring(lineNumber + 5, line.indexOf(",", lineNumber))
-				);
-			}
-			let startChar = line.indexOf("characters ");
-			let endChar = -1;
-			if (startChar !== -1) {
-				startChar = parseInt(
-					line.substring(startChar + 10, line.indexOf("-", startChar))
-				);
-				endChar = parseInt(
-					line.substring(
-						line.indexOf("-", startChar) + 1,
-						line.indexOf(":", line.indexOf("-", startChar) + 1)
-					)
-				);
-			}
-			if (lineNumber !== -1 && startChar !== -1 && endChar !== -1) {
-				highlightTextInEditor(lineNumber, startChar, lineNumber, endChar);
-			}
-		}
 	});
-	return false;
 }
 
 export async function runChildSpawn(
@@ -130,7 +98,7 @@ export async function runChildSpawn(
 		);
 
 		// Set the HTML content of the webview panel
-		panel2.webview.html = generateWebViewContent(
+		panel2.webview.html = generateCompilerWebViewContent(
 			context,
 			output,
 			output_errors,
@@ -138,9 +106,10 @@ export async function runChildSpawn(
 			true
 		);
 	});
+
 }
 
-export async function runChildSpawnSimplified(
+export function runChildSpawnSimplified(
 	context: vscode.ExtensionContext,
 	ocamlFile: string
 ) {
@@ -172,7 +141,12 @@ export async function runChildSpawnSimplified(
 			message.includes("Exception") ||
 			message.includes("Syntax error")
 		) {
-			output_errors += message;
+			logMessage(context, "output message: " + message);
+			const splitResult = splitResultFromError(message);
+			output_errors += splitResult.error;
+			output += splitResult.result;
+			logMessage(context, "output errors: " + output_errors);
+			logMessage(context, "output result: " + output);
 		} else if (message.includes("Warning")) {
 			output_warnings += message;
 		} else {
@@ -182,6 +156,7 @@ export async function runChildSpawnSimplified(
 
 	// Log the output when the process exits
 	ocamlToplevel.on("close", (code) => {
+
 		// Create a webview panel
 		const panel2 = vscode.window.createWebviewPanel(
 			"ocamlCompilerSpawnSimpl", // Identifies the type of the webview. Used internally
@@ -190,8 +165,16 @@ export async function runChildSpawnSimplified(
 			{ enableScripts: true }
 		);
 
+		if (output_errors !== "") {
+			//read the ocaml file using fs
+			let ocamlCode = fs.readFileSync(ocamlFile, "utf8");
+			//call the ai to generate the error explanation and solution
+			checkAndRunRequests(context, ocamlCode, output_errors);
+			highlightFromError(output_errors);
+		}
+
 		// Set the HTML content of the webview panel
-		panel2.webview.html = generateWebViewContent(
+		panel2.webview.html = generateCompilerWebViewContent(
 			context,
 			output,
 			output_errors,
