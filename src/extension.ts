@@ -15,8 +15,8 @@ let requestsPerDay: number = 0;
 let lastResetDate: string = "";
 let lastMinuteResetTime: number = Date.now();
 
-const REQUESTS_PER_MINUTE_LIMIT: number = 10;
-const REQUESTS_PER_DAY_LIMIT: number = 100;
+const REQUESTS_PER_MINUTE_LIMIT: number = 15; //15 for gemini, 10 for awanllm
+const REQUESTS_PER_DAY_LIMIT: number = 1500; // 1500 for gemini, 100 for awanllm
 const MINUTE_IN_MILLISECONDS: number = 60000;
 
 
