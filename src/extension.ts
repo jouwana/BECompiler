@@ -6,7 +6,7 @@ import { logMessage, checkOCamlInstallation,
 import { runChildExec, runChildSpawn, runChildSpawnSimplified } from './compilers';
 import { getConfigRequestValues, resetRequestsPerDay, 
 	resetRequestsThisMinute, setRequestValues } from './ai_helpers';
-import { sendOpenAIRequest } from './ai_communication';
+import { sendAwanllmRequest, sendGeminiRequest } from './ai_communication';
 import { generateWebViewContent } from './panels';
 
 let statusBar: vscode.StatusBarItem;
@@ -87,7 +87,8 @@ export async function activate(context: vscode.ExtensionContext) {
 
 			await setRequestValues(context, requestsThisMinute, requestsPerDay);
 
-			let response = await sendOpenAIRequest("Hello", context);
+			//let response = await sendAwanllmRequest("Hello", context);
+			let response = await sendGeminiRequest(context);
 			//use the generated web panel with no error no warning only output
 			let panel = vscode.window.createWebviewPanel(
 				"better-errors",

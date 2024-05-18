@@ -1,10 +1,13 @@
-import OpenAI from "openai";
 import * as vscode from "vscode";
 import { logMessage } from "./helpers";
-import * as fs from 'fs';
-import { log } from "console";
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const AWANLLM_API_KEY = "b79fefdf-fd1e-48cb-b943-c560c240916b";
+const GEMMA_API_KEY = "AIzaSyAjvF9UQP7c8B7o4SiMM_-qlipEWna062o";
+
+const genAI = new GoogleGenerativeAI(GEMMA_API_KEY);
+// For text-only input, use the gemini-pro model
+const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
 const explanationText =
 	"i will send you a section of OCAML code, and a compilation error for it.\n" +
@@ -16,8 +19,12 @@ const explanationText =
 	"a short solution suggestion.\n"+
     "the solution suggestion is just text, and no need to write code\n\n" +
     "for type mismatch error, make sure to remember and consider the types of the variables involved.\n" +
+    "for syntax errors, make sure to remember and consider the syntax rules of OCAML.\n" +
+    "for other errors, make sure to remember and consider the rules of OCAML.\n\n" +
+    "dont forget the titles for each subsection.\n" +
 
     "you must also format the answer in a way that works inside a <pre> html tag.\n" +
+    "makes sure the text is not too wide and it fits the screenview given to it\n" +
     "such that it reamins readable and well formatted.\n\n" +
 	"this is the provided code:\n" +
 	"(* example 1 - tuple field types mismatch *)\n" +
@@ -41,9 +48,10 @@ const explanationText =
 	"Error: This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string\n";
 
 
-export async function sendOpenAIRequest(inputText: string, context: vscode.ExtensionContext): Promise<string> {
+export async function sendAwanllmRequest(inputText: string, context: vscode.ExtensionContext): Promise<string> {
 	try {
-		let response = await fetch("https://api.awanllm.com/v1/chat/completions", {
+        logMessage(context, "API KEY: " + AWANLLM_API_KEY);
+		let response: any = await fetch("https://api.awanllm.com/v1/chat/completions", {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${AWANLLM_API_KEY}`,
@@ -58,10 +66,21 @@ export async function sendOpenAIRequest(inputText: string, context: vscode.Exten
         logMessage(context, response.choices[0].message.content);
         return response.choices[0].message.content;
 	} catch (error) {
-		logMessage(context, "Error sending request to OpenAI");
-        vscode.window.showErrorMessage("Error sending request to OpenAI");
+		logMessage(context, "Error sending request to AwanLLM");
+        vscode.window.showErrorMessage("Error sending request to AwanLLM");
 		throw error;
 	}
+}
+
+export async function sendGeminiRequest(context: vscode.ExtensionContext) {
+	const prompt = explanationText;
+
+	const result = await model.generateContent(prompt);
+	const response = await result.response;
+	const text = response.text();
+	logMessage(context, "Sent request to Google Generative AI");
+    logMessage(context, text);
+    return text;
 }
 
 //function that turns objects to string

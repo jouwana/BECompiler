@@ -108,3 +108,124 @@ Data Flow Explanation:
 Solution Suggestion:
 Change the type of `appInfo` to `(string * string)` by replacing `float` with `string`.
 toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+Sent request to OpenAI
+<pre>
+a. Error type: Type mismatch error.
+
+b. Explanation of where the error originates from:
+• The `appInfo` variable is defined as a tuple with a string and a float.
+• The `process` function expects a tuple with two strings as its argument.
+• The `parse_version` function returns a string, which is then passed to `show_major`, which also returns a string.
+
+c. Data flow explanation of the error:
+• The `appInfo` value is passed to the `process` function.
+• `process` calls `parse_version` with `vers`, which returns a string.
+• `process` then calls `show_major` with the result of `parse_version`, which returns another string.
+• However, `appInfo` is a tuple with a string and a float, which does not match the expected type of `string * string`.
+
+d. Solution suggestion:
+You should change the type of `appInfo` to be a tuple of strings instead of a tuple of strings and floats. You can do this by changing the definition of `appInfo` to `("My Application", "1.5")`.
+toggle panel clicked in webview
+Incrementing request values
+Sent request to OpenAI
+<pre>
+**Type Error Explanation**
+A type mismatch error occurs when the compiler expects a specific type of value, but receives another incompatible type.
+
+**Origin of Error**
+• The `appInfo` variable is declared as a tuple `(string * float)` with a string and a floating-point number.
+• The `process` function takes a tuple of two strings (`string * string`) as its argument.
+• When calling `process appInfo`, the compiler expects a tuple of two strings, but `appInfo` is a tuple containing a string and a floating-point number.
+
+**Data Flow Explanation**
+The error arises from the mismatch between the expected and actual types at the time of function call. The `process` function expects a tuple of two strings, but the `appInfo` variable contains a tuple with a string and a floating-point number. This mismatch causes the type error.
+
+**Solution Suggestion**
+To resolve this error, update the `appInfo` declaration to match the expected type of `process`. For instance, if you intend to represent the application information as a tuple of a string and a string, change the `appInfo` declaration to `(string * string)`. Alternatively, modify the `show_major` and/or `parse_version` functions to work with floats instead of strings, depending on your specific requirements.
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+Sent request to OpenAI
+Error sending request to OpenAI
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+Sent request to OpenAI
+Error sending request to OpenAI
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+API KEY: 
+Sent request to OpenAI
+Error sending request to OpenAI
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+API KEY: 
+Sent request to OpenAI
+Error sending request to OpenAI
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+API KEY: 
+Sent request to OpenAI
+Error sending request to OpenAI
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+API KEY: 
+Sent request to OpenAI
+Error sending request to OpenAI
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+API KEY: 
+Sent request to OpenAI
+Error sending request to OpenAI
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+API KEY: b79fefdf-fd1e-48cb-b943-c560c240916b
+Sent request to OpenAI
+<a href="https://stackoverflow.com/questions/4111113/why-is-there-a-type-mismatch-between-string-and-float-in-ocaml"><u>Error Type:</u> Type Mismatch Error</a>
+
+<a href="https://www.hackerrank.com/blog/ocaml-tutorial-2/"><u>Error Origin:</u>
+• The issue arises because `appInfo` has the type `(string * float)` which does not match the expected type of `process`, which is `(string * string)`.
+• In the `process` function definition, the second element of the tuple returned by `parse_version` has type `float`, whereas the expected type is `string`. 
+• As a result, the compiler throws a type mismatch error.</a>
+
+<a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specifications/fundamentals#unification"><u>Data Flow Explanation:</u>
+The `appInfo` variable contains a tuple with the first element being a string and the second element being a float. 
+When we pass `appInfo` as an argument to the `process` function, the compiler tries to unify the types of `appInfo` with the expected type of the function parameter, i.e., `(string * string)`. However, since the actual types do not match, the compiler raises a type mismatch error.</a>
+
+<a href="https://ocaml.org/docs/latest/refman/html/manual.html#sec:types"><u>Solution Suggestion:</u> Modify the `parse_version` function to return a string representation of the float value instead of the raw float value. For instance, you can use the `string_of_float` function provided by OCaml's standard library to achieve this. Then, ensure that both the `show_major` function and the `process` function are updated accordingly to accept the correct types.</a>
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+Sent request to Google Generative AI
+<pre>
+<b>Type mismatch</b>
+- from `float` to `string`
+- from `appInfo` to the second parameter of `process`
+- `process` expects a string as the second parameter, but `appInfo` holds a float in this field.
+- `parse_version vers` returns a string, which is assigned to `vers` in `process`.
+
+<b>Solution:</b> modify the type of the `vers` field in `appInfo` to `string`
+</pre>
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+Sent request to Google Generative AI
+<pre>
+<b>Error type:</b> Type mismatch
+
+<b>Origination of error:</b>
+- the type of the tuple field `vers` in the `appInfo` tuple is `float`, while the type of the argument to `parse_version` is `string`.
+- the type of the argument to `show_major` is `string`, while the type of the return value of `parse_version` is `string`.
+
+<b>Data flow to the error:</b>
+- the `process` function takes a tuple of a string and a string as input, but the `appInfo` tuple contains a string and a float.
+- the `parse_version` function returns a string, but the `show_major` function expects a string argument.
+
+<b>Solution:</b>
+- Change the type of the `vers` field in the `appInfo` tuple to `string`.
+- Or, change the type of the argument to `parse_version` to `float`.
+- Or, change the type of the argument to `show_major` to `string`.
+</pre>
+toggle panel clicked in webview
