@@ -65,7 +65,8 @@ export const PROMPT_RESPONSE_DESIGN =
 	"replace all commas with '%2C'\n" +
 	"replace all semicolons with '%3B'\n\n" +
 	"2. <li> add <a href witht the generated link> Google Search</a> for:\n" +
-	"3. start a new line, tab it, then write the error message (without the location of the error) inside <code>. and close it off with </li>\n" +
+	"3. start a new line, tab it, then write the error message (without the location of the error) inside <code><pre>" +
+    " code snippet <pre><code>. and close it off with </li>\n" +
 	'4. add <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>\n' +
 	'5. add <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>\n\n'+
     '6. close the unordered list and add a </br>\n\n';

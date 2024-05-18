@@ -59,3 +59,473 @@ Sent request to Google Generative AI
 <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
 </ul>
 </div>
+Congratulations, your extension "BEC" is now active!
+output message: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output errors: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output result:         OCaml version 4.12.0
+
+val parse_version : string -> string = <fun>
+val show_major : string -> string = <fun>
+val appInfo : string * float = ("My Application", 1.5)
+val process : string * string -> string = <fun>
+
+toggle panel clicked in webview
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<span>Type Mismatch Error</span>: 
+  <ul>
+    <li>This error occurs where the compiler observes two variables, constants, or expressions of different types.</li>
+  </ul>
+
+<h2>Error Origin</h2>
+<span>Incompatible variable types while assigning to a new variable <code>test</code>:</span>
+  <ul>
+    <li><code>appInfo</code> is a <code>string * float</code> tuple that holds the name and version of the application.</li>
+    <li>The function <code>process</code> expects a <code>string * string</code> tuple, and returns a <code>string</code>.</li>
+    <li><code>test</code> is assigned the return value of <code>process appInfo</code>.</li>
+  </ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+  <li>The compiler checks the type of <code>appInfo</code> and finds out that it is a <code>string * float</code> tuple.</li>
+  <li>The compiler checks the type of the second argument of <code>process</code> and finds out that it is a <code>string</code>.</li>
+  <li>The compiler concludes that <code>appInfo</code> cannot be passed as the second argument of <code>process` since their types do not match.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+- Change the type of <code>vers</code> in the tuple <code>appInfo</code> to <code>string</code>, so that it matches the expected type of the second argument of <code>process</code>.
+
+  <code>let appInfo = ("My Application", "1.5");;</code>
+- Create a helper function that converts a <code>float</code> to a <code>string</code>, and use it to convert the version number to a string before passing it to <code>process</code>.
+
+  <code>let parse_version_string (v: float): string = string_of_float v;;
+
+  let appInfo = ("My Application", 1.5);;
+
+  let process (name, vers) = name ^ show_major (parse_version_string vers);;
+  </code>
+<h2>Useful Links</h2>
+<ul>
+  <li><a href="https://www.google.com/search?q=This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for: <code>This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string</code></li>
+  <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+  <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+output message: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output errors: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output result:         OCaml version 4.12.0
+
+val parse_version : string -> string = <fun>
+val show_major : string -> string = <fun>
+val appInfo : string * float = ("My Application", 1.5)
+val process : string * string -> string = <fun>
+
+toggle panel clicked in webview
+Incrementing request values
+Sent request to Google Generative AI
+<div><h2>Error Type</h2>
+<ul>
+<li>Type Mismatch Error</li>
+</ul>
+<h2>Error Origin</h2>
+<ul>
+<li>The <code>process</code> function expects a tuple of a <code>string</code> and a <code>string</code> as input.</li>
+<li>The <code>appInfo</code> tuple contains a <code>string</code> and a <code>float</code>.</li>
+</ul>
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>process</code> function is called with the <code>appInfo</code> tuple as input.</li>
+<li>The first element of the <code>appInfo</code> tuple, <code>"My Application"</code>, is a <code>string</code>.</li>
+<li>The second element of the <code>appInfo</code> tuple, <code>1.5</code>, is a <code>float</code>.</li>
+<li>The <code>parse_version</code> function is called with the second element of the <code>appInfo</code> tuple as input.</li>
+<li>The <code>parse_version</code> function returns a <code>string</code>.</li>
+<li>The <code>show_major</code> function is called with the result of the <code>parse_version</code> function as input.</li>
+<li>The <code>show_major</code> function returns a <code>string</code>.</li>
+<li>The <code>process</code> function returns the concatenation of the first element of the <code>appInfo</code> tuple and the result of the <code>show_major</code> function.</li>
+</ul>
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the second element of the <code>appInfo</code> tuple to <code>string</code>.</li>
+<code>
+let appInfo = ("My Application", "1.5");;
+</code>
+</ul>
+<br>
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Error%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<code>expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string</code>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul></li>
+</div>
+output message: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output errors: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output result:         OCaml version 4.12.0
+
+val parse_version : string -> string = <fun>
+val show_major : string -> string = <fun>
+val appInfo : string * float = ("My Application", 1.5)
+val process : string * string -> string = <fun>
+
+toggle panel clicked in webview
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span style="white-space: nowrap;">The error encountered is: </span><code> This expression has type string * float but an expression was expected of type string * string </code>
+<br></br>
+<span style="white-space: nowrap;">It is a type mismatch error. </span>
+<br></br>
+<span style="white-space: nowrap;"> A type mismatch error occurs when the type of an expression is not  compatible with the type expected by the context in which it appears. </span>
+
+<h2> Error Origin </h2>
+<ul>
+<li>The error originates from the 14th line of the code, where the <code> process </code> function is called with the <code> appInfo </code> tuple as an argument.</li>
+<li>The <code>process</code> function is expecting a tuple of two strings as an argument, but the <code>appInfo</code> tuple contains a string and a float.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The <code>process</code> function expects a tuple of two strings, but it is given a tuple of a string and a float.</li>
+<li>The <code> show_major </code> function returns a string, and the <code> parse_version </code> function returns a float, even though they are both expected to return strings.</li>
+<li>When the <code>process</code> function tries to concatenate the result of the <code>show_major</code> function with the result of the <code>parse_version</code> function, it fails because the two results are of different types.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the <code>parse_version</code> function to return a string instead of a float.</li>
+<li>Change the <code>appInfo</code> tuple to contain two strings instead of a string and a float.</li>
+</ul>
+<code>
+let parse_version (s: string): string =
+  (* Dummy implementation that just returns the input string *)
+  s;;
+
+let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+let appInfo = ("My Application", "1.5");;
+
+let process (name, vers) = name ^ show_major (parse_version vers);;
+
+let test = process appInfo;;
+</code>
+
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=This+expression+has+type+string+%2a+float+but+an+expression+was+expected+of+type+string+%2a+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<code> This expression has type string * float but an expression was expected of type string * string </code>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+Congratulations, your extension "BEC" is now active!
+output message: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output errors: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output result:         OCaml version 4.12.0
+
+val parse_version : string -> string = <fun>
+val show_major : string -> string = <fun>
+val appInfo : string * float = ("My Application", 1.5)
+val process : string * string -> string = <fun>
+
+toggle panel clicked in webview
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span style="white-space: nowrap;">Type mismatch </span>
+
+<h2> Error Origin </h2>
+- There is a type mismatch between the expected type and the actual type of the expression.
+- The expected type is <code>string * string</code>, but the actual type is <code>string * float</code>
+
+<h2> Error Data Flow Explanation </h2>
+- The <code>process</code> function is expecting two arguments of type <code>string</code>, but the <code>appInfo</code> tuple contains a <code>float</code> in the second position.
+- The compiler is unable to unify the type of the second element of the tuple with the type of the second argument of the function.
+
+<h2> Solution Suggestion </h2>
+- Change the type of the second element of the <code>appInfo</code> tuple to <code>string</code>.
+- Use a type annotation to explicitly specify the type of the second argument of the <code>process</code> function.
+- Use a pattern matching expression to extract the elements of the <code>appInfo</code> tuple and convert the second element to a <code>string</code>.
+
+<h2> Useful Links </h2>
+<li><a href="https://www.google.com/search?q=Type+float+is+not+compatible+with+type+string+OCaml">Google Search</a> for:
+<pre>
+<code>
+ Type float is not compatible with type string
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</br>
+</div>
+output message: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output errors: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output result:         OCaml version 4.12.0
+
+val parse_version : string -> string = <fun>
+val show_major : string -> string = <fun>
+val appInfo : string * float = ("My Application", 1.5)
+val process : string * string -> string = <fun>
+
+toggle panel clicked in webview
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<ul>
+<li>Type Mismatch Error</li>
+</ul>
+
+<h2> Error Origin </h2>
+<ul>
+<li>Line 14, column 19-26 in test.ml</li>
+<li>Call to <code>process</code> with <code>appInfo</code></li>
+<li><code>appInfo</code> does not match the expected type of the second argument to <code>process</code></li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li><code>process</code> is expecting a tuple of type <code>string * string</code> as its second argument.</li>
+<li><code>appInfo</code> is a tuple of type <code>string * float</code>.</li>
+<li>The <code>float</code> value in <code>appInfo</code> is not compatible with the expected <code>string</code> value.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the type of the second element in <code>appInfo</code> to <code>string</code>.</li>
+<code>
+let appInfo = ("My Application", "1.5");;
+</code>
+</ul>
+
+
+<h2> Useful Links </h2>
+<li><a href="https://google.com/search?q=File+%22d%3A%2FDesktop%2Focaml_Test%2Ftest.ml%22%2C+line+14%2C+characters+19-26%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre>
+File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+This expression has type string * float
+but an expression was expected of type string * string
+Type float is not compatible with type string
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</div>
+output message: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output errors: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output result:         OCaml version 4.12.0
+
+val parse_version : string -> string = <fun>
+val show_major : string -> string = <fun>
+val appInfo : string * float = ("My Application", 1.5)
+val process : string * string -> string = <fun>
+
+toggle panel clicked in webview
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<p>Type mismatch error.</p>
+<p>The error occurs when the type of an expression does not match the expected type. In this case, the expected type is 
+<code>string * string</code>, but the actual type is <code>string * float</code>.</p>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The error originates from the <code>parse_version</code> function, which returns a <code>string</code>.</li>
+<li>The <code>process</code> function expects the second argument to be of type <code>string</code>, but the <code>parse_version</code> function returns a <code>float</code>.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>process</code> function is called with the <code>appInfo</code> tuple, which contains a <code>string</code> and a <code>float</code>.</li>
+<li>The <code>parse_version</code> function is called on the second element of the tuple, which is a <code>float</code>.</li>
+<li><code>parse_version</code>  function returns a <code>string</code>, which is then passed to the <code>show_major</code> function.</li>
+<li>The <code>show_major</code> function returns a <code>string</code>, which is then concatenated with the result of the <code>parse_version</code> function.</li>
+<li>The result of the <code>process</code> function is a <code>string</code>, which is then assigned to the <code>test</code> variable.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<p>There are a few possible solutions to this error:</p>
+<ul>
+<li>Change the type of the <code>parse_version</code> function to <code>string * string</code>.</li>
+<li>Change the type of the second argument to the <code>process</code> function to <code>float</code>.</li>
+<li>Add a cast to the second argument to the <code>process</code> function to convert it to a <code>string</code>.</li>
+</ul>
+<code>
+let process (name, vers: string) = name ^ show_major vers;;
+</code>
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Error%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a></li>
+<pre><code>Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string
+</code></pre>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+output message: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output errors: File "d:/Desktop/ocaml_Test/test.ml", line 14, characters 19-26:
+14 | let test = process appInfo;;
+                        ^^^^^^^
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+
+output result:         OCaml version 4.12.0
+
+val parse_version : string -> string = <fun>
+val show_major : string -> string = <fun>
+val appInfo : string * float = ("My Application", 1.5)
+val process : string * string -> string = <fun>
+
+toggle panel clicked in webview
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span style="overflow-wrap: break-word;">This error is a type mismatch error. </span>
+<span style="overflow-wrap: break-word;">A type mismatch error occurs when the type of an expression does not match the expected type in the context where it is used. </span>
+<br>
+
+<h2> Error Origin </h2>
+<ul>
+<li> The error originates from the <code>process</code> function. </li>
+<li> The <code>process</code> function expects arguments of type <code>string * string</code>, but the <code>appInfo</code> tuple contains elements of types <code>string</code> and <code>float</code>. </li>
+</ul>
+<br>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> The <code>process</code> function is called with the <code>appInfo</code> tuple as an argument. </li>
+<li> The first element of the <code>appInfo</code> tuple, <code>"My Application"</code>, is of type <code>string</code> and matches the expected type <code>string</code>. </li>
+<li> The second element of the <code>appInfo</code> tuple, <code>1.5</code>, is of type <code>float</code>, but the expected type is <code>string</code>. </li>
+<li> The type mismatch error occurs because the second element of the <code>appInfo</code> tuple does not match the expected type. </li>
+</ul>
+<br>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li> Change the type of the second element of the <code>appInfo</code> tuple to <code>string</code>. </li>
+<code>
+let appInfo = ("My Application", "1.5");;
+</code>
+<li> Alternatively, you could define a new function that handles tuples with elements of different types. </li>
+</ul>
+<br>
+
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Error%3A+This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string"> Google Search</a>
+<pre><code>Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+</code></pre></li><li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
