@@ -18,29 +18,27 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "BEC.compileOCaml",
-				"title": "BE compile OCaml",
-				"category": "BEC",
-				"icon": {
-					"light": "./hammer.png",
-					"dark": "./hammer.png"
-				}
+				"command": "BEC.compileWithOCaml",
+				"title": "BE compile With OCaml TopLevel",
+				"category": "BEC"
 			},
 			{
-				"command": "BEC.incrementRequest",
-				"title": "BE increment request",
-				"category": "BEC",
-				"icon": {
-					"light": "./hammer.png",
-					"dark": "./hammer.png"
-				}
+				"command": "BEC.compileWithUtop",
+				"title": "BE compile With Utop TopLevel",
+				"category": "BEC"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "BEC.compileOCaml",
-				"key": "ctrl+alt+b",
-				"mac": "cmd+opt+b",
+				"command": "BEC.compileWithOCaml",
+				"key": "ctrl+alt+c",
+				"mac": "cmd+opt+c",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "BEC.compileWithUtop",
+				"key": "ctrl+alt+u",
+				"mac": "cmd+opt+u",
 				"when": "editorTextFocus"
 			}
 		],

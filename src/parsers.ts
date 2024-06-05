@@ -12,39 +12,20 @@ export async function generateFileWithExtraPrints(ocamlFile: string) {
 	const content = fs.readFileSync(ocamlFile, "utf-8");
 
 	// Split the content into lines
-	const lines = content.split("\n");
+	const lines = content.split(";;");
 
-	// Create a temporary file to store the modified content
-	const tempFilePath = `${ocamlFile}.tmp`;
-	fs.writeFileSync(tempFilePath, "");
-
-	let longLine = "";
-
-	// Iterate over the lines, adding print statements and empty lines
-	for (const line of lines) {
-		if (line.trim() === "") {
-			continue;
-		}
-		if (line.trim().endsWith(";;")) {
-			longLine === "" ? (longLine = line) : (longLine += line);
-			longLine = longLine.replaceAll("\r", "");
-
-			let newline = longLine.trim();
-			fs.appendFileSync(
-				tempFilePath,
-				`print_string "${newline.replaceAll('"', "'")}";;\n`
-			);
-			fs.appendFileSync(tempFilePath, `${newline}\n`);
-			fs.appendFileSync(tempFilePath, `print_endline "";;\n`);
-			longLine = "";
-		} else {
-			longLine += line;
-		}
+	let code_array = [];
+	for (let i = 0; i < lines.length; i++) {
+		//replace " with ', and remove (* *) comments
+		//let printable_line = lines[i].replace('\"',"\'").replace(/\/\*.*\*\//g, "");
+		//printable_line = "print_string \"" + printable_line + "\";;\n";
+		//code_array.push(printable_line);
+		code_array.push(lines[i] + ";;");
+		//code_array.push("print_endline \"\";;\n");
 	}
 
-	// Open the temporary file in a new editor tab
-	const document = await vscode.workspace.openTextDocument(tempFilePath);
-	return tempFilePath;
+
+	return code_array;
 }
 
 

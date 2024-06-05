@@ -4,6 +4,23 @@ import * as fs from 'fs';
 import * as child_process from 'child_process';
 import * as os from 'os';
 
+
+export function checkOcamlInstallationAndFile(ocamlIsInstalled: boolean) {
+	if (!ocamlIsInstalled) {
+		vscode.window.showErrorMessage(
+			"OCaml is not installed. " + getInstallInstructions()
+		);
+		return null;
+	}
+
+	const ocamlFile = vscode.window.activeTextEditor?.document.uri.fsPath;
+	if (!ocamlFile || !isOcamlFileType(vscode.window.activeTextEditor?.document)) {
+		vscode.window.showErrorMessage("No OCaml file opened");
+		return null;
+	}
+	return ocamlFile;
+}
+
 /**
  * 
  * @param document The active text document

@@ -93,7 +93,8 @@ export function generateCompilerWebViewContent(
     parse: boolean = false
 ): string {
 
-    let parsedCompiledCode = parseOCamlCompilerOutput(compiledCode);
+    //let parsedCompiledCode = parseOCamlCompilerOutput(compiledCode);
+    let parsedCompiledCode = compiledCode;
 
 	let content = `
         <!DOCTYPE html>

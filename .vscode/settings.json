@@ -9,7 +9,7 @@
   "cmake.configureOnOpen": false,
   "ocaml.sandbox": {
     "kind": "opam",
-    "switch": "4.12.0+mingw64c"
+    "switch": "ocaml-variants"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
