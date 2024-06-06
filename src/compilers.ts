@@ -1,11 +1,12 @@
 import * as vscode from "vscode";
 import * as child_process from "child_process";
 import * as fs from "fs";
-import { generateCompilerWebViewContent } from "./panels";
-import { generateFileWithExtraPrints, splitResultFromError } from "./parsers";
+import { generateCompilerWebViewContent, mainHTML } from "./panels";
+import { splitOcamlCodeIntoSnippets, splitResultFromError } from "./parsers";
 import { highlightFromError, logMessage } from "./helpers";
 import { checkAndRunRequests } from "./ai_helpers";
 import { log } from "console";
+import path from "path";
 
 export function runChildProcess(context: vscode.ExtensionContext, ocamlFile: string) {
 
@@ -14,115 +15,21 @@ export function runChildProcess(context: vscode.ExtensionContext, ocamlFile: str
  * and when its async, we cannot send the output to other compilers
  **/
 
-	// try{
-	// let buffer = child_process.execSync(`ocaml ${ocamlFile}`);
-	// let output = buffer.toString();
-	// let warnings = output.match(/Warning:.*\n/g);
-	// let compiledCode = output.replace(/Error:.*\n/g, "").replace(/Warning:.*\n/g, "");
-	// logMessage(context, "output: " + output);
-	// logMessage(context, "warnings: " + warnings);
-	// logMessage(context, "compiledCode: " + compiledCode);
-	// }
-	// catch(e){
-	// 	logMessage(context, "error: " + e);
-	// }
+	logMessage(context, "----SYNC OCAML COMPILER----");
+	try{
+	ocamlFile = ocamlFile.replace(/\\/g, "/");
+	let buffer = child_process.execSync(`echo #use "${ocamlFile}";; | utop`);
+	let output = buffer.toString();
+	let warnings = output.match(/Warning:.*\n/g);
+	let compiledCode = output.replace(/Error:.*\n/g, "").replace(/Warning:.*\n/g, "");
+	logMessage(context, "output: " + output);
+	logMessage(context, "warnings: " + warnings);
+	logMessage(context, "compiledCode: " + compiledCode);
+	}
+	catch(e){
+		logMessage(context, "error: " + e);
+	}
 
-	child_process.exec(`ocaml ${ocamlFile}`, (error, stdout, stderr) => {
-		let compiledCode = "";
-		let errors = null;
-		let warnings = null;
-
-		if (error) {
-			errors = error.message;
-		} else {
-			compiledCode = stdout;
-			if (stderr) {
-				warnings = stderr;
-			}
-		}
-	});
-}
-
-// export async function runChildSpawn(
-// 	context: vscode.ExtensionContext,
-// 	ocamlFile: string
-// ) {
-// 	let extraLinesFilePath = await generateFileWithExtraPrints(ocamlFile);
-
-// 	// Start the OCaml toplevel process
-// 	const ocamlToplevel = child_process.spawn("ocaml", ["-noprompt"]);
-
-// 	const ocamlFilePath = extraLinesFilePath.replace(/\\/g, "/");
-
-// 	// Define the OCaml code to evaluate
-// 	const ocamlCode = `
-// 				#use "${ocamlFilePath}";;\n
-// 			`;
-
-// 	// Send the OCaml code to evaluate to the toplevel process
-// 	ocamlToplevel.stdin.write(ocamlCode);
-// 	ocamlToplevel.stdin.end();
-
-// 	// Capture output from the toplevel process
-// 	let output = "";
-// 	let output_errors = "";
-// 	let output_warnings = "";
-
-// 	ocamlToplevel.stdout.on("data", (data) => {
-// 		const message = data.toString();
-// 		// Check if the message contains any indication of an error or warning
-// 		if (
-// 			message.includes("Error") ||
-// 			message.includes("Fatal error") ||
-// 			message.includes("Exception") ||
-// 			message.includes("Syntax error")
-// 		) {
-// 			output_errors += message;
-// 		} else if (message.includes("Warning")) {
-// 			output_warnings += message;
-// 		} else {
-// 			output += message;
-// 		}
-// 	});
-
-// 	// Log the output when the process exits
-// 	ocamlToplevel.on("close", (code) => {
-// 		if (output_errors !== "") {
-// 			return;
-// 		}
-// 		// Create a webview panel
-// 		const panel2 = vscode.window.createWebviewPanel(
-// 			"ocamlCompilerComp", // Identifies the type of the webview. Used internally
-// 			"OCaml Compiler Full", // Title of the panel displayed to the user
-// 			vscode.ViewColumn.Two, // Editor column to show the new webview panel in
-// 			{ enableScripts: true }
-// 		);
-
-// 		// Set the HTML content of the webview panel
-// 		panel2.webview.html = generateCompilerWebViewContent(
-// 			context,
-// 			output,
-// 			output_errors,
-// 			output_warnings,
-// 			true
-// 		);
-// 	});
-
-// }
-
-export async function runTerminalUtopInterpreter(
-	context: vscode.ExtensionContext,
-	ocamlFile: string
-) {
-	const ocamlFilePath = ocamlFile.replace(/\\/g, "/");
-	// open a terminal, and write the ocaml code to it for it to use the ocaml toplevel
-	const terminal = vscode.window.createTerminal("Utop");
-	terminal.show();
-	const code = fs.readFileSync(ocamlFile, "utf8");
-	terminal.sendText(`utop`);
-	//wait for the terminal to open
-	await new Promise((resolve) => setTimeout(resolve, 1000));
-	terminal.sendText(code);
 }
 
 // export function runChildSpawnSimplified(
@@ -200,80 +107,85 @@ export async function runTerminalUtopInterpreter(
 // }
 
 
-export async function runTerminalOcamlInterpreter(
-	context: vscode.ExtensionContext,
-	ocamlFile: string
-) {
-	const ocamlFilePath = ocamlFile.replace(/\\/g, "/");
-	// open a terminal, and write the ocaml code to it for it to use the ocaml toplevel
-	const terminal = vscode.window.createTerminal("ocaml");
-	terminal.show();
-	const code = fs.readFileSync(ocamlFile, "utf8");
-	terminal.sendText(`ocaml`);
-	//wait for the terminal to open
-	await new Promise((resolve) => setTimeout(resolve, 1000));
-	terminal.sendText(code);
-}
-
 export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile: string) {
 	//read the ocaml file using fs
 	let ocamlCode = fs.readFileSync(ocamlFile, "utf8");
 	//split the ocaml code into snippets
-	const codeSnippets = ocamlCode.split(";;");
+	const codeSnippets = ocamlCode.split(";;")
+		.map((snippet) => {
+			const subSnippets = snippet.split("\n");
+			const filteredSnippet = subSnippets.filter((subSnippet) => {
+				return subSnippet.trim() !== "";
+			}).join("\n") + ";;\n";
+			return filteredSnippet;
+	});
+
 	let code_index = 1;
 	let output = "";
 	let first_read = true;
 	let printing_index = 0;
 
-	let utop = child_process.spawn("utop");
+	let spawnedInterpreter = child_process.spawn("utop");
 
-	utop.stdout.on("data", async (data) => {
-		if(first_read){
+	spawnedInterpreter.stdout.on("data", async (data) => {
+		if (first_read) {
 			logMessage(context, "data read at start: " + data.toString());
 			output += data.toString();
-			if(data.toString().includes("help")){
+			if (data.toString().includes("help")) {
 				first_read = false;
-				utop.stdin.write(codeSnippets[0] + ";;\n");
+				spawnedInterpreter.stdin.write(codeSnippets[0]);
 				return;
 			}
-			utop.stdin.write("");
+			spawnedInterpreter.stdin.write("");
 		}
-		if(data.toString().trim() !== "#" && data.toString().trim() !== "" && !first_read 
-			&& printing_index < codeSnippets.length){
+		if (
+			data.toString().trim() !== "#" &&
+			data.toString().trim() !== "" &&
+			!first_read &&
+			printing_index < codeSnippets.length
+		) {
 			output += codeSnippets[printing_index] + "\n";
 			logMessage(context, "code snippet: " + codeSnippets[code_index]);
 			printing_index++;
 			logMessage(context, "output: " + data.toString());
-			output += data.toString();
-		}
-		
-		if (code_index < codeSnippets.length) {
-			utop.stdin.write(codeSnippets[code_index] + ";;\n");
-			code_index++;
-		}
-		else {
-			utop.stdin.end();
+			output += data.toString() + "\n";
 		}
 
+		if (code_index < codeSnippets.length) {
+			spawnedInterpreter.stdin.write(codeSnippets[code_index]);
+			code_index++;
+		} else {
+			spawnedInterpreter.stdin.end();
+		}
 	});
 
-	utop.on("close", (code) => {
+	spawnedInterpreter.on("close", async (code) => {
 		//make a webview panel
 		const panel = vscode.window.createWebviewPanel(
-			"ocamlCompilerSequential",
-			"OCaml Compiler Sequential",
+			`utopCompilerSequential`,
+			`Utop Compiler Sequential`,
 			vscode.ViewColumn.Two,
-			{ enableScripts: true }
+			{ enableScripts: true,
+			localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
+			 }
 		);
 
-		// Set the HTML content of the webview panel
-		panel.webview.html = generateCompilerWebViewContent(
-			context,
-			output,
-			null,
-			null
-		);
+		// // Set the HTML content of the webview panel
+		// panel.webview.html = generateCompilerWebViewContent(
+		// 	context,
+		// 	output,
+		// 	null,
+		// 	null
+		// );
+		panel.webview.html = mainHTML(context, output);
+
+		panel.webview.onDidReceiveMessage(message=>{
+			logMessage(context, "message received: " + message.command);
+			switch(message.command){
+				case 'runAI':
+					checkAndRunRequests(context, output, "");
+					return;
+			}
+		});
 	});
 }
-
-

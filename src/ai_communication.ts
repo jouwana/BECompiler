@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { logMessage } from "./helpers";
-import { PROMPT_REQUEST_EXPLANATION, PRMOPT_PRE_CODE, PRMOPT_PRE_ERROR, PROMPT_RESPONSE_DESIGN, PROMPT_HEADER } from "./consts";
+import { PROMPT_REQUEST_EXPLANATION, PRMOPT_PRE_CODE, PRMOPT_PRE_ERROR, PROMPT_RESPONSE_DESIGN, PROMPT_HEADER, ERRORS_NOT_SEPARATED_FROM_CODE } from "./consts";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const AWANLLM_API_KEY = "b79fefdf-fd1e-48cb-b943-c560c240916b";
@@ -44,14 +44,22 @@ export async function sendAwanllmRequest(context: vscode.ExtensionContext, code:
 }
 
 export async function sendGeminiRequest(context: vscode.ExtensionContext, code: string, errors: string): Promise<string> {
-	const prompt =
-		PROMPT_HEADER +
-		PROMPT_REQUEST_EXPLANATION +
+	let prompt = PROMPT_HEADER +
+		PROMPT_REQUEST_EXPLANATION;
+
+	if (errors !== "") {
+		prompt +=
+			PRMOPT_PRE_CODE +
+			code +
+			PRMOPT_PRE_ERROR +
+			errors;
+	}
+	else{
+		prompt += ERRORS_NOT_SEPARATED_FROM_CODE +
 		PRMOPT_PRE_CODE +
-		code +
-		PRMOPT_PRE_ERROR +
-		errors +
-		PROMPT_RESPONSE_DESIGN;
+		code;
+	}
+	prompt += PROMPT_RESPONSE_DESIGN;
 
 	const result = await model.generateContent(prompt);
 	const response = await result.response;

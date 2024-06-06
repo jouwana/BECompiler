@@ -4,6 +4,16 @@ import * as fs from 'fs';
 import * as child_process from 'child_process';
 import * as os from 'os';
 
+export function getWebviewOptions(extensionUri: vscode.Uri): vscode.WebviewOptions {
+	return {
+		// Enable javascript in the webview
+		enableScripts: true,
+
+		// And restrict the webview to only loading content from our extension's `media` directory.
+		localResourceRoots: [vscode.Uri.joinPath(extensionUri, "media")],
+	};
+}
+
 
 export function checkOcamlInstallationAndFile(ocamlIsInstalled: boolean) {
 	if (!ocamlIsInstalled) {
@@ -93,7 +103,7 @@ export function highlightFromError(errors: string) {
 			// Highlight the error line in the editor
 		for (const line of errors.split(os.EOL)) {
 			//find the line number
-			let lineNumber = line.indexOf("line ");
+			let lineNumber = line.indexOf("Line ");
 			if (lineNumber !== -1) {
 				lineNumber = parseInt(
 					line.substring(lineNumber + 5, line.indexOf(",", lineNumber))

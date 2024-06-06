@@ -2,30 +2,38 @@ import * as vscode from "vscode";
 import * as fs from "fs";
 
 
-/**
- *
- * @param ocamlFile  The path to the OCaml file
- * @returns  The path to the temporary file with extra print statements that emulates the OCaml toplevel (problematic)
- */
-export async function generateFileWithExtraPrints(ocamlFile: string) {
-	// Read the content of the OCaml file
-	const content = fs.readFileSync(ocamlFile, "utf-8");
-
-	// Split the content into lines
-	const lines = content.split(";;");
-
-	let code_array = [];
-	for (let i = 0; i < lines.length; i++) {
-		//replace " with ', and remove (* *) comments
-		//let printable_line = lines[i].replace('\"',"\'").replace(/\/\*.*\*\//g, "");
-		//printable_line = "print_string \"" + printable_line + "\";;\n";
-		//code_array.push(printable_line);
-		code_array.push(lines[i] + ";;");
-		//code_array.push("print_endline \"\";;\n");
+export function splitOcamlCodeIntoSnippets(ocamlCode: string) : string[] {
+	// the code is not always separated by line breaks or ;;
+	// we need to split the code into snippets
+	// and we will do this manually by checking for ;;, for new 'let' 
+	// and for other commands at the start of lines
+	let codeSnippets = [];
+	let lines = ocamlCode.split("\n");
+	let snippet = "";
+	let prev_ended_with_in = false;
+	for (let line of lines) {
+		line = line.trim();
+		if (line === "") {
+			continue;
+		}
+		if ((line.startsWith("let") && !prev_ended_with_in)) {
+			codeSnippets.push(snippet);
+			snippet = "";
+		}
+		if (line.endsWith(";;")) {
+			snippet += line + "\n";
+			codeSnippets.push(snippet);
+			snippet = "";
+		}
+		if (line.endsWith("in")) {
+			prev_ended_with_in = true;
+		}
+		snippet += line + "\n";
 	}
-
-
-	return code_array;
+	if (snippet !== "") {
+		codeSnippets.push(snippet);
+	}
+	return codeSnippets;
 }
 
 

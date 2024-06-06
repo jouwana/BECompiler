@@ -1,0 +1,14 @@
+// This script will be run within the webview itself
+// It cannot access the main VS Code APIs directly.
+
+(function () {
+	const vscode = acquireVsCodeApi();
+
+	const button = document.getElementById('btn');
+	if (!button) {
+		return;
+	}
+	button.addEventListener('click', () => {
+		console.log('click');
+	});
+})();

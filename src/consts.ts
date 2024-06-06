@@ -3,6 +3,9 @@ export const REQUESTS_PER_MINUTE_LIMIT: number = 15; //15 for gemini, 10 for awa
 export const REQUESTS_PER_DAY_LIMIT: number = 1500; // 1500 for gemini, 100 for awanllm
 export const MINUTE_IN_MILLISECONDS: number = 60000;
 
+export const ERRORS_NOT_SEPARATED_FROM_CODE = `the provided code comes with the errors messages attached to it:\n\n
+the line number indicated in the error messages related to the relative position inside the command
+the error occured in, as it could be a multiline command at times.\n\n`;
 
 export const PRMOPT_PRE_CODE = "this is the provided code:\n\n";
 
