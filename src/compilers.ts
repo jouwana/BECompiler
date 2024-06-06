@@ -170,14 +170,13 @@ export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile:
 			 }
 		);
 
-		// // Set the HTML content of the webview panel
-		// panel.webview.html = generateCompilerWebViewContent(
-		// 	context,
-		// 	output,
-		// 	null,
-		// 	null
-		// );
-		panel.webview.html = mainHTML(context, output);
+		// Set the HTML content of the webview panel
+		panel.webview.html = generateCompilerWebViewContent(
+			context,
+			output,
+			null,
+			null
+		);
 
 		panel.webview.onDidReceiveMessage(message=>{
 			logMessage(context, "message received: " + message.command);

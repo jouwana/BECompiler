@@ -41,14 +41,21 @@ export async function activate(context: vscode.ExtensionContext) {
 				editor.setDecorations(decorationType, []);
 			}
 
-			ResultPanel.createOrShow(context.extensionUri);
+			//ResultPanel.createOrShow(context.extensionUri);
 			//runTerminalUtopInterpreter(context, ocamlFile);
-			//sequentialUtopSpawn(context, ocamlFile);
+			sequentialUtopSpawn(context, ocamlFile);
 			//runChildProcess(context, ocamlFile);
+		}
+	);
+	let svelteTrialDisposable = vscode.commands.registerCommand(
+		"BEC.svelteTrial",
+		async () => {
+			ResultPanel.createOrShow(context.extensionUri);
 		}
 	);
 
 	context.subscriptions.push(ocamlUtopDisposable);
+	context.subscriptions.push(svelteTrialDisposable);
 }
 
 // This method is called when your extension is deactivated

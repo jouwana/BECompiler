@@ -65,3 +65,34 @@ Congratulations, your extension "BEC" is now active!
 Congratulations, your extension "BEC" is now active!
 Congratulations, your extension "BEC" is now active!
 Congratulations, your extension "BEC" is now active!
+Congratulations, your extension "BEC" is now active!
+Congratulations, your extension "BEC" is now active!
+Congratulations, your extension "BEC" is now active!
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output:   # val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+# 
+code snippet: undefined
+output: 32
+# 
+toggle panel clicked in webview

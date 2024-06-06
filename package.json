@@ -21,6 +21,11 @@
 				"command": "BEC.compileWithUtop",
 				"title": "BE compile With Utop TopLevel",
 				"category": "BEC"
+			},
+			{
+				"command": "BEC.svelteTrial",
+				"title": "BE Svelte webview trial",
+				"category": "BEC"
 			}
 		],
 		"keybindings": [
@@ -29,6 +34,11 @@
 				"key": "ctrl+alt+u",
 				"mac": "cmd+opt+u",
 				"when": "editorTextFocus"
+			},
+			{
+				"command": "BEC.svelteTrial",
+				"key": "ctrl+alt+s",
+				"mac": "cmd+opt+s"
 			}
 		],
 		"configuration": {
