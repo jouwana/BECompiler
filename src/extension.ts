@@ -38,7 +38,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 			//ResultPanel.createOrShow(context.extensionUri);
 			//runTerminalUtopInterpreter(context, ocamlFile);
-			sequentialUtopSpawn(context, ocamlFile);
+			sequentialUtopSpawn(context, ocamlFile, ResultPanel.getWebview());
 			//runChildProcess(context, ocamlFile);
 		}
 	);
@@ -51,6 +51,10 @@ export async function activate(context: vscode.ExtensionContext) {
 			}
 
 			ResultPanel.createOrShow(context);
+			//set 0.2 second delay to allow the webview to load
+			setTimeout(() => {
+				sequentialUtopSpawn(context, ocamlFile, ResultPanel.getWebview());
+			}, 200);
 		}
 	);
 

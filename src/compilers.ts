@@ -107,7 +107,7 @@ export function runChildProcess(context: vscode.ExtensionContext, ocamlFile: str
 // }
 
 
-export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile: string) {
+export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile: string, webviewPanel: vscode.WebviewPanel) {
 	//read the ocaml file using fs
 	let ocamlCode = fs.readFileSync(ocamlFile, "utf8");
 	//split the ocaml code into snippets
@@ -160,31 +160,27 @@ export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile:
 	});
 
 	spawnedInterpreter.on("close", async (code) => {
-		//make a webview panel
-		const panel = vscode.window.createWebviewPanel(
-			`utopCompilerSequential`,
-			`Utop Compiler Sequential`,
-			vscode.ViewColumn.Two,
-			{ enableScripts: true,
-			localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
-			 }
-		);
+		// //make a webview panel
+		// const panel = vscode.window.createWebviewPanel(
+		// 	`utopCompilerSequential`,
+		// 	`Utop Compiler Sequential`,
+		// 	vscode.ViewColumn.Two,
+		// 	{ enableScripts: true,
+		// 	localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
+		// 	 }
+		// );
 
-		// Set the HTML content of the webview panel
-		panel.webview.html = generateCompilerWebViewContent(
-			context,
-			output,
-			null,
-			null
-		);
+		// let html_results = generateCompilerWebViewContent(
+		// 	context,
+		// 	output,
+		// 	null,
+		// 	null
+		// );
 
-		panel.webview.onDidReceiveMessage(message=>{
-			logMessage(context, "message received: " + message.command);
-			switch(message.command){
-				case 'runAI':
-					checkAndRunRequests(context, output, "");
-					return;
-			}
+		//sent the message to the webviewPanel
+		webviewPanel.webview.postMessage({
+			command: "compilation_results",
+			value: output,
 		});
 	});
 }

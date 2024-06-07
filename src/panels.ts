@@ -196,7 +196,7 @@ export function genereateAIResultsWebViewContent(
                 .resp {
                     display: flex;
                     flex-direction: column;
-                    oveflow-wrap: break-word;
+                    overflow-wrap: break-word;
                 }
             </style>
         </head>

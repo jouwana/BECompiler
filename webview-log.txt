@@ -838,3 +838,5128 @@ code snippet: undefined
 output: # 32
 
 toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: # # - : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # # 
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output:   # val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: - : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # 32
+
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: undefined
+output: val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: - : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: 32
+# 
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+output:   val parse_version : string -> string = <fun>
+  # 
+code snippet: let appInfo = ("My Application", "1.5");;
+
+output:   val show_major : string -> string = <fun>
+  # 
+code snippet: ignore (5);appInfo;;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: undefined
+output: 32
+
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: undefined
+output: val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: # - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: 32
+# 
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+# # 
+code snippet: undefined
+output: - : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # # 32
+
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: - : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output: # val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: # - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: 32
+
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output: # val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: # - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # 32
+
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output:   # val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: # - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # 32
+
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<span>Type Mismatch Error</span>
+
+<br>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The <code>process</code> function expects arguments of type <code>string * string</code>, but the <code>appInfo</code> tuple has the type <code>string * float</code>.</li>
+</ul>
+
+<br>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>process</code> function is called with the <code>appInfo</code> tuple as an argument.</li>
+<li>The first element of the tuple, <code>"My Application"</code>, has the correct type <code>string</code>.</li>
+<li>The second element of the tuple, <code>1.5</code>, has the type <code>float</code>, which is not compatible with the expected type <code>string</code>.</li>
+</ul>
+
+<br>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the second element of the <code>appInfo</code> tuple to <code>string</code>.</li>
+</ul>
+
+<span style with overflow wrap to next line> <code> let appInfo = ("My Application", "1.5") </code> </span>
+
+<br>
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Error%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre>
+Error: This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: undefined
+output: val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: - : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # 32
+
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output:   # val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # 32
+
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: #   val show_major : string -> string = <fun>
+  # 
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: ;;
+
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+# 
+code snippet: undefined
+output: # 32
+
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<p>
+<span style="word-wrap: break-word">This expression has type string * float but an expression was expected of type string * string</span>.
+</p>
+
+<h2> Error Origin </h2>
+<ul>
+<li>Type mismatch between the expected type and the actual type of the expression.</li>
+<li>The expression <code>appInfo</code> has type <code>string * float</code>, but the function <code>process</code> expects an argument of type <code>string * string</code>.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The function <code>process</code> is called with the argument <code>appInfo</code>, which has type <code>string * float</code>.</li>
+<li>The function <code>process</code> expects an argument of type <code>string * string</code>, so the compiler checks if the type of <code>appInfo</code> is compatible with the type <code>string * string</code>.</li>
+<li>Since <code>float</code> is not compatible with <code>string</code>, the compiler reports an error.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the type of the second component of <code>appInfo</code> to <code>string</code>.</li>
+<li>Change the function <code>process</code> to accept an argument of type <code>string * float</code>.</li>
+</ul>
+<code>
+let appInfo = ("My Application", "1.5")
+</code>
+
+<h2> Useful Links </h2>
+<li><a href="https://www.google.com/search?q=This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string"> Google Search</a> for:
+<pre>
+<code>This expression has type string * float but an expression was expected of type string * string
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+
+</br>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output:   # val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: # - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # 32
+
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<span>Type mismatch error</span>
+<ul>
+<li>The type of the expression does not match the type expected by the context.</li>
+</ul>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The error originates from the call to <code>process</code> with <code>appInfo</code> as an argument.</li>
+<li><code>process</code> expects a tuple of two strings as an argument, but <code>appInfo</code> is a tuple of a string and a float.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>When <code>process</code> is called with <code>appInfo</code>, the type checker tries to match the types of the arguments to the types of the parameters.</li>
+<li>The first argument, <code>name</code>, has type <code>string</code>, which matches the type of the first parameter, also <code>string</code>.</li>
+<li>The second argument, <code>vers</code>, has type <code>float</code>, which does not match the type of the second parameter, <code>string</code>.</li>
+<li>The type checker reports an error because the types of the arguments do not match the types of the parameters.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the second component of <code>appInfo</code> to <code>string</code>.</li>
+<code>
+let appInfo = ("My Application", "1.5")
+</code>
+<li>Define a new function that takes a tuple of a string and a float as an argument and returns a tuple of two strings.</li>
+<code>
+let process' (name, vers: float): string =
+  name ^ show_major (string_of_float vers)
+</code>
+</ul>
+
+<h2>Useful Links</h2>
+<li><a href="https://www.google.com/search?q=OCaml+Type+mismatch+error%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre><code>OCaml Type mismatch error: This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</br>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+# # 
+code snippet: undefined
+output: - : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # # 32
+
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span style with overflow wrap to next line>
+Type mismatch error; the data received by the function is not compatible with the expected type.
+</span>
+<br>
+
+<h2> Error Origin </h2>
+<ul>
+<li>The function <code>process</code> expects arguments <code>(string * string)</code>.</li>
+<li>The argument passed to the function <code>process</code> is <code>appInfo</code>, which has the type <code>(string * float)</code>. </li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The function <code>process</code> is expecting to recieve a string and a string. </li>
+<li>The argument <code>appInfo</code> is a tuple with a string and float value. </li>
+<li>When the function <code>process</code> tries to retrieve the <code>vers</code> argument, it expects a string value. </li>
+<li>However, the <code>vers</code> argument in <code>appInfo</code> is a float value. </li>
+<li>This results in a type mismatch error.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the type of the <code>vers</code> argument in <code>appInfo</code> to a string. </li>
+<li>Or, change the <code>process</code> function to accept a string and a float. </li>
+</ul>
+<hr>
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre><code>This expression has type string * float but an expression was expected of type string * string. Type float is not compatible with type string.
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+  # 
+code snippet: let test = process appInfo;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+# Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: print_int 5;;
+
+output: - : string * float = ("My Application", 1.5)
+# val x : int = 5
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: print_int x;;
+
+output: # 5- : unit = ()
+val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: ;;
+
+output: # # Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<span style='overflow-wrap: break-word'>The error type is a type mismatch error. 
+A type mismatch error occurs when the type of an expression does not match the expected type.</span>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The error originates from the <code>process</code> function.</li>
+<li>The <code>process</code> function expects two arguments of type <code>string</code>, but the <code>appInfo</code> tuple contains a <code>float</code>.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>process</code> function is called with the <code>appInfo</code> tuple as an argument.</li>
+<li>The first element of the <code>appInfo</code> tuple, <code>"My Application"</code>, matches the expected type of the first argument to the <code>process</code> function.</li>
+<li>The second element of the <code>appInfo</code> tuple, <code>1.5</code>, does not match the expected type of the second argument to the <code>process</code> function.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the second element of the <code>appInfo</code> tuple to <code>string</code>.</li>
+<li>For example, you could change the following line:</li>
+<code>let appInfo = ("My Application", 1.5)</code>
+<li>To the following:</li>
+<code>let appInfo = ("My Application", "1.5")</code>
+</ul>
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Error%3A+This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre><code>Error: This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string
+</code></pre></li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br></div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+output:       val parse_version : string -> string = <fun>
+# 
+code snippet: let appInfo = ("My Application", 1.5);;
+
+output:   val show_major : string -> string = <fun>
+  # 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: 5;appInfo;;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: let x = 5;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process appInfo;;
+
+output: val x : int = 5
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int 5;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: 5- : unit = ()
+# 
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+Hint: Did you mean appInfo?
+# 
+code snippet: ;;
+
+output: 5- : unit = ()
+# 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span> Type mismatch error </span>
+<span> The error occurs when the type of an expression or a value does not match the type expected by the context in which it is used. </span>
+
+<h2> Error Origin </h2>
+<ul>
+<li> In the given code, the error "Type float is not compatible with type string" in line 14 indicates that the <code>vers</code> argument of the <code>process</code> function is expecting a string but the <code>appInfo</code> variable is of type <code>string * float</code>.
+<li> The <code>appInfo</code> variable is a tuple.
+<li> The second element of the tuple <code>appInfo</code> is of type <code>float</code>.
+<li> The <code>parse_version</code> function expects a string argument and returns a string.
+<li> The <code>show_major</code> function expects a string argument and returns a string.
+<li> The <code>process</code> function expects two strings as arguments and returns a string.
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> The <code>process</code> function is called with the <code>appInfo</code> tuple as an argument.
+<li> The second element of the <code>appInfo</code> tuple is passed as the <code>vers</code> argument to the <code>show_major</code> function.
+<li> The <code>show_major</code> function returns a string that is concatenated with the <code>name</code> argument of the <code>show_major</code> function.
+<li> The result of the concatenation is returned by the <code>process</code> function.
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li> Change the type of the second element of the <code>appInfo</code> tuple to <code>string</code>.
+<li> Use the <code>string_of_float</code> function to convert the second element of the <code>appInfo</code> tuple to a string before passing it to the <code>show_major</code> function.
+</ul>
+
+<h2> Useful Links</h2>
+<ul>
+<li> <a href="https://www.google.com/search?q=Type+float+is+not+compatible+with+type+string+ocaml"> Google Search</a> for:
+<pre>
+<code>
+Type float is not compatible with type string ocaml
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: 5;appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process appInfo2;;
+
+output: # # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: print_int x;;
+
+output: val x : int = 5
+# # Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 5- : unit = ()
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: 5- : unit = ()
+# # # 
+
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+
+<span style="word-wrap: break-word;">This error is a type mismatch error.</span>
+
+<p>A type mismatch error occurs when the type of an expression does not match the expected type. In this case, the expected type is <code>string * string</code>, but the actual type is <code>string * float</code>.<p>
+
+<h2> Error Origin </h2>
+
+<ul>
+<li>The error originates from the <code>process</code> function.</li>
+<li>The <code>process</code> function expects two <code>string</code> arguments, but the second argument is actually a <code>float</code>.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+
+In the <code>process</code> function, the <code>parse_version</code> function is called with the second argument, <code>vers</code>.
+The <code>parse_version</code> function is expecting a <code>string</code> argument, but it is actually receiving a <code>float</code>.
+his causes the type mismatch error.
+
+<h2> Solution Suggestion </h2>
+
+<ul>
+<li>Cast the second argument of the <code>process</code> function to a <code>string</code>.</li>
+</ul>
+
+<code>
+let process (name, vers) = name ^ show_major ((string_of_float vers))
+ 
+ 
+</code>
+
+<h2> Useful Links </h2>
+<li> <a href="https://www.google.com/search?q=ocaml%20Error%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string"> Google Search</a></li>
+<pre>```
+Error: This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string
+```</pre>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: # val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val x : int = 5
+# # Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: print_int x;;
+
+output: # # 5- : unit = ()
+# 
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # 5- : unit = ()
+# 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span style with overflow wrap to next line> The error type is a Type Mismatch error; this means that the type of the expression does not match the type expected by the function or context in which it is used.
+</span>
+
+<h2> Error Origin </h2>
+<ul>
+<li><code>appInfo</code> is a tuple with two elements: a string and a float.</li>
+<li>The <code>process</code> function expects the second element of the tuple to be a string, but in <code>appInfo</code>, it is a float.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The <code>process</code> function is called with the <code>appInfo</code> tuple.</li>
+<li>The first element of the tuple is passed to the <code>name</code> argument of the function.</li>
+<li>The second element of the tuple is passed to the <code>vers</code> argument of the function.</li>
+<li>The <code>parse_version</code> function is called with the value of <code>vers</code>.</li>
+<li>The <code>show_major</code> function is called with the result of the <code>parse_version</code> function.</li>
+<li>The result of the <code>show_major</code> function is concatenated with the value of <code>name</code>.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the type of the second element of the <code>appInfo</code> tuple to <code>string</code>.</li>
+<li>Change the type of the second parameter of the <code>process</code> function to <code>float</code>.</li>
+</ul>
+
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre><code>This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string
+</pre></code></li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span style="white-space: nowrap;"> Type mismatch</span>
+
+<h2> Error Origin </h2>
+<ul>
+<li>The error occurs when trying to match the <code>vers</code> argument of the <code>process</code> function to the type <code>string</code>. </li>
+<li><code>vers</code> is defined as a <code>float</code> in the tuple <code>appInfo</code>.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The <code>process</code> function takes two string arguments, <code>name</code> and <code>vers</code>.
+<li>The <code>appInfo</code> tuple contains a string and a float.
+<li>When the <code>process</code> function is called with <code>appInfo</code>, the float value in <code>appInfo</code> is passed to the <code>vers</code> argument.
+<li>The type checker complains that the expected type for <code>vers</code> is <code>string</code>, but the actual type is <code>float</code>. </li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the <code>vers</code> argument in the <code>process</code> function to <code>float</code>. </li>
+<li>Change the type of <code>vers</code> in the <code>appInfo</code> tuple to <code>string</code>. </li>
+<code>
+let appInfo = ("My Application", "1.5")
+</code>
+</ul>
+
+<h2> Useful Links </h2>
+<li><a href="https://www.google.com/search?q=This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string"> Google Search</a> for:
+<pre>
+<code> This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</br>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output:   # val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val x : int = 5
+# # 
+code snippet: let test = process appInfo2;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: ;;
+
+output: 5- : unit = ()
+# 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # # 5- : unit = ()
+# # 
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: 5;appInfo;;
+
+output: #   val show_major : string -> string = <fun>
+  # val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let x = 5;;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # val x : int = 5
+# 
+code snippet: print_int 5;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: print_int x;;
+
+output: # 5- : unit = ()
+# 
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+# 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<ul>
+<li>Type Mismatch Error</li>
+</ul>
+<h2>Error Origin</h2>
+<ul>
+<li>The type of the second element of the <code>appInfo</code> tuple is <code>float</code>, but the <code>process</code> function expects a <code>string</code>.</li>
+</ul>
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>appInfo</code> tuple is passed to the <code>process</code> function.</li>
+<li>The <code>process</code> function tries to access the second element of the tuple, which is a <code>float</code>.</li>
+<li>However, the <code>process</code> function expects the second element to be a <code>string</code>.</li>
+</ul>
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the second element of the <code>appInfo</code> tuple to <code>string</code>.</li>
+<li>Update the <code>parse_version</code> function to return a <code>string</code> instead of a <code>float</code>.</li>
+<li>Update the <code>process</code> function to accept a tuple with a <code>string</code> as the second element.</li>
+</ul>
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Error%3A+This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for: <code>Error: This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string</code></li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process appInfo2;;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: print_int x;;
+
+output: val x : int = 5
+# # 
+code snippet: ;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: # 5- : unit = ()
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # 5- : unit = ()
+# 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+This is a type mismatch error. Type mismatch errors occur when the types of the expressions in an operation do not match, and the operation cannot be performed. This can occur when the types of the variables involved do not match, or when the types of the expressions in the operation are not compatible.
+
+<h2> Error Origin </h2>
+<ul>
+<li> The error originates from the call to <code>process</code> on line 14. <code>process</code> expects two string arguments, but is being called with a string and a float. </li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> The <code>parse_version</code> function is called with the string 1.5, and returns the string 1.5. </li>
+<li> The <code>show_major</code> function is called with the string 1.5, and returns the string "Major version: 1.5". </li>
+<li> The <code>process</code> function is called with the strings "My Application" and "Major version: 1.5", and returns the string "My ApplicationMajor version: 1.5". </li>
+</ul>
+The error occurs because the second argument to <code>process</code> is a float, not a string.
+
+<h2> Solution Suggestion </h2>
+There are two possible solutions to this error:
+<ul>
+<li> Change the second argument to <code>process</code> to be a string. </li>
+<li> Change the type of the second argument to <code>process</code> to be a float. </li>
+</ul>
+The first solution is the more straightforward approach, and it will not require any changes to the code of <code>process</code>. The second solution will require changes to the code of <code>process</code>, but it will allow <code>process</code> to be called with either a string or a float argument.
+</code>
+<code>
+Here is an example of how to change the second argument to <code>process</code> to be a string:
+```
+let process (name, vers) = name ^ show_major (parse_version (string_of_float vers))
+```
+Incrementing request values
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output:   # val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: print_int 5;;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process appInfo2;;
+
+output: val x : int = 5
+# # Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: ;;
+
+output: # # 5- : unit = ()
+# 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # 5- : unit = ()
+# 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<ul>
+<li> Type Mismatch Error </li>
+</ul>
+<h2> Error Origin </h2>
+<ul>
+<li> The error originates from the <code>process</code> function. </li>
+<li> The <code>process</code> function is called with the argument <code>appInfo</code>, which has the type <code>string * float</code>. </li>
+<li> However, the <code>process</code> function expects an argument of type <code>string * string</code>. </li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> The <code>process</code> function takes two arguments, <code>name</code> and <code>vers</code>, and returns the concatenation of the <code>name</code> and the result of calling the <code>show_major</code> function with the <code>vers</code> argument. </li>
+<li> The <code>show_major</code> function takes a string argument and returns a string. </li>
+<li> The <code>parse_version</code> function takes a string argument and returns a string. </li>
+<li> In the call to the <code>process</code> function, the <code>appInfo</code> tuple is passed as the argument. </li>
+<li> The first element of the <code>appInfo</code> tuple is a string, which is the name of the application. </li>
+<li> The second element of the <code>appInfo</code> tuple is a float, which is the version of the application. </li>
+<li> The <code>parse_version</code> function is called with the second element of the <code>appInfo</code> tuple, which is a float. </li>
+<li> The <code>parse_version</code> function returns a string, which is the version of the application as a string. </li>
+<li> The <code>show_major</code> function is called with the result of the <code>parse_version</code> function, which is a string. </li>
+<li> The <code>show_major</code> function returns a string, which is the version of the application as a string with "Major version: " prepended. </li>
+<li> The result of the <code>show_major</code> function is concatenated with the name of the application, and the result is returned by the <code>process</code> function. </li>
+</ul>
+<h2> Solution Suggestion </h2>
+<ul>
+<li> Change the type of the second element of the <code>appInfo</code> tuple to <code>string</code>. </li>
+<li> Change the type of the argument <code>vers</code> in the <code>process</code> function to <code>string</code>. </li>
+<ul>
+<code>
+let appInfo = ("My Application", "1.5")
+
+let process (name, vers: string) = name ^ show_major vers
+</code>
+</ul>
+<li> Change the type of the argument <code>vers</code> in the <code>show_major</code> function to <code>string</code>. </li>
+<code>
+let show_major (vers: string): string =
+  "Major version: " ^ vers
+</code>
+</ul>
+<h2> Useful Links </h2>
+<ul>
+<li> <a href="https://www.google.com/search?q=This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string"> Google Search</a> for: 
+<pre>
+This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+
+</ul>
+</br>
+</div>
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<p>Type Mismatch</p>
+<p>This error occurs when the type of an expression does not match the expected type.</p>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The error is in the <code>process</code> function.</li>
+<li>The <code>process</code> function expects two <code>string</code> arguments, but the <code>appInfo</code> tuple contains a <code>float</code> as the second element.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>process</code> function is called with the <code>appInfo</code> tuple as the argument.</li>
+<li>The first element of the <code>appInfo</code> tuple is a <code>string</code>, which matches the expected type of the first argument of the <code>process</code> function.</li>
+<li>The second element of the <code>appInfo</code> tuple is a <code>float</code>, which does not match the expected type of the second argument of the <code>process</code> function.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the second element of the <code>appInfo</code> tuple to <code>string</code>.</li>
+<code>
+let appInfo = ("My Application", "1.5")
+</code>
+<li>Create a new function that takes a <code>string * float</code> tuple as an argument and converts the second element to a <code>string</code>.</li>
+<code>
+let process (name, vers) =
+  name ^ show_major (string_of_float vers)
+</code>
+</ul>
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://google.com/search?q=Error%3A+This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string">Google Search</a></li>
+<pre><code>Error: This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string
+</code></pre>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+output:       val parse_version : string -> string = <fun>
+# 
+code snippet: let appInfo = ("My Application", 1.5);;
+
+output:   val show_major : string -> string = <fun>
+  # 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: 5;appInfo;;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: let x = 5;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process appInfo;;
+
+output: val x : int = 5
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int 5;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: 5- : unit = ()
+# 
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+Hint: Did you mean appInfo?
+# 
+code snippet: ;;
+
+output: 5- : unit = ()
+# 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span style="white-space: nowrap;">Type Mismatch Error:</span>
+<span style="white-space: nowrap;">Expected type: string </span>
+<span style="white-space: nowrap;">Recieved type: float</span>
+
+<h2> Error Origin </h2>
+<ul>
+<li><code>process</code> expects the second variable <code>vers</code> to be of type <code>string</code>, but the second variable from <code>appInfo</code> was of type <code>float</code>.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The <code>process</code> function is applied to the value <code>appInfo</code> on line 14.</li>
+<li>The variable <code>appInfo</code> has a type of <code>string * float</code>, with <code>string</code> being the first element and <code>float</code> being the second.</li>
+<li>The second element of <code>appInfo</code> is not of type <code>string</code> as expected by <code>process</code>, thus the type mismatch error is thrown.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the type of the second element in <code>appInfo</code> to be of type <code>string</code>.</li>
+<li>Change the <code>parse_version</code> function to return a <code>float</code> so that the second element of <code>appInfo</code> is still valid.</li>
+</ul>
+
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a></li>
+<li><code><pre> This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string</pre></code></li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process appInfo2;;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: print_int x;;
+
+output: val x : int = 5
+# # 
+code snippet: ;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: undefined
+output: 5- : unit = ()
+val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+# 5- : unit = ()
+# 
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: # val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+# Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: print_int 5;;
+
+output: - : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val x : int = 5
+# 
+code snippet: let test = process appInfo2;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: ;;
+
+output: 5- : unit = ()
+# val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+# 5- : unit = ()
+# 
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: 5;appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output:   # val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: print_int 5;;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process appInfo2;;
+
+output: val x : int = 5
+# # Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: ;;
+
+output: # # 5- : unit = ()
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+# 5- : unit = ()
+
+code snippet: undefined
+output: # # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<ul>
+<li>Type mismatch error</li>
+</ul>
+<h2> Error Origin </h2>
+<ul>
+<li>The error originates from the call to the <code>process</code> function with <code>appInfo</code> as the argument.</li>
+<li><code>appInfo</code> is a tuple of type <code>string * float</code></li>
+<li>The <code>process</code> function expects an argument of type <code>string * string</code></li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>When the <code>process</code> function is called with <code>appInfo</code> as the argument, the compiler checks the types of the arguments.</li>
+<li>The compiler finds that the type of <code>appInfo</code> is <code>string * float</code></li>
+<li>The compiler then checks the type of the second argument, which is <code>float</code></li>
+<li>The compiler finds that the type of the second argument is not compatible with the type of the second argument of the <code>process</code> function, which is <code>string</code></li>
+li>The compiler then reports a type mismatch error.</li>
+</ul>
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the type of the second argument of the <code>process</code> function to <code>float</code></li>
+<li>Change the type of the second element of the <code>appInfo</code> tuple to <code>string</code></li>
+<li>Use a type cast to convert the second element of the <code>appInfo</code> tuple to a <code>string</code></li>
+</ul>
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com.hk/search?q=This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string">Google Search</a><br>
+<code>Type float is not compatible with type string</code>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+# 
+code snippet: let test = process appInfo;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val x : int = 5
+# # 
+code snippet: let test = process appInfo2;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 5- : unit = ()
+
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+Hint: Did you mean appInfo?
+# 
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span> Type mismatch error. </span>
+<ul>
+<li>The static type of the value of the expression is incompatible with the expected type in the context.</li>
+</ul>
+
+<h2> Error Origin </h2>
+<p>
+The error originates from the call to the <code>process</code> function in the expression:
+</p>
+<code>
+let test = process appInfo;;
+</code>
+<p>
+The <code>process</code> function is expecting two arguments of type <code>string</code>, but <code>appInfo</code> is a tuple of type <code>string * float</code>.
+</p>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The <code>process</code> function is called with the value of <code>appInfo</code>, which is a tuple of type <code>string * float</code>.</li>
+<li>The static type checker determines that the type of the first argument of <code>process</code> is incompatible with the expected type of <code>string</code>.</li>
+<li>The error is reported.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<span> The first argument to <code>process</code> should be of type <code>string</code>. </span>
+<ul>
+<li>Change the type of the first argument to <code>string</code>.</li>
+<li>Change the type of the second argument to <code>float</code>.</li>
+<li>Change the type of the <code>appInfo</code> variable to <code>string * string</code>.</li>
+</ul>
+<code>
+let process (name: string, vers: string) = name ^ show_major (parse_version vers);;
+</code>
+
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://google.com/searchq=Error%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string"> Google Search</a> for:
+<pre><code>Error: This expression has type string * float
+but an expression was expected of type string * string
+Type float is not compatible with type string
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output:   # val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+# - : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val x : int = 5
+# # 
+code snippet: let test = process appInfo2;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: ;;
+
+output: 5- : unit = ()
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # 5- : unit = ()
+# 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span> Type Mismatch Error </span>
+
+<h2> Error Origin </h2>
+<ul>
+<li> The error originates from the type mismatch between the expected type of the <code>process</code> function and the actual type of the <code>appInfo</code> variable. </li>
+<li> The <code>process</code> function expects two string arguments, but the <code>appInfo</code> variable is a tuple containing a string and a float. </li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> When the <code>process</code> function is called with the <code>appInfo</code> variable, the compiler checks the types of the arguments. </li>
+<li> The compiler finds that the type of the second argument (the float) does not match the expected type (string). </li>
+<li> The compiler raises a type mismatch error. </li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li> Change the type of the second element of the <code>appInfo</code> variable to string. </li>
+<li> Alternatively, you can create a new tuple with two string elements and pass it to the <code>process</code> function. </li>
+</ul>
+
+<h2> Useful Links </h2>
+<ul>
+<li> <a href="https://google.com/search?q=This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string"> Google Search</a> for:
+<pre><code>
+This expression has type string * float
+but an expression was expected of type string * string
+Type float is not compatible with type string
+</code></pre>
+</li>
+
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output:   # val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: print_int 5;;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process appInfo2;;
+
+output: val x : int = 5
+# # Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: ;;
+
+output: 5- : unit = ()
+# # 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+# # 
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<span style="white-space: nowrap;">Type mismatch error</span>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The type of the expression that is being passed to a function does not match the type of the parameter that the function expects.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The function <code>process</code> expects two strings as input, but the expression <code>appInfo</code> is a tuple containing a string and a float.</li>
+<li>The type checker cannot convert the tuple to a string, so it raises a type error.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the second element of the tuple <code>appInfo</code> to a string.</li>
+<li>Alternatively, you can write a new function that accepts a tuple as input and converts the second element to a string before passing it to <code>process</code>.</li>
+</ul>
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+error%3A+This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string">Google Search</a> for:
+<pre>
+This expression has type string * float
+but an expression was expected of type string * string
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: # val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # # val x : int = 5
+
+code snippet: let test = process appInfo2;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# # 
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 5- : unit = ()
+# 
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+# 5- : unit = ()
+
+code snippet: undefined
+output: # # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<span>Type Mismatch Error</span>
+<br></br>
+<h2>Error Origin</h2>
+<ul>
+<li>The error originates from the fact that the return type of the function <code>parse_version</code> is not compatible with the type of the second argument of the function <code>process</code>.</li>
+<li>The function <code>parse_version</code> returns a string, while the function <code>process</code> expects the second argument to be a float.</li>
+</ul>
+<br></br>
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The function <code>process</code> takes two arguments, a string and a float, and returns a string.</li>
+<li>The first argument of the function <code>process</code> is the name of the application.</li>
+<li>The second argument of the function <code>process</code> is the version of the application.</li>
+<li>The function <code>process</code> concatenates the name of the application with the string returned by the function <code>show_major</code>, which takes a string as an argument and returns a string indicating the major version of the application.</li>
+<li>The function <code>parse_version</code> takes a string as an argument and returns a string.</li>
+<li>The function <code>parse_version</code> is called with the version of the application as an argument.</li>
+<li>The result of the function <code>parse_version</code> is passed as the second argument to the function <code>process</code>.</li>
+</ul>
+<br></br>
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the return type of the function <code>parse_version</code> to float.</li>
+<li>Change the type of the second argument of the function <code>process</code> to string.</li>
+</ul>
+<br></br>
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+Type+Mismatch+Error+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre>
+This expression has type string * float
+but an expression was expected of type string * string
+Type float is not compatible with type string
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul></br>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: # val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val x : int = 5
+# # Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: print_int x;;
+
+output: # # 5- : unit = ()
+
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+Hint: Did you mean appInfo?
+# 
+code snippet: undefined
+output: 5- : unit = ()
+# 
+Incrementing request values
+Sent request to Google Generative AI
+<div><h2>Error Type</h2>
+<span style="white-space: nowrap;">Type mismatch error</span>
+<br>
+Type mismatch errors occur when the type of an expression does not match the expected type.
+<br><h2>Error Origin</h2>
+<ul>
+<li>The error originates from the expression <code>appInfo</code> in the <code>process</code> function call.</li>
+<li>The expected type of the <code>appInfo</code> variable is <code>string * string</code>, but the actual type is <code>string * float</code>.</li>
+</ul>
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>process</code> function takes two arguments, a <code>string</code> and a <code>string</code>, and returns a <code>string</code>.</li>
+<li>The <code>appInfo</code> variable is of type <code>string * float</code>, which is not compatible with the expected type of a <code>string</code>.</li>
+<li>When the <code>process</code> function is called with the <code>appInfo</code> variable as the second argument, the compiler generates a type mismatch error.</li>
+</ul><h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the <code>appInfo</code> variable to <code>string * string</code>.</li>
+<li>Change the type of the second argument of the <code>process</code> function to <code>float</code>.</li>
+</ul><h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Error%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre><code>Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: # val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: print_int 5;;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process appInfo2;;
+
+output: val x : int = 5
+# # 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: 5- : unit = ()
+# 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: 5- : unit = ()
+# # # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span style="overflow-wrap: break-word">The type of the expression in line 1, characters 19-26 is incorrect. Specifically, the type <span style="overflow-wrap: break-word"><code>float</code></span> is not compatible with the expected type <span style="overflow-wrap: break-word"><code>string</code></span>.</span>
+
+<h2> Error Origin </h2>
+<ul>
+<li>The error originates from the <span style="overflow-wrap: break-word"><code>process</code></span> function, which expects its second argument to be of type <span style="overflow-wrap: break-word"><code>string</code></span>.</li>
+<li>However, the input provided in line 1, characters 19-26 is of type <span style="overflow-wrap: break-word"><code>float</code></span>.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The <span style="overflow-wrap: break-word"><code>process</code></span> function expects two arguments: a <span style="overflow-wrap: break-word"><code>string</code></span> and a <span style="overflow-wrap: break-word"><code>string</code></span>.</li>
+<li>In this case, the first argument is of type <span style="overflow-wrap: break-word"><code>string</code></span>, but the second argument is of type <span style="overflow-wrap: break-word"><code>float</code></span>.</li>
+<li>This type mismatch causes the error.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the type of the second argument in the <span style="overflow-wrap: break-word"><code>process</code></span> function to <span style="overflow-wrap: break-word"><code>float</code></span>.</li>
+<li>Change the type of the second argument in the <span style="overflow-wrap: break-word"><code>process</code></span> function call to <span style="overflow-wrap: break-word"><code>string</code></span>.</li>
+</ul>
+
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+type+mismatch+error+Line+1%2C+characters+19-26%3A+Error%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre><code>This expression has type string * float
+but an expression was expected of type string * string
+Type float is not compatible with type string</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+Congratulations, your extension "BEC" is now active!
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+output:       val parse_version : string -> string = <fun>
+# 
+code snippet: let appInfo = ("My Application", 1.5);;
+
+output:   val show_major : string -> string = <fun>
+  # 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: 5;appInfo;;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: let x = 5;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process appInfo;;
+
+output: val x : int = 5
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int 5;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: 5- : unit = ()
+# 
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+Hint: Did you mean appInfo?
+# 
+code snippet: ;;
+
+output: 5- : unit = ()
+# 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<span style with overflow wrap to next line>
+An expression has an incorrect type caused by a type mismatch in one or more of its parts.
+</span>
+<h2>Error Origin</h2>
+<ul>
+<li>The function <code>process</code> has a type specification <code>(string * string) -> string</code>.</li>
+<li>The argument <code>appInfo</code> has the type <code>(string * float)</code>.</li>
+<li><code>appInfo</code> does not match the type expected by <code>process</code>.</li>
+</ul>  
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The function <code>process</code> expects two strings as arguments.</li>
+<li>The argument <code>appInfo</code> is a tuple containing a string and a float.</li>
+<li>The type checker cannot convert the float in <code>appInfo</code> to a string.</li>
+</ul>
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the second element of <code>appInfo</code> to a string.
+<span>
+<code>
+let appInfo = ("My Application", "1.5");;
+</code>
+</span>
+</li>
+<li>Define a new function that takes a tuple of a string and a float and returns a string.</li>
+</ul>
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Error%3A+This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre>
+<code>
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+output:       val parse_version : string -> string = <fun>
+# 
+code snippet: let appInfo = ("My Application", 1.5);;
+
+output:   val show_major : string -> string = <fun>
+  # 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: 5;appInfo;;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: let x = 5;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process appInfo;;
+
+output: val x : int = 5
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int 5;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: 5- : unit = ()
+# 
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+Hint: Did you mean appInfo?
+# 
+code snippet: ;;
+
+output: 5- : unit = ()
+# 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+
+<h2>Error Type</h2>
+<span style="white-space: nowrap;">non-unit-statement</span>
+<p>
+This error means that this expression does not have a value with type unit
+</p>
+
+<h2> Error Origin </h2>
+
+<ul>
+<li>The expression <code>Line 1, characters 0-1:appInfo;;</code> is of the type (string * float) which is not unit.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+
+<ul>
+<li>The expression <code>appInfo;;</code>  evaluates to <code>("My Application", 1.5)</code> which is of type <code>(string * float)</code>.</li>
+<li>Unit is the type of expressions that do not have values.</li>
+<li>The type of expressions that do not have values is different from the type of expressions that have values.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+
+<ul>
+<li>Remove the <code>;</code> at the end of line 5.</li>
+<li>Add explicit parentheses around the expression that you want to evaluate, and give it a name.</li>
+<li>use only the unit type:</li>
+<code>
+let () = appInfo;
+</code>
+</ul>
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=warning+10%5Bnon-unit-statement%5D%3A+this+expression+should+have+type+unit+-+%3A+string+*+float+%3D+%28%22My+Application%22%2C+1.5%29">Google Search</a>
+</li>
+<li><pre><code>
+warning 10 [non-unit-statement]: this expression should have type unit.
+                - : string * float = ("My Application", 1.5)
+</code></pre></li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+
+<h2>Error Type</h2>
+<span style="white-space: nowrap;">Type Mismatch</span>
+<p>
+This error means that a part of the expression has a type which is not compatible with the expected type of the expression
+</p>
+<h2> Error Origin </h2>
+<ul>
+<li>The function <code>`parse_version`</code> expects a <code>string</code> type, but received a <code>float</code> type</li>
+<li>The function <code>'process'</code> expects a <code>string * string</code> tuple as input, but received a <code>string * float</code> tuple as input</li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The <code>parse_version</code> function is called with the second element of the tuple <code>appInfo</code>, which is of type <code>float</code>.</li>
+<li>The <code>show_major</code> function is called with the result of the <code>parse_version</code> function, which is of type <code>string</code>.</li>
+<li>The <code>process</code> function is called with the tuple <code>name ^ show_major (parse_version vers)</code>, which is of type <code>string * float</code>.</li>
+</ul>
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the second element of the tuple <code>appInfo</code> to <code>string</code>.</li>
+<li>Change the type of the argument of the <code>parse_version</code> function to <code>float</code>.</li>
+<li>Change the type of the second element of the tuple returned by the <code>process</code> function to <code>float</code>.</li>
+</ul>
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Line+1%2C+characters+19-26%3A+Error%3A+This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string">Google Search</a>
+</li>
+<li><pre><code>
+Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+</code></pre></li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+
+<h2>Error Type</h2>
+<span style="white-space: nowrap;">Unbound Variable</span>
+<p>
+This error means that the variable is not defined
+</p>
+<h2> Error Origin </h2>
+<ul>
+<li>In line 5, the variable <code>appInfo2</code> is used, but it is not defined.</li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The variable <code>appInfo2</code> is not defined in the current scope.</li>
+<li>The compiler cannot find a definition for the variable <code>appInfo2</code>.</li>
+</ul>
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Define the variable <code>appInfo2</code> before using it.</li>
+<li>Change the name of the variable <code>appInfo2</code> to <code>appInfo</code>.</li>
+</ul>
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Line+1%2C+characters+19-27%3A+Error%3A+Unbound+value+appInfo2Hint%3A+Did+you+mean+appInfo%3F">Google Search</a>
+</li>
+<li><pre><code>
+Line 1, characters 19-27:
+Error: Unbound value appInfo2
+Hint: Did you mean appInfo?
+</code></pre></li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+
+</div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: 5;appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: print_int 5;;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: let test = process appInfo2;;
+
+output: - : string * float = ("My Application", 1.5)
+val x : int = 5
+# # 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: 5- : unit = ()
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<button class="collapsable">Type Mismatch</button>
+<div class="content">
+<h2>Error Type</h2>
+<span>
+Type mismatch error.
+It Occurs when there is a type conflict between the expression and the expected type.<br>
+In OCaml, each expression has a type, and the type system checks that the types of expressions are compatible with the types of the surrounding context.
+</span>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The error originates from the expression <code>"1.5"</code> in the call to <code>process</code>.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>process</code> function expects two arguments of type <code>string * string</code>, but the second argument is actually of type <code>string * float</code>.</li>
+<li>The type checker compares the type of the first argument, <code>string</code>, to the type of the second argument, <code>string * float</code>, and finds that they are not compatible.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul><li>Change the second argument to <code>process</code> to be a string, like this:<code> let test = process ("My Application", "1.5");;</code><br></li><li>Declare a new tuple with the correct type: <code>let appInfo = ("My Application", "1.5");;</code></ul>
+</div>
+</div>
+<div>
+<button class="collapsable">Unbound Value</button>
+<div class="content">
+<h2>Error Type</h2>
+<span>Unbound value error.
+It Occurs when a variable or function is used before it has been defined or bound to a value.</span>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The error originates from the expression <code>appInfo2</code> in the call to <code>process</code>.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The variable <code>appInfo2</code> has not been defined anywhere in the program.</li>
+<li>When the compiler encounters the expression <code>appInfo2</code>, it tries to look up the variable in the environment, but it cannot find it.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul><li>Check if <code>appInfo2</code> was misspelled replace it with the correct variable name <code>appInfo</code> if that is the case.</li><li>Define the variable <code>appInfo2</code> before using it.</li></ul>
+</div>
+</div>
+<div>
+<button class="collapsable">Non-unit-statement</button>
+<div class="content">
+<h2>Error Type</h2>
+<span>Non-unit-statement warning.
+It Occurs when an expression that is expected to have type <code>unit</code> (i.e., no value) has a different type.<br>
+In OCaml, the <code>;</code> operator is used to terminate expressions that have type <code>unit</code>.</span>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The error originates from the expression <code>5</code>.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The expression <code>5</code> has type <code>int</code>, but the context expects an expression of type <code>unit</code>.</li>
+<li>This is because the expression is being used as the body of a <code>let</code> binding, which expects the body to have type <code>unit</code>.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul><li>Add a semicolon to the end of the expression, like this: <code>let x = 5;;</code></li><li>Change the expression to one that has type <code>unit</code>, such as <code>()</code>.</li></ul>
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre><code>This expression has type string * float
+but an expression was expected of type string * string
+Type float is not compatible with type string</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+</div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: 5;appInfo;;
+
+output: #   val show_major : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output:   # val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process appInfo;;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: print_int 5;;
+
+output: val x : int = 5
+# # Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: print_int x;;
+
+output: # 5- : unit = ()
+# 
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+# 
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+  <button class="collapsable" onclick="collapsibleClickHandler">Type Mismatch Error</button>
+  <div class="content">
+    <h2>Error Type</h2>
+    <ul>
+      <li>This error occurs when a variable is assigned a value of a different type than the variable's declared type.</li>
+      <li>In this case, the error is caused by assigning a float to a variable of type string.</li>
+    </ul>
+    <h2>Error Origin</h2>
+    <ul>
+      <li>The error originates from the line where the variable <code>vers</code> is assigned the value <code>1.5</code>.</li>
+      <li>The variable <code>vers</code> is declared as a string, but the value assigned to it is a float.</li>
+    </ul>
+    <h2>Error Data Flow Explanation</h2>
+    <ul>
+      <li>The value <code>1.5</code> is passed to the function <code>parse_version</code>, which expects a string argument.</li>
+      <li>The function <code>parse_version</code> returns a string, which is then assigned to the variable <code>vers</code>.</li>
+      <li>However, the variable <code>vers</code> is declared as a string, so the assignment is invalid.</li>
+    </ul>
+    <h2>Solution Suggestion</h2>
+    <ul>
+      <li>Change the type of the variable <code>vers</code> to float.</li>
+      <li>Change the value assigned to the variable <code>vers</code> to a string.</li>
+    </ul>
+    <h2>Useful Links</h2>
+    <ul>
+      <li><a href="https://www.google.com/search?q=This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+        <pre><code>This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string</code></pre>
+      </li>
+      <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+      <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+    </ul>
+  </div>
+</div>
+
+<div>
+  <button class="collapsable" onclick="collapsibleClickHandler">Unbound Value Error</button>
+  <div class="content">
+    <h2>Error Type</h2>
+    <ul>
+      <li>This error occurs when a variable is used without being declared or assigned a value.</li>
+      <li>In this case, the error is caused by using the variable <code>appInfo2</code> without declaring or assigning it a value.</li>
+    </ul>
+    <h2>Error Origin</h2>
+    <ul>
+      <li>The error originates from the line where the variable <code>appInfo2</code> is used in the function call <code>process</code>.</li>
+      <li>The variable <code>appInfo2</code> is not declared or assigned a value anywhere in the code.</li>
+    </ul>
+    <h2>Error Data Flow Explanation</h2>
+    <ul>
+      <li>The function <code>process</code> expects two arguments, a string and a string.</li>
+      <li>The first argument is passed the value of the variable <code>name</code>, which is a string.</li>
+      <li>The second argument is passed the value of the variable <code>vers</code>, which is a string.</li>
+      <li>However, the variable <code>appInfo2</code> is not declared or assigned a value, so it cannot be passed as the second argument to the function <code>process</code>.</li>
+    </ul>
+    <h2>Solution Suggestion</h2>
+    <ul>
+      <li>Declare the variable <code>appInfo2</code> and assign it a value.</li>
+      <li>Remove the variable <code>appInfo2</code> from the function call <code>process</code>.</li>
+    </ul>
+    <h2>Useful Links</h2>
+    <ul>
+      <li><a href="https://www.google.com/search?q=Unbound+value+appInfo2">Google Search</a> for:
+        <pre><code>Unbound value appInfo2</code></pre>
+      </li>
+      <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+      <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+    </ul>
+  </div>
+</div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+output:       val parse_version : string -> string = <fun>
+# 
+code snippet: let appInfo = ("My Application", 1.5);;
+
+output:   val show_major : string -> string = <fun>
+  # 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: 5;appInfo;;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: let x = 5;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process appInfo;;
+
+output: val x : int = 5
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int 5;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: 5- : unit = ()
+# 
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+Hint: Did you mean appInfo?
+# 
+code snippet: ;;
+
+output: 5- : unit = ()
+# 
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+output:       val parse_version : string -> string = <fun>
+# 
+code snippet: let appInfo = ("My Application", 1.5);;
+
+output:   val show_major : string -> string = <fun>
+  # 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: 5;appInfo;;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: let x = 5;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process appInfo;;
+
+output: val x : int = 5
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int 5;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: 5- : unit = ()
+# 
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+Hint: Did you mean appInfo?
+# 
+code snippet: ;;
+
+output: 5- : unit = ()
+# 
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output:   # val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+# Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: print_int 5;;
+
+output: - : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val x : int = 5
+# # 
+code snippet: let test = process appInfo2;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: ;;
+
+output: 5- : unit = ()
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# # 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: - : string * float = ("My Application", 1.5)
+# # val x : int = 5
+# 
+code snippet: let test = process appInfo2;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: ;;
+
+output: # 5- : unit = ()
+# val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # # 5- : unit = ()
+
+code snippet: undefined
+output: # # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+    <button class="collapsable" onclick="collapsibleClickHandler" style="font-size: 20px">This expression should have type unit</button>
+    <div class="content">
+      <h2>Error Type</h2>
+      <span style="white-space: nowrap;">This error is a non-unit-statement error</span>
+      <h2>Error Origin</h2>
+      <ul>
+        <li>The error originates from the expression appInfo;</li>
+      </ul>
+      <h2>Error Data Flow Explanation</h2>
+      <ul>
+        <li>When the compiler compiles an expression, it expects this expression to be of a certain type.</li>
+        <li>This expression was type annotated as <code>unit</code></li>
+        <li>However, when the compiler tries to evaluate <code>appInfo</code> it returns <code>string * float</code>. This doesn't match the type annotation, thus causing the error.</li>
+      </ul>
+      <h2>Solution Suggestion</h2>
+      <ul>
+        <li>Since <code>appInfo</code> returns a <code>string * float</code>, the type annotation should be changed to reflect this.</li>
+        <li><code>let appInfo: string * float = ("My Application", 1.5);;</code></li>
+        <li>Since the type annotation for the expression is <code>unit</code>, another solution would be to simply discard the result of the expression with the <code>_</code> symbol.</li>
+        <li><code>Ignored appInfo;</code></li>
+      </ul>
+      <h2>Useful Links</h2>
+      <ul>
+        <li><a href="https://www.google.com/search?q=non-unit-statement%3A+this+expression+should+have+type+unit">Google Search</a> for:
+          <pre><code>non-unit-statement: this expression should have type unit
+</code></pre>
+        </li>
+        <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+        <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+      </ul>
+      </br>
+    </div>
+  </div>
+  <div>
+    <button class="collapsable" onclick="collapsibleClickHandler" style="font-size: 20px">This expression has type string * float
+       but an expression was expected of type string * string</button>
+    <div class="content">
+      <h2>Error Type</h2>
+      <span style="white-space: nowrap;">This error is a type mismatch error</span>
+      <h2>Error Origin</h2>
+      <ul>
+        <li>The error originates from the second argument passed to the function process</li>
+      </ul>
+      <h2>Error Data Flow Explanation</h2>
+      <ul>
+        <li>The function <code>process</code> expects two arguments of type <code>string</code> and <code>string</code> respectively</li>
+        <li>The second argument passed to the function is the result of the <code>parse_version</code> function</li>
+        <li>The <code>parse_version</code> function is type annotated to return a <code>string</code></li>
+        <li>However, in the expression the <code>parse_version</code> is called with the argument <code>vers</code> which is of type <code>float</code></li>
+      </ul>
+      <h2>Solution Suggestion</h2>
+      <ul>
+        <li>To fix this error, the type of the second argument passed to the function <code>process</code> should be changed to <code>float</code></li>
+        <li><code>let process (name, vers: float) = name ^ show_major (parse_version vers);;</code></li>
+      </ul>
+      <h2>Useful Links</h2>
+      <ul>
+        <li><a href="https://www.google.com/search?q=This+expression+has+type+string+%2A+float
+       but+an+expression+was+expected+of+type+string+%2A+string">Google Search</a> for:
+          <pre><code>This expression has type string * float
+       but an expression was expected of type string * string
+</code></pre>
+        </li>
+        <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+        <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+      </ul>
+      </br>
+    </div>
+  </div>
+  <div>
+    <button class="collapsable" onclick="collapsibleClickHandler" style="font-size: 20px">Unbound value appInfo2</button>
+    <div class="content">
+      <h2>Error Type</h2>
+      <span style="white-space: nowrap;">This error is an unbound value error</span>
+      <h2>Error Origin</h2>
+      <ul>
+        <li>The error originates from the variable <code>appInfo2</code></li>
+      </ul>
+      <h2>Error Data Flow Explanation</h2>
+      <ul>
+        <li>The variable <code>appInfo2</code> is used in the expression <code>process appInfo2;;</code></li>
+        <li>However, the variable <code>appInfo2</code> is not defined anywhere in the code</li>
+      </ul>
+      <h2>Solution Suggestion</h2>
+      <ul>
+        <li>To fix this error, the variable <code>appInfo2</code> should be defined before it is used</li>
+        <li><code>let appInfo2 = ("My Application", 1.5);;</code></li>
+        <li>Alternatively, the variable <code>appInfo</code> could be used instead of <code>appInfo2</code></li>
+      </ul>
+      <h2>Useful Links</h2>
+      <ul>
+        <li><a href="https://www.google.com/search?q=Unbound+value+appInfo2">Google Search</a> for:
+          <pre><code>Unbound value appInfo2
+</code></pre>
+        </li>
+        <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+        <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+      </ul>
+      </br>
+    </div>
+  </div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process appInfo2;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+# # 
+code snippet: print_int x;;
+
+output: val x : int = 5
+Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# # 
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+# 
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<button class="collapsable">Non-Unit Statement</button>
+<div class="content">
+<h2>Error Type</h2>
+A non-unit statement error indicates that a statement or expression in the OCaml code does not return a result of type unit, which is the type of expressions that do not produce a meaningful value. This error typically occurs when a statement or expression is used within a context that expects a unit value, such as the end of a function definition or the end of a sequence of statements.
+
+<h2>Error Origin</h2>
+- This error can originate from using an expression that does not evaluate to unit, such as a function call without a meaningful return value, or attempting to assign a non-unit value to a variable that is expected to hold a unit value.
+- The compiler is expecting the end of the statement to be of type unit, but the expression provided does not evaluate to a unit value.
+
+<h2>Error Data Flow Explanation</h2>
+- The OCaml compiler analyzes the code and identifies a statement or expression that does not return a unit value.
+- The compiler checks the type of the expression and determines that it is not of type unit.
+- The compiler generates an error message indicating the location of the non-unit statement and the expected type.
+
+<h2>Solution Suggestion</h2>
+- Ensure that the statement or expression in question returns a unit value.
+- If the statement or expression is a function call, check that the function is defined to return a unit value.
+- If the statement or expression is an assignment, check that the variable being assigned is of type unit.
+- You can also try adding a semicolon (;) at the end of the statement, as this may help the compiler recognize that the statement is intended to have no meaningful return value.
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=non-unit-statement+ocaml+error+This+expression+should+have+type+unit.">Google Search</a> for:
+<pre><code>non-unit-statement ocaml error This expression should have type unit.
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li></ul>
+</br>
+</div>
+</div>
+
+<div>
+<button class="collapsable">Type Mismatch</button>
+<div class="content">
+<h2>Error Type</h2>
+A type mismatch error indicates that the type of an expression or value does not match the expected type in a given context. This error occurs when the compiler determines that the type of an expression or value is not compatible with the type required by the surrounding code.
+
+<h2>Error Origin</h2>
+- This error can originate from using a value of an incorrect type as an argument to a function or as a value assigned to a variable.
+- The compiler is expecting an expression or value of a specific type, but the provided expression or value is of a different type.
+
+<h2>Error Data Flow Explanation</h2>
+- The OCaml compiler checks the type of an expression or value against the expected type in the surrounding code.
+- If the types do not match, the compiler generates an error message indicating the location of the type mismatch and the expected type.
+
+<h2>Solution Suggestion</h2>
+- Ensure that the expression or value being used is of the correct type.
+- Check the types of the function arguments and the variable being assigned to.
+- Verify that the types of the expressions and values are compatible with the surrounding code.
+- You may need to cast the expression or value to the correct type using the `as` keyword.
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Type+float+is+not+compatible+with+type+string+ocaml+error">Google Search</a> for:
+<pre><code>Type float is not compatible with type string ocaml error
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li></ul>
+</br>
+</div>
+</div>
+
+<div>
+<button class="collapsable">Unbound Value</button>
+<div class="content">
+<h2>Error Type</h2>
+An unbound value error indicates that a variable or function is being used without having been previously defined or bound to a value. This error occurs when the compiler encounters a reference to a variable or function that has not been declared or assigned a value.
+
+<h2>Error Origin</h2>
+- This error can originate from using a variable or function name that has not been defined in the current scope.
+- The compiler is expecting a variable or function to be defined, but it cannot find a definition for it.
+
+<h2>Error Data Flow Explanation</h2>
+- The OCaml compiler searches for a definition of the variable or function being used.
+- If no definition is found, the compiler generates an error message indicating the location of the unbound value and the expected type.
+
+<h2>Solution Suggestion</h2>
+- Ensure that the variable or function being used has been defined and bound to a value before using it.
+- Check the spelling of the variable or function name to make sure it is correct.
+- Verify that the variable or function is defined in the current scope or a higher scope.
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=Unbound+value+ocaml+error+did+you+mean+appinfo%3F">Google Search</a> for:
+<pre><code>Unbound value ocaml error did you mean appinfo?
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li></ul>
+</br>
+</div>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: 5;appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output:   # val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: print_int 5;;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process appInfo2;;
+
+output: val x : int = 5
+# # 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: # # 5- : unit = ()
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<button class="collapsable">Warning 10 [non-unit-statement]</button>
+<div class="content">
+<h2> Error Type </h2>
+<p>Warning  10 is warining you that a statement has no unit type.</p>
+
+<h2> Error Origin </h2>
+<ul>
+<li>This error is most likely because you are trying to use an expression or construct that does not return a unit value, where a unit value is expected, which is in this case the context of a semicolon.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>This warning can occur when you have a statement that does not evaluate to the unit type, which is the empty type in OCaml, meaning it holds no values.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Use only expressions and constructs that return a unit value when in a semicolon context.</li>
+<b>or</b>
+<li>Surround the value that you are trying to use as an expression with a function that returns unit, such as <code>fun () -> <code>value</code></code></li>
+<li>Ensure that you understand the context of the code snippet, and that the semicolon was expected.</li>
+</ul>
+
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://github.com/ocaml/ocaml/blob/trunk/runtests/ccomp_errors/non_unit_statement.ml">Google Search</a> for:
+<pre><code>Warning 10 [non-unit-statement]: this expression should have type unit.
+- : float = 5.
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+
+<div>
+<button class="collapsable">Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string </button>
+<div class="content">
+<h2> Error Type </h2>
+<p>This error is a type mismatch error.
+In this error, the expected type and the actual type do not match.</p>
+
+<h2> Error Origin </h2>
+<ul>
+<li>This error is most likely because you are trying to use an expression or construct that has a different type than the one expected by the context in which it is used.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>In this specific error, you are trying to pass a <code>string * float</code> to a function that expects a <code>string * string</code>, and the float in the tuple's second element is not compatible with the string expected by the function.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the type of the expression or construct to match the expected type.</li>
+<li>Change the expected type to match the type of the expression or construct.</li>
+<li>Use a type annotation to explicitly specify the type of the expression or construct.</li>
+<code>
+let process (name: string, vers: string): string = name ^ show_major (parse_version vers);;
+</code>
+</ul>
+
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://github.com/ocaml/ocaml/blob/trunk/runtests/ccomp_errors/test_type_mismatch.ml">Google Search</a> for:
+<pre><code>Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string
+</code></pre>
+</li>
+</ul>
+</br>
+</div>
+</div>
+
+<div>
+<button class="collapsable">Error: Unbound value appInfo2</button>
+<div class="content">
+<h2> Error Type </h2>
+<p>This error is an unbound value error.
+In this error, you are trying to use a variable that has not been bound to a value.</p>
+
+<h2> Error Origin </h2>
+<ul>
+<li>This error is most likely because you have a typo in the variable name, or you have not defined the variable before trying to use it.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>In this specific error, you are trying to use the variable <code>appInfo2</code>, but this variable has not been defined in the current scope.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Check for typos in the variable name.</li>
+<li>Define the variable before trying to use it.</li>
+<code>
+let appInfo2 = ("My Application", "1.5");;
+let test = process appInfo2;;
+</code>
+</ul>
+
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://github.com/ocaml/ocaml/blob/trunk/runtests/ccomp_errors/test_unbound_value.ml">Google Search</a> for:
+<pre><code>Line 1, characters 19-27:
+Error: Unbound value appInfo2
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: 5;appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: print_int 5;;
+
+output: # # 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+# Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process appInfo2;;
+
+output: # val x : int = 5
+# Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 5- : unit = ()
+
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<button class="collapsible">Non Unit Statement Warning</button>
+<div class="content">
+<h2> Error Type </h2>
+<span style="white-space: nowrap;">This warning is issued when an expression does not evaluate to unit in a context where a unit expression is expected.</span>
+<h2> Error Origin </h2>
+<ul>
+<li>This warning is issued when an expression is declared as unit but the type does not evaluate as unit.</li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The expression type considers any return value as unit.</li>
+<li>If the function returns a different type, it will be type annotated as that type.</li>
+<li>In this case, the expression on the return is not of type unit, it is of type <code>string * float</code>. </li>
+</ul>
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the return type of the function to match the type of the returned value.</li>
+</ul>
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=ocaml+warning+10+non+unit+statement+this+expression+should+have+type+unit">Google Search</a> for: 
+<pre>
+<code>this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+<div>
+<button class="collapsible">Type Mismatch Error</button>
+<div class="content">
+<h2> Error Type </h2>
+<span style="white-space: nowrap;">This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string</span>
+<h2> Error Origin </h2>
+<ul>
+<li>This error is issued when a function expects to receive an argument of a specific type, but receives an argument of an incompatible type.</li>
+<li>In this case, the function <code>process</code> expects to receive a tuple of type <code>string * string</code>, but receives a tuple of type <code>string * float</code>.</li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The function <code>process</code> is defined to take two arguments, a name and a version, both of which are expected to be of type <code>string</code>.</li>
+<li>The function <code>parse_version</code> is defined to return a string, but is passed a float in this case.</li>
+<li>The types of the arguments that are passed to the function <code>process</code> do not match the types of the arguments that the function expects.</li>
+</ul>
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the type of the argument that is passed to the function <code>parse_version</code> to match the expected type.</li>
+<li>Change the type of the second argument of the function <code>process</code> to match the type of the argument that is passed to it.</li>
+<li>Change the implementation of the function <code>parse_version</code> to return a string instead of a float.</li>
+</ul>
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=ocaml+error%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for: 
+<pre>
+<code>This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+<div>
+<button class="collapsible">Unbound Value Error</button>
+<div class="content">
+<h2> Error Type </h2>
+<span style="white-space: nowrap;">This error is issued when a variable is used before it has been bound to a value.</span>
+<h2> Error Origin </h2>
+<ul>
+<li>This error is issued when a variable is used before it has been defined.</li>
+<li>In this case, the variable <code>appInfo2</code> is used before it has been defined.</li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The variable <code>appInfo2</code> is not defined in the global scope.</li>
+<li>The variable <code>appInfo2</code> is not passed as an argument to the function <code>process</code>.</li>
+<li>The variable <code>appInfo2</code> is not defined in the local scope of the function <code>process</code>.</li>
+</ul>
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Define the variable <code>appInfo2</code> before using it.</li>
+<li>Pass the variable <code>appInfo2</code> as an argument to the function <code>process</code>.</li>
+<li>Define the variable <code>appInfo2</code> in the local scope of the function <code>process</code>.</li>
+</ul>
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=ocaml+Error%3A+Unbound+value+appInfo2+Hint%3A+Did+you+mean+appInfo%3F+let+test+process+appInfo2%3B%3B">Google Search</a> for: 
+<pre>
+<code>Error: Unbound value appInfo2
+Hint: Did you mean appInfo?
+let test = process appInfo2;;
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: 5;appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process appInfo2;;
+
+output: # # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: print_int x;;
+
+output: - : string * float = ("My Application", 1.5)
+val x : int = 5
+# # 
+code snippet: ;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: 5- : unit = ()
+# 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+5- : unit = ()
+
+code snippet: undefined
+output: # # # 
+
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<button class="collapsible">Type Mismatch Error</button>
+<div class="content">
+<h2> Error Type </h2>
+OCaml type mismatch error is raised when an operation is attempted between values of incompatible types or simply attempting to
+assign a value of one type to a variable of a different type.
+<h2> Error Origin </h2>
+<ul>
+<li> Mismatched values type in the expression passed as an argument to process function.</li>
+<li> Mismatch between the return value and the expected return type. </li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> <code>let test = process appInfo;;</code> the  parse_version function expects a string <code>string</code> as input type, while the appInfo has a float <code>float</code> value for the version field. </li>
+</ul>
+<h2> Solution Suggestion </h2>
+<span style='white-space:pre'><code> let show_major (s: string): string = (* Dummy implementation that returns a string indicating major version *) "Major version: " ^ s;; </code></span>
+<span style='white-space:pre'><code>let process (name, vers) = name ^ show_major (parse_version vers);;</code></span>
+<br>
+<h2> Useful Links </h2>
+<ul><li><a href="https://www.google.com/search?q=OCaml+Type+Mismatch+Error%3A+Type+float+is+not+compatible+with+type+string">Google Search</a> for: <code><pre>Type float is not compatible with type string.</pre></code></li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+
+<div>
+<button class="collapsible">Unbound Value Error 2</button>
+<div class="content">
+<h2> Error Type </h2>
+Occurs when the value of a variable is used before it is assigned.
+<h2> Error Origin </h2>
+<ul>
+<li> Using a value <code>appInfo2</code> before it is assigned.</li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> <code>let test = process appInfo2;;</code> attempts to use the value of appInfo2, but it has not been assigned yet. </li>
+</ul>
+<h2> Solution Suggestion </h2>
+<span style='white-space:pre'><code> let test = process appInfo;; </code></span>
+<br>
+<h2> Useful Links </h2>
+<ul><li><a href="https://www.google.com/search?q=OCaml+Unbound+Value+Error%3A+Unbound+value+appInfo2">Google Search</a> for: <code><pre>Unbound value appInfo2</pre></code></li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# # 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: - : string * float = ("My Application", 1.5)
+# # val x : int = 5
+
+code snippet: let test = process appInfo2;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# # 
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: ;;
+
+output: # 5- : unit = ()
+# 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # # 5- : unit = ()
+
+code snippet: undefined
+output: # # 
+Incrementing request values
+Sent request to Google Generative AI
+<div class="collapsible">
+<button class="collapsible">This expression should have type unit.</button>
+<div class="content">
+<h2> Error Type </h2>
+<span>Non-unit-statement error</span>.
+<h2> Error Origin </h2>
+<ul>
+<li>The error is saying that the code is not a valid unit expression. </li>
+<li>A unit expression is an expression that does not return any value. </li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The code is trying to assign the value of the expression <code>5;appInfo</code> to the variable <code>x</code>. </li>
+<li>The expression <code>5;appInfo</code> is not a valid unit expression because it returns the value of <code>appInfo</code>, which is not unit. </li>
+</ul>
+<h2> Solution Suggestion </h2>
+<span>You should change the code to assign the value of <code>appInfo</code> to the variable <code>x</code> without using a semicolon.
+
+<code>
+let x = appInfo;
+</code>
+</span>
+<h2> Useful Links </h2>
+<ul>
+<li> <a href="https://www.google.com/search?q=This+expression+should+have+type+unit.+"> Google Search</a> for:
+<pre><code>This expression should have type unit.
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+<div class="collapsible">
+<button class="collapsible">This expression has type string * float but an expression was expected of type string * string.</button>
+<div class="content">
+<h2> Error Type </h2>
+<span>Type mismatch error</span>.
+<h2> Error Origin </h2>
+<ul>
+<li>The error is saying that the code is trying to assign a value of type <code>string * float</code> to a variable of type <code>string * string</code>.</li>
+<li>In OCaml, the type of a variable is fixed and cannot be changed.</li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The error occurs when the code tries to assign the value of the expression <code>process appInfo</code> to the variable <code>test</code>. </li>
+<li>The expression <code>process appInfo</code> has type <code>string * float</code> because the function <code>process</code> is defined to take arguments of type <code>string * string</code>. </li>
+<li>The variable <code>test</code> has type <code>string * string</code> because it is declared to be of that type. </li>
+</ul>
+<h2> Solution Suggestion </h2>
+<span>You can fix the error by changing the type of the variable <code>test</code> to <code>string * float</code> or by changing the code to pass arguments of type <code>string * string</code> to the function <code>process</code>.
+
+Here is an example of how to change the type of the variable <code>test</code>:
+<code>let test: string * float = process appInfo;;</code>
+
+Here is an example of how to change the code to pass arguments of type <code>string * string</code> to the function <code>process</code>:
+<code>let test = process ("My Application", "1.5");;</code>
+</span>
+<h2> Useful Links </h2>
+<ul>
+<li> <a href="https://www.google.com/search?q=This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string."> Google Search</a> for:
+<pre><code>This expression has type string * float but an expression was expected of type string * string.
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+<div class="collapsible">
+<button class="collapsible">Unbound value appInfo2.</button>
+<div class="content">
+<h2> Error Type </h2>
+<span>Unbound variable error</span>.
+<h2> Error Origin </h2>
+<ul>
+<li>The error is saying that the variable <code>appInfo2</code> is not defined.</li>
+<li>In OCaml, you must define a variable before you can use it.</li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The error occurs when the code tries to use the variable <code>appInfo2</code> in the expression <code>process appInfo2</code>. </li>
+<li>The variable <code>appInfo2</code> is not defined anywhere in the code.</li>
+</ul>
+<h2> Solution Suggestion </h2>
+<span>You can fix the error by defining the variable <code>appInfo2</code>.
+
+<code>
+let appInfo2 = ("My Application", 1.5);
+</code>
+</span>
+<h2> Useful Links </h2>
+<ul>
+<li> <a href="https://www.google.com/search?q=Unbound+value+appInfo2."> Google Search</a> for:
+<pre><code>Unbound value appInfo2.
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: 5;appInfo;;
+
+output: #   val show_major : string -> string = <fun>
+  # val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let x = 5;;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: - : string * float = ("My Application", 1.5)
+# val x : int = 5
+# 
+code snippet: print_int 5;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: print_int x;;
+
+output: # 5- : unit = ()
+# 
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<button class="collapsible">Expression type mismatch</button>
+<div class="content">
+<h2>Error Type</h2>
+<span>The compiler detected that the expected type for an expression doesn't match the type of the returned value</span>
+
+<h2>Error Origin</h2>
+<ul>
+<li>the error originates from the 5th line of code</li>
+<li>the source of the error is trying to bind an expression with the type string * float to a variable of type string * string</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>the variable <code>appInfo</code> is of type <code>string * float</code>, and is passed as the first argument to the <code>process</code> function</li>
+<li>the <code>process</code> function expects its first argument to be of type <code>string * string</code>, so the binding is invalid</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>change the type of the <code>appInfo</code> variable to <code>string * string</code></li>
+<li>change the type of the first argument of the <code>process</code> function to <code>string * float</code></li>
+</ul>
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+Expression+type+mismatch+Error%3A+This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre><code>
+Error%3A+This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+<div>
+<button class="collapsible">Unbound value</button>
+<div class="content">
+<h2>Error Type</h2>
+<span>The compiler detected that a variable is being used without being bound to a value</span>
+
+<h2>Error Origin</h2>
+<ul>
+<li>the error originates from the last line of code</li>
+<li>the source of the error is trying to use the variable <code>appInfo2</code>, which is not bound to any value</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>the variable <code>appInfo2</code> is not defined anywhere in the code</li>
+<li>the compiler cannot find a binding for this variable, so it raises an error</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>bind the variable <code>appInfo2</code> to a value before using it</li>
+<li>change the name of the variable <code>appInfo2</code> to <code>appInfo</code></li>
+</ul>
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+Unbound+value+Error%3A+Unbound+value+appInfo2+Hint%3A+Did+you+mean+appInfo%3F">Google Search</a> for:
+<pre><code>
+Error%3A+Unbound+value+appInfo2+Hint%3A+Did+you+mean+appInfo%3F
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+<div>
+<button class="collapsible">Non-unit statement</button>
+<div class="content">
+<h2>Error Type</h2>
+<span>The compiler detected that an expression is not of type unit, but is being used in a context where a unit expression is expected</span>
+
+<h2>Error Origin</h2>
+<ul>
+<li>the error originates from the 2nd line of code</li>
+<li>the source of the error is the expression <code>5;appInfo</code>, which is not of type unit</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>the expression <code>5</code> is of type int</li>
+<li>the expression <code>appInfo</code> is of type string * float</li>
+<li>the semicolon <code>;</code> is used to separate two expressions, and the resulting expression is of type unit</li>
+<li>the expression <code>5;appInfo</code> is therefore of type string * float, which is not compatible with the expected type unit</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>remove the expression <code>5</code> from the expression <code>5;appInfo</code></li>
+<li>use the expression <code>();appInfo</code> instead of <code>5;appInfo</code></li>
+</ul>
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+Non-unit+statement+Error%3A+this+expression+should+have+type+unit.">Google Search</a> for:
+<pre><code>
+Error%3A+this+expression+should+have+type+unit.
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output:   # val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: print_int 5;;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: let test = process appInfo2;;
+
+output: - : string * float = ("My Application", 1.5)
+val x : int = 5
+# # 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: # # 5- : unit = ()
+# 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: 5- : unit = ()
+# # # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<button class="collapsible">Type mismatch</button>
+<div class="content">
+<h2>Error Type</h2>
+<span style="overflow-wrap: break-word;">Type mismatch error: the type of the expression does not match the expected type.</span>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The type of the expression provided as the argument to the <code>process</code> function does not match the expected type.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>process</code> function expects two arguments of type <code>string * string</code>, but the expression <code>appInfo</code> is of type <code>string * float</code>.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+Type+mismatch+error:+This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<code><pre> 
+This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string
+</pre></code></li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+
+<div>
+<button class="collapsible">Unbound value</button>
+<div class="content">
+<h2>Error Type</h2>
+<span style="overflow-wrap: break-word;">Unbound value error: the variable used in the expression is not defined in the current scope.</span>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The variable <code>appInfo2</code> is used in the expression, but it is not defined in the current scope.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>process</code> function is called with the argument <code>appInfo2</code>, but there is no definition for <code>appInfo2</code> in the current scope.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+Unbound+value+error:+Unbound+value+appInfo2">Google Search</a> for:
+<code><pre> 
+Unbound value appInfo2
+</pre></code></li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: 5;appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output:   # val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: print_int 5;;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: let test = process appInfo2;;
+
+output: - : string * float = ("My Application", 1.5)
+val x : int = 5
+# # 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: # # 5- : unit = ()
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<p>
+<button class="collapsible">Type Mismatch Error</button>
+<div class="content">
+<h2>Error Type</h2>
+<p>The error is a type mismatch error. It occurs when a function or expression is given a value of a type that is not compatible with the type that the function or expression expects.</p>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The error originates from the call to the <code>process</code> function.</li>
+<li>The <code>process</code> function expects its first argument to be of type <code>string * string</code>, but the first argument in the call is of type <code>string * float</code>.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>appInfo</code> variable is of type <code>string * float</code>.</li>
+<li>The <code>process</code> function is called with the <code>appInfo</code> variable as the first argument.</li>
+<li>The <code>process</code> function tries to concatenate the first argument with the result of calling the <code>show_major</code> function on the second argument.</li>
+<li>The <code>show_major</code> function expects its argument to be of type <code>string</code>, but the second argument in the call is of type <code>float</code>.</li>
+<li>The <code>process</code> function returns a string, but the result of the call is expected to be of type <code>float</code>.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the first argument of the <code>process</code> function to <code>string * string</code>.</li>
+<li>Change the type of the second argument of the <code>show_major</code> function to <code>float</code>.</li>
+<li>Change the type of the result of the <code>process</code> function to <code>string</code>.</li>
+</ul>
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+Type+Mismatch+Error+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre>
+<code>
+This expression has type string * floatbut an expression was expected of type string * stringType float is not compatible with type string
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+
+<button class="collapsible">Non-Unit Statement Warning</button>
+<div class="content">
+<h2>Error Type</h2>
+<p>The warning is a non-unit statement warning. It occurs when an expression is used in a context where a unit value is expected.</p>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The warning originates from the expression <code>5</code>.</li>
+<li>The expression <code>5</code> is used in a <code>let</code> binding, which expects a unit value.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The expression <code>5</code> evaluates to an integer value.</li>
+<li>The <code>let</code> binding tries to bind the integer value to the variable <code>x</code>.</li>
+<li>The <code>let</code> binding expects a unit value, but the integer value is not a unit value.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the expression <code>5</code> to <code>()</code>, which is a unit value.</li>
+</ul>
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+Non-Unit+Statement+Warning+this+expression+should+have+type+unit.">Google Search</a> for:
+<pre>
+<code>
+this expression should have type unit.
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+
+<button class="collapsible">Unbound Value Error</button>
+<div class="content">
+<h2>Error Type</h2>
+<p>The error is an unbound value error. It occurs when a variable is used before it has been bound to a value.</p>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The error originates from the call to the <code>process</code> function.</li>
+<li>The <code>process</code> function is called with the variable <code>appInfo2</code> as the second argument.</li>
+<li>The variable <code>appInfo2</code> has not been bound to a value.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The <code>process</code> function expects its second argument to be of type <code>string</code>.</li>
+<li>The variable <code>appInfo2</code> is not bound to a value, so it does not have a type.</li>
+<li>The <code>process</code> function tries to concatenate the first argument with the second argument, but the second argument is not of type <code>string</code>.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Bind the variable <code>appInfo2</code> to a value before calling the <code>process</code> function.</li>
+</ul>
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+Unbound+Value+Error+Unbound+value+appInfo2">Google Search</a> for:
+<pre>
+<code>
+Unbound value appInfo2
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</p>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# # 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+# # 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val x : int = 5
+# 
+code snippet: let test = process appInfo2;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: ;;
+
+output: # 5- : unit = ()
+# 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # # 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<button class="collapsible">Non-Unit-Statement</button>
+<div class="content">
+<h2> Error Type </h2>
+<span> This expression should have type unit, meaning this expression doesn't return anything. </span>
+<h2> Error Origin </h2>
+<ul>
+<li> The last line contains the non-unit-statement. </li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> The last line is just a semicolon, meaning that it returns a unit type. </li>
+</ul>
+<h2> Solution Suggestion </h2>
+<ul>
+<li> This is most likely a mistake in this line, wrap it up inside a function that returns type unit. </li>
+<li> Or, just remove the semicolon from the line, as it would just return a unit type implicitly. </li>
+</ul>
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+non-unit-statement+Warning+10"> Google Search</a> for:
+<pre><code>this expression should have type unit
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+
+<div>
+<button class="collapsible">Type Mismatch</button>
+<div class="content">
+<h2> Error Type </h2>
+<span> This expression has type <code>string * float</code> but an expression was expected of type <code>string * string</code>. </span>
+<h2> Error Origin </h2>
+<ul>
+<li> The function <code>process</code> expects two inputs of type <code>string</code>. </li>
+<li> The first argument of the function <code>process</code> has type <code>string * float</code>, which is not compatible with <code>string</code>. </li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> Function <code>process</code> takes in two arguments, <code>name</code> and <code>vers</code>, both of type <code>string</code>. </li>
+<li> The variable <code>appInfo</code> has type <code>string * float</code>, which is not compatible with <code>string</code>. </li>
+</ul>
+<h2> Solution Suggestion </h2>
+<ul>
+<li> Change the type of <code>vers</code> in <code>appInfo</code> to <code>string</code>. </li>
+<li> Create a new variable of type <code>string</code> and assign it the value of <code>vers</code>. </li>
+</ul>
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+typemismatch+Error+Type+float+is+not+compatible+with+type+string"> Google Search</a> for:
+<pre><code>This expression has type string * float
+but an expression was expected of type string * string
+Type float is not compatible with type string
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+
+<div>
+<button class="collapsible">Unbound Value</button>
+<div class="content">
+<h2> Error Type </h2>
+<span> This error occurs when you try to use a variable that has not been defined yet. </span>
+<h2> Error Origin </h2>
+<ul>
+<li> The function <code>process</code> expects two inputs, <code>name</code> and <code>vers</code>, both of type <code>string</code>. </li>
+<li> The variable <code>appInfo2</code> has not been defined, so it does not have a value. </li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> Function <code>process</code> takes in two arguments, <code>name</code> and <code>vers</code>, both of type <code>string</code>. </li>
+<li> The variable <code>appInfo2</code> has not been defined, so it does not have a value. </li>
+</ul>
+<h2> Solution Suggestion </h2>
+<ul>
+<li> Define the variable <code>appInfo2</code> and assign it a value. </li>
+</ul>
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=OCaml+Unbound+Value+Error+did+you+mean"> Google Search</a> for:
+<pre><code>Unbound value appInfo2
+Hint: Did you mean appInfo?
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: 5;appInfo;;
+
+output:   #     val show_major : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# # 
+code snippet: let test = process appInfo;;
+
+output: val process : string * string -> string = <fun>
+# Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: - : string * float = ("My Application", 1.5)
+# val x : int = 5
+# 
+code snippet: print_int 5;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: let test = process appInfo2;;
+
+output: 5- : unit = ()
+# 
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: ;;
+
+output: # Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+  <button class="collapsible">Unbound value error</button>
+  <div class="content">
+    <h2>Error Type</h2>
+    <span>This error type indicates that the compiler cannot find the variable referenced in the code.</span>
+    <h2>Error Origin</h2>
+    <ul>
+      <li>The variable name is misspelled.</li>
+      <li>The variable is not defined in the current scope.</li>
+      <li>The variable is defined in a different module and not imported.</li>
+    </ul>
+    <h2>Error Data Flow Explanation</h2>
+    <ul>
+      <li>The compiler checks the variable name against the list of defined variables in the current scope.</li>
+      <li>If the variable is not found, the compiler generates an error.</li>
+    </ul>
+    <h2>Solution Suggestion</h2>
+    <ul>
+      <li>Check the spelling of the variable name.</li>
+      <li>Make sure the variable is defined in the current scope.</li>
+      <li>If the variable is defined in a different module, import the module.</li>
+    </ul>
+    <h2>Useful Links</h2>
+    <ul>
+      <li>
+        <a href="https://google.com/search?q=OCaml+Unbound+value+error:+Line+1%2C+characters+19-27%3A+Error%3A+Unbound+value+appInfo2%3BappInfo2">
+          Google Search
+        </a>
+        for:
+        <pre><code>Unbound value error: Line 1, characters 19-27: Error: Unbound value appInfo2</code></pre>
+      </li>
+      <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+      <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+    </ul>
+    <br />
+  </div>
+</div>
+<div>
+  <button class="collapsible">Type Mismatch error</button>
+  <div class="content">
+    <h2>Error Type</h2>
+    <span>
+      This error type indicates that the type of the expression does not match the type expected by the surrounding context.
+    </span>
+    <h2>Error Origin</h2>
+    <ul>
+      <li>The expression is of the wrong type.</li>
+      <li>The function or operator expects a different type of argument.</li>
+    </ul>
+    <h2>Error Data Flow Explanation</h2>
+    <ul>
+      <li>The compiler checks the type of the expression against the expected type.</li>
+      <li>If the types do not match, the compiler generates an error.</li>
+    </ul>
+    <h2>Solution Suggestion</h2>
+    <ul>
+      <li>Check the types of the variables involved.</li>
+      <li>Make sure the expression is of the correct type.</li>
+      <li>If necessary, cast the expression to the correct type.</li>
+    </ul>
+    <h2>Useful Links</h2>
+    <ul>
+      <li>
+        <a href="https://google.com/search?q=OCaml+Type+Mismatch+error%3A+Line+1%2C+characters+19-26%3A+Error%3A+This+expression+has+type+string+*+float+but+an+expression+was+expected+of+type+string+*+string%0AType+float+is+not+compatible+with+type+string">
+          Google Search
+        </a>
+        for:
+        <pre><code>Type Mismatch error: Line 1, characters 19-26: Error: This expression has type string * float but an expression was expected of type string * string
+Type float is not compatible with type string</code></pre>
+      </li>
+      <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+      <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+    </ul>
+    <br />
+  </div>
+</div>
+<div>
+  <button class="collapsible">Non-unit-statement warning</button>
+  <div class="content">
+    <h2>Error Type</h2>
+    <span>This warning indicates that the expression does not have type unit, which is expected in this context.</span>
+    <h2>Error Origin</h2>
+    <ul>
+      <li>The expression is of a different type than unit.</li>
+      <li>The expression has side effects, such as printing to the console.</li>
+    </ul>
+    <h2>Error Data Flow Explanation</h2>
+    <ul>
+      <li>The compiler checks the type of the expression against the expected type.</li>
+      <li>If the type of the expression is not unit, the compiler generates a warning.</li>
+    </ul>
+    <h2>Solution Suggestion</h2>
+    <ul>
+      <li>Check the type of the expression.</li>
+      <li>If the expression has side effects, use a different expression that does not have side effects.</li>
+    </ul>
+    <h2>Useful Links</h2>
+    <ul>
+      <li>
+        <a href="https://google.com/search?q=OCaml+Non-unit-statement+warning%3A+Line+1%2C+characters+0-1%3A+Warning+10+%5Bnon-unit-statement%5D%3A+this+expression+should+have+type+unit.">
+          Google Search
+        </a>
+        for:
+        <pre><code>Non-unit-statement warning: Line 1, characters 0-1: Warning 10 [non-unit-statement]: this expression should have type unit.</code></pre>
+      </li>
+      <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+      <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+    </ul>
+    <br />
+  </div>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+  # 
+code snippet: let test = process appInfo;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: print_int 5;;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+
+code snippet: let test = process appInfo2;;
+
+output: val x : int = 5
+# # 
+code snippet: print_int x;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: # # 5- : unit = ()
+# 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<button class="collapsible">Error: This expression has type string * float<br> but an expression was expected of type string * string<br> Type float is not compatible with type string</button>
+<div class="content">
+<h2> Error Type </h2> <span style="overflow-wrap: break-word;"> Type Mismatch Error </span><br>
+<h2> Error Origin </h2>
+<ul>
+<li> The error originates from the call to the <code>process</code> function</li>
+<li>The <code>process</code> function expects two strings as arguments, but it is being called with a string and a float.</li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> The <code>parse_version</code> function returns a string.</li>
+<li> The <code>show_major</code> function returns a string.</li>
+<li> The <code>process</code> function expects two strings as arguments, but it is being called with a string and a float.</li>
+<li> The error occurs when the <code>process</code> function tries to concatenate the string and the float.</li>
+</ul>
+<h2> Solution Suggestion </h2>
+<span style="overflow-wrap: break-word;">Change the type of the second argument to the <code>process</code> function to be a string.</span><br>
+<code>
+let test = process ("My Application", "1.5");;
+</code>
+<h2> Useful Links </h2>
+<ul>
+<li> <a href="https://www.google.com/search?q=OCaml+Error%3A+This+expression+has+type+string+%2A+float%3B+but+an+expression+was+expected+of+type+string+%2A+string%3B+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre><code>OCaml Error: This expression has type string * float; but an expression was expected of type string * string; Type float is not compatible with type string
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+<br>
+<div>
+<button class="collapsible">Error: Unbound value appInfo2</button>
+<div class="content">
+<h2> Error Type </h2> <span style="overflow-wrap: break-word;"> Unbound Value Error </span><br>
+<h2> Error Origin </h2>
+<ul>
+<li> The error originates from the call to the <code>process</code> function</li>
+<li>The <code>process</code> function expects two strings as arguments, but it is being called with a string and a float.</li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> The <code>parse_version</code> function returns a string.</li>
+<li> The <code>show_major</code> function returns a string.</li>
+<li> The <code>process</code> function expects two strings as arguments, but it is being called with a string and a float.</li>
+<li> The error occurs when the <code>process</code> function tries to concatenate the string and the float.</li>
+</ul>
+<h2> Solution Suggestion </h2>
+<span style="overflow-wrap: break-word;">Change the type of the second argument to the <code>process</code> function to be a string.</span><br>
+<code>
+let test = process ("My Application", "1.5");;
+</code>
+<h2> Useful Links </h2>
+<ul>
+<li> <a href="https://www.google.com/search?q=OCaml+Error%3A+Unbound+value+appInfo2">Google Search</a> for:
+<pre><code>OCaml Error: Unbound value appInfo2
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+<br>
+<div>
+<button class="collapsible">Warning: this expression should have type unit.</button>
+<div class="content">
+<h2> Error Type </h2> <span style="overflow-wrap: break-word;"> Non Unit Statement Error </span><br>
+<h2> Error Origin </h2>
+<ul>
+<li> The warning originates from the assignment of the <code>appInfo</code> tuple to a variable of type <code>unit</code>.</li>
+<li>This is because the <code>appInfo</code> tuple has type <code>string * float</code>, which is not compatible with the <code>unit</code> type.</li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> The <code>appInfo</code> tuple is assigned to the variable <code>appInfo</code>.</li>
+<li> The <code>appInfo</code> variable is of type <code>unit</code>.</li>
+<li> The error occurs when the compiler checks the type of the assignment.</li>
+</ul>
+<h2> Solution Suggestion </h2>
+<span style="overflow-wrap: break-word;">Change the type of the <code>appInfo</code> variable to be compatible with the type of the <code>appInfo</code> tuple.</span><br>
+<code>
+let appInfo: string * float = ("My Application", 1.5);;
+</code>
+<h2> Useful Links </h2>
+<ul>
+<li> <a href="https://www.google.com/search?q=OCaml+Warning%3A+this+expression+should+have+type+unit.">Google Search</a> for:
+<pre><code>OCaml Warning: this expression should have type unit.
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: 5;appInfo;;
+
+output: #   val show_major : string -> string = <fun>
+  # 
+code snippet: let x = 5;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process appInfo;;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+# 
+code snippet: print_int 5;;
+
+output: val x : int = 5
+# Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: let test = process appInfo2;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: print_int x;;
+
+output: # 5- : unit = ()
+
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+# 5- : unit = ()
+
+code snippet: undefined
+output: # # 
+Incrementing request values
+Sent request to Google Generative AI
+<div class="section">
+<button class="collapsible">Type Mismatch</button>
+<div class="content">
+<h2>Error Type</h2>
+<span>Type Mismatch is an error that happens when the type of the expression does not match the type that is expected by the type system. This error usually occurs when a function is applied to arguments of the wrong type or when a value of one type is assigned to a variable of another type.</span> 
+<h2>Error Origin</h2>
+<span>The origin of this error is the line:
+let test = process appInfo;;
+This is caused by the type mismatch between the expected type of the expression and the actual type of the expression.</span>
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The function application <code>process appInfo</code> expects two arguments of type <code>string</code> but the actual argument <code>appInfo</code> is a <code>string * float</code>.</li>
+</ul>
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the <code>appInfo</code> variable to <code>string * string</code>.</li>
+<li>Modify the <code>process</code> function to accept arguments of type <code>string * float</code>.</li>
+</ul>
+ <h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=%3A+string+%2A+float+is+not+compatible+with+type+string+%2A+string">Google Search</a> for:
+<pre><code>This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+
+<div class="section">
+<button class="collapsible">Unbound Value</button>
+<div class="content">
+<h2>Error Type</h2>
+<span>Unbound value error occurs when a variable is used before it has been defined. This error can be caused by a typo in the variable name or by a missing definition for the variable.</span> 
+<h2>Error Origin</h2>
+<span>The origin of this error is the line:
+let test = process appInfo2;;
+This is caused by the unbound variable <code>appInfo2</code>.</span>
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The variable <code>appInfo2</code> is used in the function application <code>process appInfo2</code>, but it is not defined in the current scope.</li>
+</ul>
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Define the variable <code>appInfo2</code> before using it.</li>
+<li>Change the variable name <code>appInfo2</code> to <code>appInfo</code>.</li>
+</ul>
+ <h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=%3A+Unbound+value+appInfo2%22%27%22">Google Search</a> for:
+<pre><code>Unbound value appInfo2</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+
+<div class="section">
+<button class="collapsible">Non-Unit-Statement</button>
+<div class="content">
+<h2>Error Type</h2>
+<span>A non-unit statement error occurs when an expression that is not of type <code>unit</code> is used in a context that expects a <code>unit</code> expression. This error can be caused by a missing semicolon at the end of an expression or by using an expression that has a side effect in a context that expects a pure expression.</span> 
+<h2>Error Origin</h2>
+<span>The origin of this error is the line 
+appInfo;;.
+This is caused by the expression <code>appInfo</code> not being of type <code>unit</code>.</span>
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li>The expression <code>appInfo</code> is of type <code>string * float</code>, but the context expects an expression of type <code>unit</code>.</li>
+</ul>
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Add a semicolon at the end of the expression <code>appInfo</code>.</li>
+</ul>
+ <h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=%3A+this+expression+should+have+type+unit.">Google Search</a> for:
+<pre><code>this expression should have type unit.</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: 5;appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process appInfo2;;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+- : string * float = ("My Application", 1.5)
+# val x : int = 5
+
+code snippet: print_int x;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# # 
+code snippet: ;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # # 5- : unit = ()
+# # 
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: 5;appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process appInfo2;;
+
+output: # # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: print_int x;;
+
+output: - : string * float = ("My Application", 1.5)
+# val x : int = 5
+
+code snippet: ;;
+
+output: Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# # 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # # 5- : unit = ()
+# # 
+

@@ -12,7 +12,7 @@ let requestsPerDay: number = 0;
 let lastResetDate: string = "";
 let lastMinuteResetTime: number = Date.now();
 
-export async function checkAndRunRequests(context: vscode.ExtensionContext, code: string, errors: string) {
+export async function checkAndRunRequests(context: vscode.ExtensionContext, code: string, errors: string, panel: vscode.WebviewPanel) {
 	//if there are errors, and run the AI and show the results
 
 	let canContinue = await updateAndCheckRequests(context);
@@ -20,23 +20,13 @@ export async function checkAndRunRequests(context: vscode.ExtensionContext, code
 	if (!canContinue) {
 		return true;
 	}
-	//use the generated web panel with no error no warning only output
-	let panel = vscode.window.createWebviewPanel(
-		"llm-generated-explanations",
-		"LLM Generated Explanations",
-		vscode.ViewColumn.Two,
-		{ enableScripts: true }
-	);
-	panel.webview.html = generateLoadingWebViewContent();
-
 	//let response = await sendAwanllmRequest(context);
 	let response = await sendGeminiRequest(context, code, errors);
 
-	panel.webview.html = genereateAIResultsWebViewContent(
-		context,
-		response,
-		errors
-	);
+	panel.webview.postMessage({
+		command: "ai_results",
+		value: response,
+	});
 }
 
 

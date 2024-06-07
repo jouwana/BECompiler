@@ -19,10 +19,14 @@ export class ResultPanel {
 	public static currentFilePath: string | undefined;
 	public static extensionContext: vscode.ExtensionContext | undefined;
 
+	public static getWebview(): vscode.WebviewPanel {
+		return ResultPanel.currentPanel!._panel;
+	}
+
 	public static createOrShow(context: vscode.ExtensionContext) {
 		let extensionUri = context.extensionUri;
 		const column = vscode.window.activeTextEditor
-			? vscode.window.activeTextEditor.viewColumn
+			? vscode.ViewColumn.Beside
 			: undefined;
 		ResultPanel.extensionContext = context;
 		console.log("current file path: ", vscode.window.activeTextEditor?.document.uri.fsPath);
@@ -136,7 +140,7 @@ export class ResultPanel {
 					}
 
 					//sent to compiler
-					sequentialUtopSpawn(ResultPanel.extensionContext!, ResultPanel.currentFilePath);
+					sequentialUtopSpawn(ResultPanel.extensionContext!, ResultPanel.currentFilePath, this._panel);
 					break;
 				}
 				case "runLLM":{
@@ -146,7 +150,14 @@ export class ResultPanel {
 						return;
 					}
 
-					checkAndRunRequests(ResultPanel.extensionContext!, PROMPT_CODE_EXAMPLE, PROMPT_ERROR_EXAMPLE);
+					if(!data.value){
+						vscode.window.showErrorMessage("no compilation resutls found, please recompile first");
+						return;
+					}
+
+					let compilation_results = data.value;
+
+					checkAndRunRequests(ResultPanel.extensionContext!, compilation_results, "", this._panel);
 					break;
 				}
 			}
