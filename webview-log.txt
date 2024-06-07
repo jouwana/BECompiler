@@ -96,3 +96,745 @@ code snippet: undefined
 output: 32
 # 
 toggle panel clicked in webview
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: # # - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # 32
+
+toggle panel clicked in webview
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: let test = process appInfo2;;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: print_int x;;
+
+output: - : string * float = ("My Application", 1.5)
+val x : int = 5
+# # Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: # 5- : unit = ()
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# # 
+code snippet: undefined
+output: Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # 5- : unit = ()
+# 
+toggle panel clicked in webview
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: val appInfo : string * float = ("My Application", 1.5)
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: # # 
+code snippet: print_int 5;;
+
+output: val process : string * string -> string = <fun>
+Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: - : string * float = ("My Application", 1.5)
+# # val x : int = 5
+
+code snippet: let test = process appInfo2;;
+
+output: # Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+# 
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+# 5- : unit = ()
+
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: undefined
+output: # Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+
+code snippet: undefined
+output: # 5- : unit = ()
+# 
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+output:   val parse_version : string -> string = <fun>
+  # 
+code snippet: let appInfo = ("My Application", "1.5");;
+
+output:     val show_major : string -> string = <fun>
+# 
+code snippet: ignore (5);appInfo;;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: undefined
+output: 32
+
+toggle panel clicked in webview
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let x = 5;;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: let test = process appInfo;;
+
+output: # val appInfo : string * float = ("My Application", 1.5)
+# 
+code snippet: let test = process ("My Application", "1.5");;
+
+output: val process : string * string -> string = <fun>
+
+code snippet: print_int 5;;
+
+output: # Line 1, characters 0-1:
+Warning 10 [non-unit-statement]: this expression should have type unit.
+
+code snippet: let test = process ("My Application", "1.5");;
+
+output: - : string * float = ("My Application", 1.5)
+val x : int = 5
+
+code snippet: let test = process appInfo2;;
+
+output: # # Line 1, characters 19-26:
+Error: This expression has type string * float
+       but an expression was expected of type string * string
+       Type float is not compatible with type string 
+
+code snippet: print_int x;;
+
+output: val test : string = "My ApplicationMajor version: 1.5"
+
+code snippet: ;;
+
+output: # # 5- : unit = ()
+# 
+code snippet: undefined
+output: val test : string = "My ApplicationMajor version: 1.5"
+# Line 1, characters 19-27:
+Error: Unbound value appInfo2
+code snippet: undefined
+output: 
+Hint: Did you mean appInfo?
+# 
+code snippet: undefined
+output: 5- : unit = ()
+# # 
+
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: undefined
+output: val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # 32
+
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+output:   val parse_version : string -> string = <fun>
+  # 
+code snippet: let appInfo = ("My Application", "1.5");;
+
+output:   val show_major : string -> string = <fun>
+  # 
+code snippet: ignore (5);appInfo;;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: undefined
+output: 32
+
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+Congratulations, your extension "BEC" is now active!
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: undefined
+output: val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: # - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # 32
+
+toggle panel clicked in webview
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output: # val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # 32
+
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+output:     val parse_version : string -> string = <fun>
+# 
+code snippet: let appInfo = ("My Application", "1.5");;
+
+output:   val show_major : string -> string = <fun>
+  # 
+code snippet: ignore (5);appInfo;;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: undefined
+output: 32
+
+toggle panel clicked in webview
+Congratulations, your extension "BEC" is now active!
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span style with overflow wrap to next line>Type Mismatch Error: </span>
+<span style with overflow wrap to next line>The type of the received value does not match the expected type. In this case, the function <code>process</code> expects a tuple of two strings, but it was given a tuple of a string and a float.</span>
+<h2> Error Origin </h2>
+<ul>
+  <li> Function <code>process</code> expects a tuple of two strings as input. </li>
+  <li> <code>appInfo</code> is a tuple of a string and a float. </li>
+  <li> When <code>process</code> is applied to <code>appInfo</code>, the type of the second element of the tuple does not match the expected type. </li>
+</ul>
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> The function <code>process</code> is called with the argument <code>appInfo</code>. </li>
+<li> <code>appInfo</code> is a tuple of a string and a float. </li>
+<li> The first element of the tuple is passed to the function <code>name</code>. </li>
+<li> The second element of the tuple is passed to the function <code>parse_version</code>. </li>
+<li> The result of calling <code>parse_version</code> is passed to the function <code>show_major</code>. </li>
+<li> The result of calling <code>show_major</code> is concatenated with the result of calling <code>name</code> and the result is returned by the function <code>process</code>. </li>
+</ul>
+<h2> Solution Suggestion </h2>
+<ul>
+<li> Change the type of the second element of the tuple <code>appInfo</code> to a string. </li>
+<li> Change the definition of the function <code>process</code> to accept a tuple of a string and a float. </li>
+<code>
+let process (name, vers) =
+  if vers <. 1.0 then "Major version: " ^ name else name
+</code>
+</ul>
+
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://www.google.com/search?q=ocaml+type+mismatch+error+expected+string+got+float&amp;oq=ocaml+type+mismatch+error+expected+string+got+float&amp;aqs=chrome..69i57.2376j0j4&amp;sourceid=chrome&amp;ie=UTF-8"> Google Search</a> for:
+<pre>
+<code>
+type mismatch error: expected string, got float
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+Incrementing request values
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let appInfo = ("My Application", "1.5");;
+
+output: val parse_version : string -> string = <fun>
+#     
+code snippet: ignore (5);appInfo;;
+
+output: val show_major : string -> string = <fun>
+# 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: ;;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: 32
+
+toggle panel clicked in webview
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<span style="white-space: nowrap;">Type Mismatch Error:</span> <span style="white-space: nowrap;">The expression has a type that is not compatible with the type expected by the context.</span> 
+
+<h2> Error Origin </h2>
+<ul>
+<li>The error is on line 14, characters 19-26, in the expression: <code>process appInfo</code> </li>
+<li><code>process</code> expects two strings as input, but <code>appInfo</code> is a tuple containing a string and a float.</li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li>The expression <code>process appInfo</code> is type-checked by the compiler.</li>
+<li>The compiler determines that <code>process</code> expects two strings as input.</li>
+<li>The compiler determines that <code>appInfo</code> is a tuple containing a string and a float.</li>
+<li>The compiler reports an error because the type of <code>appInfo</code> is not compatible with the type expected by <code>process</code>.</li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li>Change the type of <code>appInfo</code> to a tuple of two strings.</li>
+<code>let appInfo = ("My Application", "1.5")</code>
+<li>Change the type of <code>vers</code> in the <code>parse_version</code> function to float.</li>
+<li>Provide a custom implementation of <code>parse_version</code> that returns a float.</li>
+</ul>
+
+<h2> Useful Links </h2>
+<ul>
+<li><a href="https://google.com/search?q=File+%27d%3A%2F%2FDesktop%2Focaml_Test%2Ftest.ml%27%2C+line+14%2C+characters+19-26%3A+14+%7C+let+test+%3D+process+appInfo%0A^^^^^^^%0AError%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string"> Google Search</a> for:
+<pre>
+<code>
+File 'd:/Desktop/ocaml_Test/test.ml', line 14, characters 19-26:
+14 | let test = process appInfo
+^^^^^^^
+Error: This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</div>
+Incrementing request values
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let appInfo = ("My Application", "1.5");;
+
+output: val parse_version : string -> string = <fun>
+#   
+code snippet: ignore (5);appInfo;;
+
+output: val show_major : string -> string = <fun>
+  # val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: - : string * string = ("My Application", "1.5")
+
+code snippet: ;;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: 32
+
+toggle panel clicked in webview
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<span style overflow wrap to next line>Type Mismatch</span>:
+<ul>
+<li> The expression's type does not match the expected type.</li>
+</ul>
+
+<h2>Error Origin</h2>
+<ul>
+<li> The expression <code>process appInfo</code>.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li> The <code>process</code> function expects two strings as arguments, but the expression <code>appInfo</code> is a pair of a string and a float.</li>
+<li> The type of <code>appInfo</code> is <code>string * float</code>, but the type of the first argument of <code>process</code> is <code>string</code>.</li>
+<li> The compiler cannot automatically convert a value of type <code>string * float</code> to a value of type <code>string</code>, so it reports an error.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of the second component of the <code>appInfo</code> pair to <code>string</code>:</li>
+<code>
+let appInfo = ("My Application", "1.5")
+</code>
+<li>Use a pattern match to extract the string from the pair:</li>
+<code>
+let process (name, vers) =
+  match vers with
+  | s -> name ^ show_major (parse_version s)
+</code>
+</ul>
+
+<h2>Useful Links</h2>
+<li><a href="https://www.google.com/search?q=Error%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre>
+<code>
+This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string
+</code>
+</pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</br>
+</div>
+Incrementing request values
+Congratulations, your extension "BEC" is now active!
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+# 
+code snippet: let show_major (s: string): string =
+  (* Dummy implementation that returns a string indicating major version *)
+  "Major version: " ^ s;;
+
+output:   val parse_version : string -> string = <fun>
+  # 
+code snippet: let appInfo = ("My Application", "1.5");;
+
+output:   val show_major : string -> string = <fun>
+  # 
+code snippet: ignore (5);appInfo;;
+
+output: val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: let process (name, vers) = name ^ show_major (parse_version vers);;
+
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val process : string * string -> string = <fun>
+# 
+code snippet: undefined
+output: 32
+
+toggle panel clicked in webview
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2>Error Type</h2>
+<span>The error type is <b>Type Mismatch</b> which means that the types of the two expressions do not match.</span>
+
+<h2>Error Origin</h2>
+<ul>
+<li>The error originates from the call to <code>process</code> with the argument <code>appInfo</code>.</li>
+<li><code>process</code> expects arguments of type <code>string * string</code>, but <code>appInfo</code> has type <code>string * float</code>.</li>
+</ul>
+
+<h2>Error Data Flow Explanation</h2>
+<ul>
+<li><code>appInfo</code> is a tuple of type <code>string * float</code>.</li>
+<li><code>process</code> expects a tuple of type <code>string * string</code>.</li>
+<li>The compiler cannot convert a <code>float</code> to a <code>string</code>, so the call to <code>process</code> with <code>appInfo</code> results in a type mismatch error.</li>
+</ul>
+
+<h2>Solution Suggestion</h2>
+<ul>
+<li>Change the type of <code>appInfo</code> to <code>string * string</code>.</li>
+<li>Change the type of <code>vers</code> in the <code>process</code> function to <code>float</code>.</li>
+<li>Add a conversion from <code>float</code> to <code>string</code> before calling <code>process</code>.</li>
+<ul><span>For example: <code>let test = process (name, string_of_float vers)</code>.</span>
+</ul>
+</ul>
+
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string+Type+float+is+not+compatible+with+type+string">Google Search</a> for:
+<pre><code>
+This expression has type string * float but an expression was expected of type string * string Type float is not compatible with type string
+</code></pre>
+</li>
+<li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>
+<li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>
+</ul>
+</br>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: undefined
+output: val appInfo : string * string = ("My Application", "1.5")
+
+code snippet: undefined
+output: # - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # 32
+
+toggle panel clicked in webview
+Incrementing request values
+Sent request to Google Generative AI
+<div>
+<h2> Error Type </h2>
+<ul>
+<li> Type Mismatch Error </li>
+</ul>
+
+<h2> Error Origin </h2>
+<ul>
+<li> The function <code>process</code> expects a <code>string * string</code> as an argument, but is given a <code>string * float</code> instead. </li>
+<li> The function <code>parse_version</code> returns a <code>string</code>, but is called with a <code>float</code> as an argument. </li>
+</ul>
+
+<h2> Error Data Flow Explanation </h2>
+<ul>
+<li> The function <code>process</code> is called with the tuple <code>appInfo</code>, which has the type <code>string * float</code>.  </li>
+<li> The function <code>parse_version</code> is called with the second element of the tuple, which is a <code>float</code>.  </li>
+<li> The function <code>parse_version</code> returns a <code>string</code>, which is then passed to the function <code>show_major</code>.  </li>
+<li> The function <code>show_major</code> returns a <code>string</code>, which is then concatenated with the name of the application using the <code>^</code> operator. </li>
+<li> The result of the concatenation is a <code>string</code>, which is then assigned to the variable <code>test</code>. </li>
+</ul>
+
+<h2> Solution Suggestion </h2>
+<ul>
+<li> Change the type of the second argument of the function <code>process</code> to <code>float</code>. </li>
+<li> Change the implementation of the function <code>parse_version</code> to return a <code>float</code>. </li>
+<li> Pass a <code>float</code> to the function <code>parse_version</code>. </li>
+<li> Remove the concatenation operation and simply assign the result of the function <code>show_major</code> to the variable <code>test</code>. </li>
+</ul>
+
+<code>
+let process (name, vers: float) = name ^ show_major (parse_version vers)
+</code>
+
+<br>
+
+<h2> Useful Links </h2>
+<li> <a href="https://www.google.com/search?q=ocaml+type+mismatch+error%3A+This+expression+has+type+string+%2A+float+but+an+expression+was+expected+of+type+string+%2A+string"> Google Search</a> for:
+<pre><code>
+ocaml type mismatch error: This expression has type string * float but an expression was expected of type string * string
+</code></pre>
+</li>
+<li> <a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a> </li>
+<li> <a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a> </li>
+</div>
+data read at start: OCaml version 4.14.0
+Enter #help;; for help.
+
+
+code snippet: ignore (5);appInfo;;
+
+output: val parse_version : string -> string = <fun>
+
+code snippet: let () = print_int (String.length (process appInfo));;
+
+output: val show_major : string -> string = <fun>
+
+code snippet: ;;
+
+output:   # val appInfo : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: - : string * string = ("My Application", "1.5")
+# 
+code snippet: undefined
+output: val process : string * string -> string = <fun>
+
+code snippet: undefined
+output: # # 
+code snippet: undefined
+output: # 32
+
+toggle panel clicked in webview

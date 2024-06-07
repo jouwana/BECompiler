@@ -1,5 +1,8 @@
 import * as vscode from "vscode";
 import { getNonce } from "./nonce";
+import { sequentialUtopSpawn } from "./compilers";
+import { checkAndRunRequests } from "./ai_helpers";
+import { PROMPT_CODE_EXAMPLE, PROMPT_ERROR_EXAMPLE } from "./consts";
 
 export class ResultPanel {
 	/**
@@ -13,10 +16,21 @@ export class ResultPanel {
 	private readonly _extensionUri: vscode.Uri;
 	private _disposables: vscode.Disposable[] = [];
 
-	public static createOrShow(extensionUri: vscode.Uri) {
+	public static currentFilePath: string | undefined;
+	public static extensionContext: vscode.ExtensionContext | undefined;
+
+	public static createOrShow(context: vscode.ExtensionContext) {
+		let extensionUri = context.extensionUri;
 		const column = vscode.window.activeTextEditor
 			? vscode.window.activeTextEditor.viewColumn
 			: undefined;
+		ResultPanel.extensionContext = context;
+		console.log("current file path: ", vscode.window.activeTextEditor?.document.uri.fsPath);
+		console.log("context is null? ", ResultPanel.extensionContext === undefined);
+			ResultPanel.currentFilePath =
+				vscode.window.activeTextEditor?.document.uri.fsPath;
+		
+
 
 		// If we already have a panel, show it.
 		if (ResultPanel.currentPanel) {
@@ -24,6 +38,7 @@ export class ResultPanel {
 			ResultPanel.currentPanel._update();
 			return;
 		}
+
 
 		// Otherwise, create a new panel.
 		const panel = vscode.window.createWebviewPanel(
@@ -42,7 +57,7 @@ export class ResultPanel {
 			}
 		);
 
-		ResultPanel.currentPanel = new ResultPanel(panel, extensionUri);
+		ResultPanel.currentPanel = new ResultPanel(panel, context);
 	}
 
 	public static kill() {
@@ -50,13 +65,13 @@ export class ResultPanel {
 		ResultPanel.currentPanel = undefined;
 	}
 
-	public static revive(panel: vscode.WebviewPanel, extensionUri: vscode.Uri) {
-		ResultPanel.currentPanel = new ResultPanel(panel, extensionUri);
+	public static revive(panel: vscode.WebviewPanel, context: vscode.ExtensionContext) {
+		ResultPanel.currentPanel = new ResultPanel(panel, context);
 	}
 
-	private constructor(panel: vscode.WebviewPanel, extensionUri: vscode.Uri) {
+	private constructor(panel: vscode.WebviewPanel, context: vscode.ExtensionContext) {
 		this._panel = panel;
-		this._extensionUri = extensionUri;
+		this._extensionUri = context.extensionUri;
 
 		// Set the webview's initial html content
 		this._update();
@@ -111,6 +126,27 @@ export class ResultPanel {
 						return;
 					}
 					vscode.window.showErrorMessage(data.value);
+					break;
+				}
+				case "recompile":{
+					//check if saved filepath still exists
+					if(!ResultPanel.currentFilePath){
+						vscode.window.showErrorMessage("no saved file path");
+						return;
+					}
+
+					//sent to compiler
+					sequentialUtopSpawn(ResultPanel.extensionContext!, ResultPanel.currentFilePath);
+					break;
+				}
+				case "runLLM":{
+					//check if saved filepath still exists
+					if(!ResultPanel.currentFilePath){
+						vscode.window.showErrorMessage("no saved file path");
+						return;
+					}
+
+					checkAndRunRequests(ResultPanel.extensionContext!, PROMPT_CODE_EXAMPLE, PROMPT_ERROR_EXAMPLE);
 					break;
 				}
 			}

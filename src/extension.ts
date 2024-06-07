@@ -36,11 +36,6 @@ export async function activate(context: vscode.ExtensionContext) {
 				return;
 			}
 
-			const editor = vscode.window.activeTextEditor;
-			if (editor) {
-				editor.setDecorations(decorationType, []);
-			}
-
 			//ResultPanel.createOrShow(context.extensionUri);
 			//runTerminalUtopInterpreter(context, ocamlFile);
 			sequentialUtopSpawn(context, ocamlFile);
@@ -50,7 +45,12 @@ export async function activate(context: vscode.ExtensionContext) {
 	let svelteTrialDisposable = vscode.commands.registerCommand(
 		"BEC.svelteTrial",
 		async () => {
-			ResultPanel.createOrShow(context.extensionUri);
+			let ocamlFile = checkOcamlInstallationAndFile(OcamlInstalled);
+			if (!ocamlFile) {
+				return;
+			}
+
+			ResultPanel.createOrShow(context);
 		}
 	);
 
