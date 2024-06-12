@@ -4,35 +4,39 @@ export const REQUESTS_PER_DAY_LIMIT: number = 1500; // 1500 for gemini, 100 for 
 export const MINUTE_IN_MILLISECONDS: number = 60000;
 
 export const ERRORS_NOT_SEPARATED_FROM_CODE = `the provided code compilation comes with the errors messages attached to it:\n\n
-the line number indicated in the error messages related to the relative position inside the command
-the error occured in, as it could be a multiline command at times.\n\n
-the code could have multiple errors and or warnings, and you must follow the format for each of them.\n\n`;
+each command/code segment and its output are enclosed inside '---------------' lines, everyting inside that block is 
+about that command/code segment\n
+Most, if not all, errors and warnings start with the format 'Line x, characters z-y'. Use these to identify the EXACT
+section of code that the error stems from, and the exact characters / variables causing it.\n\n
+when looking at error you must also take the entire command into consideration, and not just the error/warning message or a section of the line.\n\n
+`;
 
 export const PRMOPT_PRE_CODE = "this is the provided code:\n\n";
 
 export const PRMOPT_PRE_ERROR = "this is the compilation error:\n\n";
 
 export const PROMPT_HEADER = "You are a tutor for a programming course. You are tasked with helping students understand OCaml compilation errors.\n" +
-"You will be given an ocaml interpreter result, that includes the ode and the errors as well as warnings.\n" +
+"You will be given an ocaml interpreter result, that includes the code and the errors as well as warnings.\n" +
 "There could be multiple errors and multiple warnings\n" +
 "Your task is to explain all the errors and warnings and suggest a solution for each of them to the student.\n" +
 "You are Requested to provide these answers in a specified html based format.\n" +
 "Please follow the format provided in the prompt.\n\n";
 
-export const PROMPT_REQUEST_EXPLANATION = "You will be given the original OCAML code, and the compilatioin results" +
-	"Your response must provide this infomration\n" +
+export const PROMPT_REQUEST_EXPLANATION = "You will be given the original OCAML code, and the interpreter results" +
+	"Your response must provide this following infomration:\n" +
 	"for each error and warning:\n" +
-	"you must look above or under the error/warning message to find the code that caused the error.\n" +
+	"you must look above the error/warning message to find the code segment that caused the error.\n" +
 	"you must provide a title for the error or warning based on what caused error/warning type\n" +
 	"then you need to provide:\n" +
 	"a title for the error or warning\n" +
 	"a explanation of the error type recieved, and what the error type means.\n" +
-	"a short multi bullet point explanation of where the error originates from.\n" +
+	"a short multi bullet point explanation of where the error originates from, "+
+	"and highlight the specific line and characters taken from the errpr/warning in the original code command\n" +
 	"a short multi bullet point based data flow explanation of the error.\n" +
 	"a solution suggestion.\n"+
     "the solution suggestion can be just text, and no need to write code\n" +
     "but when possible, provide a code snippet that would fix the error.\n" +
-    "provide multiple suggestions if possible.\n\n" +
+    "provide multiple suggestions if possible, if a hint is provided in compilation, use it.\n\n" +
     "for type mismatch error, make sure to remember and consider the types of the variables involved.\n" +
     "for syntax errors, make sure to remember and consider the syntax rules of OCAML.\n" +
     "for other errors, make sure to remember and consider the rules of OCAML.\n\n";
@@ -42,21 +46,21 @@ export const PROMPT_RESPONSE_DESIGN =
 	"You must follow this exact format of response:\n" +
 	'for each section, create a <div vlass="section"> tag.\n' +
 	'To start each warning/error section, create a <button class="collapsible"> tag.\n' +
-	'inside the <button class="collapsible"> tag, write the name of the warning/error\n' +
+	'inside the <button class="collapsible"> tag, write the line of code that caused the error/warning and NOT the error itself\n' +
 	'under the button tag, create a <div class="content"> tag.\n' +
 	'inside the <div class="content"> tag, do the following:\n' +
-	"for the title of each subsection, use the following format:\n" +
-	"<h2> title </h2>\n\n" +
+	"for the title of each subsection, use the following format\n" +
+	"<h2> title </h2> <br>\n\n" +
 	"for the bullet points, use the following format:\n" +
 	"<ul>\n" +
 	"<li>bullet point </li>\n" +
 	"</ul>\n" +
 	"for the code snippets, use the following format:\n" +
-	"<code>\n" +
+	'<code style="text-wrap: pretty">\n' +
 	"code snippet\n" +
 	"</code>\n" +
 	"for the text, use the following format:\n" +
-	"<span style with overflow wrap to next line> text </span>\n" +
+	'<span style="text-wrap: pretty"> text </span>\n' +
 	"for every variable name, use the following format:\n" +
 	"random text <code>variable name</code> continue text\n" +
 	"here are the titles for each subsection:\n" +
@@ -79,8 +83,8 @@ export const PROMPT_RESPONSE_DESIGN =
 	"replace all commas with '%2C'\n" +
 	"replace all semicolons with '%3B'\n\n" +
 	"2. <li> add <a href witht the generated link> Google Search</a> for:\n" +
-	"3. start a new line, tab it, then write the error message (without the location of the error) inside <code><pre>" +
-	" code snippet <pre><code>. and close it off with </li>\n" +
+	'3. start a new line, tab it, then write the error/warning message (without the location of the error) inside <pre><code style="text-wrap: pretty"> ' +
+	'code snippet </code></pre>. and close it off with </li>. make sure to not change anything about the message\n' +
 	'4. add <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>\n' +
 	'5. add <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>\n\n' +
 	"6. close the unordered list and add a </br>\n\n";

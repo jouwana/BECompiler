@@ -15,6 +15,11 @@ export function getWebviewOptions(extensionUri: vscode.Uri): vscode.WebviewOptio
 }
 
 
+/**
+ * 
+ * @param ocamlIsInstalled True if OCaml is installed, false otherwise
+ * @returns The path of the OCaml file if it exists, null otherwise
+ */
 export function checkOcamlInstallationAndFile(ocamlIsInstalled: boolean) {
 	if (!ocamlIsInstalled) {
 		vscode.window.showErrorMessage(
@@ -93,72 +98,3 @@ export function logMessage(context: vscode.ExtensionContext, message: string, fi
     fs.appendFileSync(logFilePath, message + '\n');
 }
 
-
-/**
- * 
- * @param errors The error messages used to highlight
- * Highlights the error line in the active editor
- */
-export function highlightFromError(errors: string) {
-			// Highlight the error line in the editor
-		for (const line of errors.split(os.EOL)) {
-			//find the line number
-			let lineNumber = line.indexOf("Line ");
-			if (lineNumber !== -1) {
-				lineNumber = parseInt(
-					line.substring(lineNumber + 5, line.indexOf(",", lineNumber))
-				);
-			}
-			let startChar = line.indexOf("characters ");
-			let endChar = -1;
-			if (startChar !== -1) {
-				startChar = parseInt(
-					line.substring(startChar + 10, line.indexOf("-", startChar))
-				);
-				endChar = parseInt(
-					line.substring(
-						line.indexOf("-", startChar) + 1,
-						line.indexOf(":", line.indexOf("-", startChar) + 1)
-					)
-				);
-			}
-			if (lineNumber !== -1 && startChar !== -1 && endChar !== -1) {
-				highlightTextInEditor(lineNumber, startChar, lineNumber, endChar);
-			}
-		}
-	}
-
-
-/**
- * 
- * @param startLine  The start line of the range to be highlighted
- * @param startChar  The start character of the range to be highlighted
- * @param endLine  The end line of the range to be highlighted
- * @param endChar  The end character of the range to be highlighted
- * Highlights a range of text in the active editor
- */
- function highlightTextInEditor( startLine: number,startChar:number, endLine: number, endChar: number) {
-	// the line numbers start from 0, so we need to subtract 1
-	startLine--;
-	endLine--;
-	const editor = vscode.window.activeTextEditor;
-	if (editor) {
-		// Define a range to be highlighted
-		const startPosition = new vscode.Position(startLine, startChar); // Example start position
-		const endPosition = new vscode.Position(endLine, endChar); // Example end position
-		const range = new vscode.Range(startPosition, endPosition);
-
-		// Apply a decoration to the range
-		const decorationType = vscode.window.createTextEditorDecorationType({
-			backgroundColor: "yellow",
-			borderWidth: "1px",
-			borderStyle: "solid",
-			borderColor: "red",
-			overviewRulerColor: "red",
-			overviewRulerLane: vscode.OverviewRulerLane.Right,
-		});
-		editor.setDecorations(decorationType, [range]);
-	} else {
-		vscode.window.showInformationMessage("No active editor found.");
-	}
-}

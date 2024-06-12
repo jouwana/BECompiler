@@ -55,7 +55,9 @@
 	.resp div{
 		width: 90vw;
 	}
-
+	code {
+		text-wrap: pretty;
+	}
 
 </style>
 

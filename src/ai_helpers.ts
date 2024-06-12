@@ -14,14 +14,22 @@ let lastMinuteResetTime: number = Date.now();
 
 export async function checkAndRunRequests(context: vscode.ExtensionContext, code: string, errors: string, panel: vscode.WebviewPanel) {
 	//if there are errors, and run the AI and show the results
+	let response = "";
 
-	let canContinue = await updateAndCheckRequests(context);
-
-	if (!canContinue) {
-		return true;
+	if (errors == "" && !code.includes("Error")) {
+		response =  `<h2>No Errors found in the code</h2>`
 	}
-	//let response = await sendAwanllmRequest(context);
-	let response = await sendGeminiRequest(context, code, errors);
+	else{
+			
+		let canContinue = await updateAndCheckRequests(context);
+
+		if (!canContinue) {
+			response = `<h2>Request limit reached</h2>`
+		}
+		//let response = await sendAwanllmRequest(context);
+		else response = await sendGeminiRequest(context, code, errors);
+	}
+
 
 	panel.webview.postMessage({
 		command: "ai_results",

@@ -53,7 +53,7 @@ export async function activate(context: vscode.ExtensionContext) {
 			ResultPanel.createOrShow(context);
 			//set 0.2 second delay to allow the webview to load
 			setTimeout(() => {
-				sequentialUtopSpawn(context, ocamlFile, ResultPanel.getWebview());
+				sequentialUtopSpawn(context, ocamlFile!, ResultPanel.getWebview());
 			}, 200);
 		}
 	);

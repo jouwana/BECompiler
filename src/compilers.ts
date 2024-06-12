@@ -1,12 +1,9 @@
 import * as vscode from "vscode";
 import * as child_process from "child_process";
 import * as fs from "fs";
-import { generateCompilerWebViewContent, mainHTML } from "./panels";
-import { splitOcamlCodeIntoSnippets, splitResultFromError } from "./parsers";
-import { highlightFromError, logMessage } from "./helpers";
-import { checkAndRunRequests } from "./ai_helpers";
+import { logMessage } from "./helpers";
+import { getCodeSnippet, logAndGetOutput } from "./compiler_helpers";
 import { log } from "console";
-import path from "path";
 
 export function runChildProcess(context: vscode.ExtensionContext, ocamlFile: string) {
 
@@ -32,94 +29,9 @@ export function runChildProcess(context: vscode.ExtensionContext, ocamlFile: str
 
 }
 
-// export function runChildSpawnSimplified(
-// 	context: vscode.ExtensionContext,
-// 	ocamlFile: string
-// ) {
-// 	// Start the OCaml toplevel process
-// 	const ocamlToplevel = child_process.spawn("ocaml", ["-noprompt"]);
-
-// 	const ocamlFilePath = ocamlFile.replace(/\\/g, "/");
-
-// 	// Define the OCaml code to evaluate
-// 	const ocamlCode = `
-// 				#use "${ocamlFilePath}";;\n
-// 			`;
-
-// 	// Send the OCaml code to evaluate to the toplevel process
-// 	ocamlToplevel.stdin.write(ocamlCode);
-// 	ocamlToplevel.stdin.end();
-
-// 	// Capture output from the toplevel process
-// 	let output = "";
-// 	let output_errors = "";
-// 	let output_warnings = "";
-
-// 	ocamlToplevel.stdout.on("data", (data) => {
-// 		const message = data.toString();
-// 		// Check if the message contains any indication of an error or warning
-// 		if (
-// 			message.includes("Error") ||
-// 			message.includes("Fatal error") ||
-// 			message.includes("Exception") ||
-// 			message.includes("Syntax error")
-// 		) {
-// 			logMessage(context, "output message: " + message);
-// 			const splitResult = splitResultFromError(message);
-// 			output_errors += splitResult.error;
-// 			output += splitResult.result;
-// 			logMessage(context, "output errors: " + output_errors);
-// 			logMessage(context, "output result: " + output);
-// 		} else if (message.includes("Warning")) {
-// 			output_warnings += message;
-// 		} else {
-// 			output += message;
-// 		}
-// 	});
-
-// 	// Log the output when the process exits
-// 	ocamlToplevel.on("close", (code) => {
-
-// 		// Create a webview panel
-// 		const panel2 = vscode.window.createWebviewPanel(
-// 			"ocamlCompilerSpawnSimpl", // Identifies the type of the webview. Used internally
-// 			"OCaml Compiler Simplified", // Title of the panel displayed to the user
-// 			vscode.ViewColumn.Two, // Editor column to show the new webview panel in
-// 			{ enableScripts: true }
-// 		);
-
-// 		if (output_errors !== "") {
-// 			//read the ocaml file using fs
-// 			let ocamlCode = fs.readFileSync(ocamlFile, "utf8");
-// 			//call the ai to generate the error explanation and solution
-// 			checkAndRunRequests(context, ocamlCode, output_errors);
-// 			highlightFromError(output_errors);
-// 		}
-
-// 		// Set the HTML content of the webview panel
-// 		panel2.webview.html = generateCompilerWebViewContent(
-// 			context,
-// 			output,
-// 			output_errors,
-// 			output_warnings
-// 		);
-// 	});
-// }
-
-
 export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile: string, webviewPanel: vscode.WebviewPanel) {
-	//read the ocaml file using fs
-	let ocamlCode = fs.readFileSync(ocamlFile, "utf8");
-	//split the ocaml code into snippets
-	const codeSnippets = ocamlCode.split(";;")
-		.map((snippet) => {
-			const subSnippets = snippet.split("\n");
-			const filteredSnippet = subSnippets.filter((subSnippet) => {
-				return subSnippet.trim() !== "";
-			}).join("\n") + ";;\n";
-			return filteredSnippet;
-	});
-
+	let codeSnippets = getCodeSnippet(ocamlFile);
+	
 	let code_index = 1;
 	let output = "";
 	let first_read = true;
@@ -134,6 +46,7 @@ export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile:
 			if (data.toString().includes("help")) {
 				first_read = false;
 				spawnedInterpreter.stdin.write(codeSnippets[0]);
+				output += logAndGetOutput(context, codeSnippets[0], true);
 				return;
 			}
 			spawnedInterpreter.stdin.write("");
@@ -144,38 +57,35 @@ export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile:
 			!first_read &&
 			printing_index < codeSnippets.length
 		) {
-			output += codeSnippets[printing_index] + "\n";
-			logMessage(context, "code snippet: " + codeSnippets[code_index]);
+			output += logAndGetOutput(context, data.toString());
+			if(data.toString().includes("Warning") || data.toString().includes("Hint")){
+				// warning or hints are printer WITH another output, so we do not add 
+				// them to the printing index
+				return;
+			}
 			printing_index++;
-			logMessage(context, "output: " + data.toString());
-			output += data.toString() + "\n";
+			if(printing_index >= codeSnippets.length){
+				//end the process when we finish printing everything
+				spawnedInterpreter.stdin.end();
+			}
 		}
 
 		if (code_index < codeSnippets.length) {
-			spawnedInterpreter.stdin.write(codeSnippets[code_index]);
-			code_index++;
-		} else {
-			spawnedInterpreter.stdin.end();
+			// add the timer wait in the sense that 'hints' 
+			// will be printed after the error message, so 
+			// we will give it time
+			setTimeout(() => {
+				if (printing_index < code_index)
+					// if the output has not been printed yet, return;
+					return;
+				spawnedInterpreter.stdin.write(codeSnippets[code_index]);
+				output += logAndGetOutput(context, codeSnippets[code_index], true);
+				code_index++;
+			}, 200);
 		}
 	});
 
 	spawnedInterpreter.on("close", async (code) => {
-		// //make a webview panel
-		// const panel = vscode.window.createWebviewPanel(
-		// 	`utopCompilerSequential`,
-		// 	`Utop Compiler Sequential`,
-		// 	vscode.ViewColumn.Two,
-		// 	{ enableScripts: true,
-		// 	localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
-		// 	 }
-		// );
-
-		// let html_results = generateCompilerWebViewContent(
-		// 	context,
-		// 	output,
-		// 	null,
-		// 	null
-		// );
 
 		//sent the message to the webviewPanel
 		webviewPanel.webview.postMessage({
