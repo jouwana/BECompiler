@@ -185,6 +185,15 @@ import { onMount } from "svelte";
 </div>
 
 <div class:hidden={state != 'ai_results'} class="resp main_container">
+	<a class:hidden={compilation_results === ""}
+	href = "#" on:click={() => {
+		ai_results = "";
+		state = 'loading';
+		tsvscode.postMessage({
+			command: 'runLLM',
+			value: compilation_results
+		});
+	}} on:keydown={()=>{}}> Not Satisfied With The Results? Try Again</a>
 	{@html ai_results}
 </div>
 
