@@ -1,15 +1,15 @@
 import * as vscode from "vscode";
 import { logMessage } from "./helpers";
 import { PROMPT_REQUEST_EXPLANATION, PRMOPT_PRE_CODE, PRMOPT_PRE_ERROR, PROMPT_RESPONSE_DESIGN, PROMPT_HEADER, ERRORS_NOT_SEPARATED_FROM_CODE } from "./consts";
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+import { GoogleGenerativeAI, GoogleGenerativeAIError } from "@google/generative-ai";
 
 const AWANLLM_API_KEY = "b79fefdf-fd1e-48cb-b943-c560c240916b";
 const GEMMA_API_KEY = "AIzaSyAjvF9UQP7c8B7o4SiMM_-qlipEWna062o";
 
 const genAI = new GoogleGenerativeAI(GEMMA_API_KEY);
-// For text-only input, use the gemini-pro model
-const model = genAI.getGenerativeModel({ model: "gemini-pro"});
-	
+
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest"});
+// const model = genAI.getGenerativeModel({ model: "gemini-pro" });	
 
 export async function sendAwanllmRequest(context: vscode.ExtensionContext, code: string, errors: string): Promise<string> {
 	const prompt =
@@ -43,7 +43,7 @@ export async function sendAwanllmRequest(context: vscode.ExtensionContext, code:
 	}
 }
 
-export async function sendGeminiRequest(context: vscode.ExtensionContext, code: string, errors: string): Promise<string> {
+export let sendGeminiRequest = async (context: vscode.ExtensionContext, code: string, errors: string): Promise<string> => {
 	let prompt = PROMPT_HEADER +
 		PROMPT_REQUEST_EXPLANATION;
 
@@ -60,16 +60,29 @@ export async function sendGeminiRequest(context: vscode.ExtensionContext, code: 
 		code;
 	}
 	prompt += PROMPT_RESPONSE_DESIGN;
+	console.log("sending to api, time:" + Date.now());
+	logMessage(context, "Sent request to Google Generative AI");
 
+	try{
 	const result = await model.generateContent(prompt);
 	const response = await result.response;
-	const text = response.text();
-	logMessage(context, "Sent request to Google Generative AI");
-    logMessage(context, text);
+	let text = response.text();
+	logMessage(context, "Recieved response from Google Generative AI");
+	//if text starts with ```html, remove it and the ``` at the end
+	if (text.startsWith("```html")) {
+		text = text.slice(7, text.length - 3);
+	}
     return text;
-}
+	}
+	catch(error: any){
+		let my_error = error as GoogleGenerativeAIError;
+		logMessage(context, `Error sending request to Google Generative AI, error message is: ${my_error.message}
+			\n error cause is: ${my_error.cause}`);
 
-//function that turns objects to string
-function stringify(obj: any): string {
-    return JSON.stringify(obj, null, 2);
+		vscode.window.showErrorMessage(
+			"Error sending request to Google Generative AI",
+			my_error.message
+		);
+		return `Unexpected error occurred, ${my_error.message} \n. Please try again later.`;
+	}
 }

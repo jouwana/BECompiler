@@ -185,7 +185,7 @@ import { onMount } from "svelte";
 </div>
 
 <div class:hidden={state != 'ai_results'} class="resp main_container">
-	<a class:hidden={compilation_results === ""}
+	<a class:hidden={ai_results.startsWith("<h2>No Errors")}
 	href = "#" on:click={() => {
 		ai_results = "";
 		state = 'loading';
@@ -193,7 +193,7 @@ import { onMount } from "svelte";
 			command: 'runLLM',
 			value: compilation_results
 		});
-	}} on:keydown={()=>{}}> Not Satisfied With The Results? Try Again</a>
+	}}> Not Satisfied With The Results? Try Again</a>
 	{@html ai_results}
 </div>
 
