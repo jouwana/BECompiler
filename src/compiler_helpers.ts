@@ -9,7 +9,8 @@ export let getCodeSnippet = (ocamlFile: string): string[] => {
 	const codeSnippets = ocamlCode
 		.split(";;")
 		.map((snippet) => {
-			const subSnippets = snippet.split("\n");
+			const changeAnonymousFunction = handleCodeWithAnonymousFunctions(snippet);
+			const subSnippets = changeAnonymousFunction.split("\n");
 			const filteredSnippet =
 				subSnippets
 					.filter((subSnippet) => {
@@ -36,4 +37,20 @@ export let logAndGetOutput = (context: vscode.ExtensionContext, value: string, i
 	//add separator to separate the output of different code snippets
 	output += value + "\n";
 	return output;
+}
+
+let handleCodeWithAnonymousFunctions = (codeSnippet: string): string => {
+
+	//trim all spaces from snippet into a temporary variable
+	let temp_snippet = codeSnippet.replace(/\s/g, "");
+	//check if the snipper starts with 'let () =' and does not have 'in' or ';' in it
+	//it can still end with ';;'
+	if (temp_snippet.startsWith("let()=") && !codeSnippet.includes(" in") && !temp_snippet.includes(";")) {
+
+		//find position of '='
+		let index = codeSnippet.indexOf("=");
+		let code = "let _ = " + codeSnippet.substring(index + 1);
+		return code;
+	}
+	return codeSnippet;
 }
