@@ -36,15 +36,13 @@ export class ResultPanel {
 		
 
 
-		// If we already have a panel, show it.
+		// If we already have a panel, delete it
 		if (ResultPanel.currentPanel) {
-			ResultPanel.currentPanel._panel.reveal(column);
-			ResultPanel.currentPanel._update();
-			return;
+			ResultPanel.currentPanel.dispose();
 		}
 
 
-		// Otherwise, create a new panel.
+		// create a new panel.
 		const panel = vscode.window.createWebviewPanel(
 			ResultPanel.viewType,
 			"BEC",
@@ -84,18 +82,6 @@ export class ResultPanel {
 		// This happens when the user closes the panel or when the panel is closed programatically
 		this._panel.onDidDispose(() => this.dispose(), null, this._disposables);
 
-		// // Handle messages from the webview
-		// this._panel.webview.onDidReceiveMessage(
-		//   (message) => {
-		//     switch (message.command) {
-		//       case "alert":
-		//         vscode.window.showErrorMessage(message.text);
-		//         return;
-		//     }
-		//   },
-		//   null,
-		//   this._disposables
-		// );
 	}
 
 	public dispose() {
@@ -118,46 +104,43 @@ export class ResultPanel {
 		this._panel.webview.html = this._getHtmlForWebview(webview);
 		webview.onDidReceiveMessage(async (data) => {
 			switch (data.command) {
-				case "onInfo": {
-					if (!data.value) {
-						return;
-					}
-					vscode.window.showInformationMessage(data.value);
-					break;
-				}
-				case "onError": {
-					if (!data.value) {
-						return;
-					}
-					vscode.window.showErrorMessage(data.value);
-					break;
-				}
-				case "recompile":{
+				case "recompile": {
 					//check if saved filepath still exists
-					if(!ResultPanel.currentFilePath){
+					if (!ResultPanel.currentFilePath) {
 						vscode.window.showErrorMessage("no saved file path");
 						return;
 					}
 
 					//sent to compiler
-					sequentialUtopSpawn(ResultPanel.extensionContext!, ResultPanel.currentFilePath, this._panel);
+					sequentialUtopSpawn(
+						ResultPanel.extensionContext!,
+						ResultPanel.currentFilePath,
+						this._panel
+					);
 					break;
 				}
-				case "runLLM":{
+				case "runLLM": {
 					//check if saved filepath still exists
-					if(!ResultPanel.currentFilePath){
+					if (!ResultPanel.currentFilePath) {
 						vscode.window.showErrorMessage("no saved file path");
 						return;
 					}
 
-					if(!data.value){
-						vscode.window.showErrorMessage("no compilation resutls found, please recompile first");
+					if (!data.value) {
+						vscode.window.showErrorMessage(
+							"no compilation resutls found, please recompile first"
+						);
 						return;
 					}
 
 					let compilation_results = data.value;
 
-					checkAndRunRequests(ResultPanel.extensionContext!, compilation_results, "", this._panel);
+					checkAndRunRequests(
+						ResultPanel.extensionContext!,
+						compilation_results,
+						"",
+						this._panel
+					);
 					break;
 				}
 			}
@@ -179,9 +162,6 @@ export class ResultPanel {
 		const stylesMainUri = webview.asWebviewUri(
 			vscode.Uri.joinPath(this._extensionUri, "media", "vscode.css")
 		);
-		// const cssUri = webview.asWebviewUri(
-		// 	vscode.Uri.joinPath(this._extensionUri, "out", "compiled/swiper.css")
-		// );
 
 		// Use a nonce to only allow specific scripts to be run
 		const nonce = getNonce();
