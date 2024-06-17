@@ -77,6 +77,9 @@
 	.resp .section button:not(.active){
 		background-color: #3498db;
 	}
+		.resp .section button:not(.active):hover{
+		background-color: #3783b6;
+	}
 
 	.fullscreen_clicker{
 		position: absolute;
