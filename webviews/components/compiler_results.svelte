@@ -13,9 +13,28 @@ import { onMount } from "svelte";
 
 	let fullscreen = webviewState.fullscreen;
 
+	function collapsibleClickHandler(this: HTMLElement) {
+		this.classList.toggle("active");
+		const content = this.nextElementSibling as HTMLElement;
+		if (content.style.display !== "none") {
+			content.style.display = "none";
+		} else {
+			content.style.display = "block";
+		}
+	}
 
+	let setupAIButtonFunctions = () => {
+		const coll = document.getElementsByClassName("collapsible");
+		for (let i = 0; i < coll.length; i++) {
+			coll[i].addEventListener("click", collapsibleClickHandler);
+		}
+	}
 
 	onMount(() => {
+		window.addEventListener('DOMContentLoaded', () => {
+			setupAIButtonFunctions();
+		});
+
 		// Handle messages sent from the extension to the webview
 		window.addEventListener('message', event => {
 			const message = event.data; // The json data that the extension sent
@@ -34,17 +53,7 @@ import { onMount } from "svelte";
 					ai_results = message.value;
 					state = 'ai_results';
 					setTimeout(() => {
-						const coll = document.getElementsByClassName("collapsible");
-						for (let i = 0; i < coll.length; i++) {
-							coll[i].addEventListener("click", collapsibleClickHandler);
-							
-							//get next element and set transition speed
-							const content = coll[i].nextElementSibling as HTMLElement;
-							
-
-							//get parent element and set width and padding
-							const parent = coll[i].parentElement as HTMLElement;
-						}
+						setupAIButtonFunctions();
 					}, 200);
 					break;
 				}
@@ -52,15 +61,6 @@ import { onMount } from "svelte";
 		});
 	});
 
-	function collapsibleClickHandler(this: HTMLElement) {
-		this.classList.toggle("active");
-		const content = this.nextElementSibling as HTMLElement;
-		if (content.style.display !== "none") {
-			content.style.display = "none";
-		} else {
-			content.style.display = "block";
-		}
-	}
 </script>
 
 
