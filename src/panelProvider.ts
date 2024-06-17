@@ -3,6 +3,7 @@ import { getNonce } from "./nonce";
 import { sequentialUtopSpawn } from "./compilers";
 import { checkAndRunRequests } from "./ai_helpers";
 import { PROMPT_CODE_EXAMPLE, PROMPT_ERROR_EXAMPLE } from "./consts";
+import { WebviewState } from "./helpers";
 
 export class ResultPanel {
 	/**
@@ -19,15 +20,17 @@ export class ResultPanel {
 	public static currentFilePath: string | undefined;
 	public static extensionContext: vscode.ExtensionContext | undefined;
 
+	private static _webviewState: WebviewState = new WebviewState();
+
 	public static getWebview(): vscode.WebviewPanel {
 		return ResultPanel.currentPanel!._panel;
 	}
 
-	public static createOrShow(context: vscode.ExtensionContext) {
+	public static createOrShow(context: vscode.ExtensionContext, fullscreen?: boolean) {
 		let extensionUri = context.extensionUri;
-		const column = vscode.window.activeTextEditor
-			? vscode.ViewColumn.Beside
-			: undefined;
+		console.log("fullscreen: ", fullscreen)
+		console.log("state fullscreen: ", ResultPanel._webviewState.getWebviewState().fullscreen)
+		const column = fullscreen? vscode.ViewColumn.One : vscode.ViewColumn.Two;
 		ResultPanel.extensionContext = context;
 		console.log("current file path: ", vscode.window.activeTextEditor?.document.uri.fsPath);
 		console.log("context is null? ", ResultPanel.extensionContext === undefined);
@@ -41,7 +44,12 @@ export class ResultPanel {
 			ResultPanel.currentPanel.dispose();
 		}
 
-
+		//if we dont have a state, create a new one
+		if (!ResultPanel._webviewState) {
+			console.log("creating new webview state");
+			ResultPanel._webviewState = new WebviewState();
+		}
+		
 		// create a new panel.
 		const panel = vscode.window.createWebviewPanel(
 			ResultPanel.viewType,
@@ -143,6 +151,15 @@ export class ResultPanel {
 					);
 					break;
 				}
+				case "toggleFullscreen": {
+					//create the webview state from data
+					const new_state = {
+						...data.value,
+					}
+					ResultPanel._webviewState.setWebviewState(new_state);
+					console.log("new state fullscreen: ", new_state.fullscreen);
+					ResultPanel.createOrShow(ResultPanel.extensionContext!, new_state.fullscreen);
+				}
 			}
 		});
 	}
@@ -183,6 +200,7 @@ export class ResultPanel {
 				<link href="${cssUri}" rel="stylesheet">
         <script nonce="${nonce}">
 		const tsvscode = acquireVsCodeApi();
+		webviewState = ${JSON.stringify(ResultPanel._webviewState)};
         </script>
 		</head>
 		<body>

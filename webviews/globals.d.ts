@@ -4,5 +4,5 @@ declare global {
 	const tsvscode: {
 		postMessage: ({command:string, value:any}) => void;
 	}
-
+	let webviewState: any;
 }

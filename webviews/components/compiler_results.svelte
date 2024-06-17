@@ -64,13 +64,17 @@
 <script lang="ts" nonce="">
 import { onMount } from "svelte";
 
-	let state = 'loading';
 
-	let compilation_results = "";
+	let state = webviewState.state;
 
-	let flow_results = "";
+	let compilation_results = webviewState.compilation_results;
 
-	let ai_results = "";
+	let flow_results = webviewState.flow_results;
+
+	let ai_results = webviewState.ai_results;
+
+	let fullscreen = webviewState.fullscreen;
+	console.log("fullscreen on startup", fullscreen);
 
 
 	onMount(() => {
@@ -142,6 +146,24 @@ import { onMount } from "svelte";
 	flow_results = "";
 }}> recompile file </button>
 </div>
+<button on:click={() => {
+	console.log("fullscreen preclick", fullscreen);
+	fullscreen = !fullscreen;
+	console.log("fullscreen after click", fullscreen);
+	tsvscode.postMessage({
+		command: 'toggleFullscreen',
+		value: {
+			fullscreen: fullscreen,
+			compilation_results: compilation_results,
+			flow_results: flow_results,
+			ai_results: ai_results,
+			state: state
+		}
+	});
+
+}}>
+	{fullscreen? "Side View" : "Fullscreen View"}
+</button>
 
 <div class="button_header">
 	<button class:disabled={state == 'main_results'} on:click={() => {

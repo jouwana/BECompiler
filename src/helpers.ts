@@ -98,3 +98,45 @@ export function logMessage(context: vscode.ExtensionContext, message: string, fi
     fs.appendFileSync(logFilePath, message + '\n');
 }
 
+
+
+//helper class for the state of the webview
+export class WebviewState {
+	private state: string = "loading";
+	private compilation_results: string = "";
+	private flow_results: string = "";
+	private ai_results: string = "";
+	private fullscreen: boolean = false;
+
+	public getWebviewState(): any {
+		return {
+			state: this.state,
+			compilation_result: this.compilation_results,
+			flow_results: this.flow_results,
+			ai_results: this.ai_results,
+			fullscreen: this.fullscreen,
+		};
+	}
+
+	public setWebviewState(new_state: {
+		state?: string;
+		compilation_results?: string;
+		flow_results?: string;
+		ai_results?: string;
+		fullscreen?: boolean;
+	}) {
+		this.state = new_state.state ? new_state.state : this.state;
+		this.compilation_results = new_state.compilation_results
+			? new_state.compilation_results
+			: this.compilation_results;
+		this.flow_results = new_state.flow_results
+			? new_state.flow_results
+			: this.flow_results;
+		this.ai_results = new_state.ai_results
+			? new_state.ai_results
+			: this.ai_results;
+		this.fullscreen = new_state.fullscreen !== undefined
+			? new_state.fullscreen
+			: this.fullscreen;
+	}
+}
