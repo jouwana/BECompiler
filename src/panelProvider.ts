@@ -179,6 +179,9 @@ export class ResultPanel {
 		const stylesMainUri = webview.asWebviewUri(
 			vscode.Uri.joinPath(this._extensionUri, "media", "vscode.css")
 		);
+		const stylesResultsUri = webview.asWebviewUri(
+			vscode.Uri.joinPath(this._extensionUri, "media", "results.css")
+		);
 
 		// Use a nonce to only allow specific scripts to be run
 		const nonce = getNonce();
@@ -198,6 +201,7 @@ export class ResultPanel {
 				<link href="${stylesResetUri}" rel="stylesheet">
 				<link href="${stylesMainUri}" rel="stylesheet">
 				<link href="${cssUri}" rel="stylesheet">
+				<link href="${stylesResultsUri}" rel="stylesheet">
         <script nonce="${nonce}">
 		const tsvscode = acquireVsCodeApi();
 		webviewState = ${JSON.stringify(ResultPanel._webviewState)};

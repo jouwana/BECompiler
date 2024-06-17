@@ -1,65 +1,3 @@
-<style>
-	.main_container{
-		font-family: Arial, sans-serif;
-		padding: 20px;
-		width: 90vw;
-		min-height: 30vh;
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-		align-items: center;
-	}
-	.main_header{
-		font-family: Arial, sans-serif;
-		padding: 20px;
-		width: 90vw;
-		text-align: center;
-	}
-	.hidden{
-		display: none !important;
-	}
-	.button_header{
-		display: flex;
-		justify-content: center;
-		flex-direction: row;
-		width: 90vw;
-		padding: 20px;
-	}
-	.disabled{
-		pointer-events: none !important;
-		background-color: #3498db;
-	}
-	.loader {
-		border: 16px solid #f3f3f3; /* Light grey */
-		border-top: 16px solid #3498db; /* Blue */
-		border-radius: 50%;
-		width: 120px;
-		height: 120px;
-		animation: spin 2s linear infinite;
-		}
-
-	@keyframes spin {
-		0% { transform: rotate(0deg); }
-		100% { transform: rotate(360deg); }
-	}
-	.resp {
-		display: flex;
-		flex-direction: column;
-		overflow-wrap: break-word;
-		width: inherit;
-	}
-	.resp pre{
-		text-wrap: pretty;
-	}
-
-	.resp div{
-		width: 90vw;
-	}
-	code {
-		text-wrap: pretty;
-	}
-
-</style>
 
 <script lang="ts" nonce="">
 import { onMount } from "svelte";
@@ -74,7 +12,7 @@ import { onMount } from "svelte";
 	let ai_results = webviewState.ai_results;
 
 	let fullscreen = webviewState.fullscreen;
-	console.log("fullscreen on startup", fullscreen);
+
 
 
 	onMount(() => {
@@ -96,7 +34,6 @@ import { onMount } from "svelte";
 					ai_results = message.value;
 					state = 'ai_results';
 					setTimeout(() => {
-						console.log("collapsible in here");
 						const coll = document.getElementsByClassName("collapsible");
 						for (let i = 0; i < coll.length; i++) {
 							coll[i].addEventListener("click", collapsibleClickHandler);
@@ -120,7 +57,6 @@ import { onMount } from "svelte";
 	});
 
 	function collapsibleClickHandler(this: HTMLElement) {
-		console.log("collapsible clicked");
 		this.classList.toggle("active");
 		const content = this.nextElementSibling as HTMLElement;
 		if (content.style.display !== "none") {
@@ -129,8 +65,8 @@ import { onMount } from "svelte";
 			content.style.display = "block";
 		}
 	}
-
 </script>
+
 
 <div class="main_header">
 <h1>Better Errors Compiler</h1>
@@ -147,9 +83,7 @@ import { onMount } from "svelte";
 }}> recompile file </button>
 </div>
 <button on:click={() => {
-	console.log("fullscreen preclick", fullscreen);
 	fullscreen = !fullscreen;
-	console.log("fullscreen after click", fullscreen);
 	tsvscode.postMessage({
 		command: 'toggleFullscreen',
 		value: {
