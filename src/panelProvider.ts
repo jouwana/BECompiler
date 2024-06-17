@@ -28,14 +28,17 @@ export class ResultPanel {
 
 	public static createOrShow(context: vscode.ExtensionContext, fullscreen?: boolean) {
 		let extensionUri = context.extensionUri;
-		console.log("fullscreen: ", fullscreen)
-		console.log("state fullscreen: ", ResultPanel._webviewState.getWebviewState().fullscreen)
+
 		const column = fullscreen? vscode.ViewColumn.One : vscode.ViewColumn.Two;
-		ResultPanel.extensionContext = context;
-		console.log("current file path: ", vscode.window.activeTextEditor?.document.uri.fsPath);
-		console.log("context is null? ", ResultPanel.extensionContext === undefined);
+
+		// uf we are creating a new webview instead of wanting to change view type
+		// then set up the new context and paths
+		if(fullscreen === undefined) {
+			ResultPanel.extensionContext = context;
+
 			ResultPanel.currentFilePath =
 				vscode.window.activeTextEditor?.document.uri.fsPath;
+		}
 		
 
 
@@ -44,9 +47,8 @@ export class ResultPanel {
 			ResultPanel.currentPanel.dispose();
 		}
 
-		//if we dont have a state, create a new one
-		if (!ResultPanel._webviewState) {
-			console.log("creating new webview state");
+		//if we dont have a state, or its a new view, create a new one
+		if (!ResultPanel._webviewState || fullscreen === undefined) {
 			ResultPanel._webviewState = new WebviewState();
 		}
 		

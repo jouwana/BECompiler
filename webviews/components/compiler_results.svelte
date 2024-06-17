@@ -40,14 +40,10 @@ import { onMount } from "svelte";
 							
 							//get next element and set transition speed
 							const content = coll[i].nextElementSibling as HTMLElement;
-							content.style.transition = "max-height 0.2s ease-out";
-							content.style.paddingTop = "20px";
 							
 
 							//get parent element and set width and padding
 							const parent = coll[i].parentElement as HTMLElement;
-							parent.style.width = "90vw";
-							parent.style.padding = "20px";
 						}
 					}, 200);
 					break;
@@ -82,7 +78,7 @@ import { onMount } from "svelte";
 	flow_results = "";
 }}> recompile file </button>
 </div>
-<button on:click={() => {
+<img class='fullscreen_clicker' on:click={() => {
 	fullscreen = !fullscreen;
 	tsvscode.postMessage({
 		command: 'toggleFullscreen',
@@ -94,10 +90,13 @@ import { onMount } from "svelte";
 			state: state
 		}
 	});
-
-}}>
-	{fullscreen? "Side View" : "Fullscreen View"}
-</button>
+	}}
+	src={
+		fullscreen ?
+		"https://cdn-icons-png.freepik.com/512/11704/11704023.png?ga=GA1.1.385513806.1718653428" :
+		"https://cdn-icons-png.freepik.com/512/11704/11704401.png?ga=GA1.1.385513806.1718653428"
+	}
+	alt="toggle fullscreen">
 
 <div class="button_header">
 	<button class:disabled={state == 'main_results'} on:click={() => {

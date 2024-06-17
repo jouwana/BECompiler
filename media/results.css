@@ -51,9 +51,40 @@
 		text-wrap: pretty;
 	}
 
-	.resp div{
-		width: 90vw;
-	}
 	code {
 		text-wrap: pretty;
 	}
+	.content{
+		transition: max-height 0.2s ease-out;
+		padding-top: 20px;
+		padding-left: 20px;
+		display: flex;
+		flex-direction: column;
+		row-gap: 3px;
+	}
+	div{
+		max-width: 90vw;
+	}
+	.resp .section{
+		width: 90vw;
+		padding: 20px;
+	}
+
+	.resp .section button{
+		border-radius: 20px;
+	}
+
+	.resp .section button:not(.active){
+		background-color: #3498db;
+	}
+
+	.fullscreen_clicker{
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		height: 25px;
+		width: 25px;
+		cursor: pointer;
+	}
+
+
