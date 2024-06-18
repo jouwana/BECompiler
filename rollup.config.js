@@ -4,6 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import {terser} from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
+import json from "@rollup/plugin-json";
 import path from "path";
 import fs from "fs";
 
@@ -44,6 +45,7 @@ export default fs
 					dedupe: ["svelte"],
 				}),
 				commonjs(),
+				json(),
 				typescript({
 					tsconfig: "webviews/tsconfig.json",
 					sourceMap: !production,

@@ -2,10 +2,9 @@ import * as vscode from 'vscode';
 import { logMessage } from './helpers';
 import { MINUTE_IN_MILLISECONDS, REQUESTS_PER_DAY_LIMIT, REQUESTS_PER_MINUTE_LIMIT } from './consts';
 import { sendGeminiRequest } from './ai_communication';
-import {
-	generateLoadingWebViewContent,
-	genereateAIResultsWebViewContent,
-} from "./panels";
+import * as fs from 'fs';
+import { _getHtmlForWebview } from './parsers';
+import path from 'path';
 
 let requestsThisMinute: number = 0;
 let requestsPerDay: number = 0;
@@ -13,11 +12,11 @@ let lastResetDate: string = "";
 let lastMinuteResetTime: number = Date.now();
 
 export async function checkAndRunRequests(context: vscode.ExtensionContext, code: string, errors: string, 
-	panel: vscode.WebviewPanel, treeParse?: boolean) {
+	panel: vscode.WebviewPanel) {
 	//if there are errors, and run the AI and show the results
 	let response = "";
 
-	if (treeParse !== true && errors == "" && !code.includes("Error")) {
+	if (errors == "" && !code.includes("Error")) {
 		response =  `<h2>No Errors found in the code</h2>`
 	}
 	else{
@@ -28,18 +27,44 @@ export async function checkAndRunRequests(context: vscode.ExtensionContext, code
 			response = `<h2>Request limit reached</h2>`
 		}
 		//let response = await sendAwanllmRequest(context);
-		else response = await sendGeminiRequest(context, code, errors, treeParse);
+		else response = await sendGeminiRequest(context, code, errors);
 	}
 
 
 	panel.webview.postMessage({
-		command: treeParse === true ? "ast_results" : "ai_results",
+		command: "ai_results",
 		value: response,
 	});
 }
 
+export async function updateAndRequestAST(context: vscode.ExtensionContext, code: string) {
+	//if there are errors, and run the AI and show the results
+	let response = "";
+
+			
+	let canContinue = await updateAndCheckRequests(context);
+
+	if (!canContinue) {
+		response = `<h2>Request limit reached</h2>`
+	}
+	//let response = await sendAwanllmRequest(context);
+	else response = await sendGeminiRequest(context, code, "", true);
+	
+	//delete all lines that include ' "type": "type" ' or ' "type": "param" ' from the response
+	response = response.replace(/"type": "type",/g, "");
+	response = response.replace(/"type": "param",/g, "");
+
+	//between every consecutive '}' and '{' add a ',' if there isnt any
+	response = response.replace(/}\n{/g, "},\n{");
+
+	//add [ and ] to the start and end of the response
+	response = "[" + response + "]";
+
+	logMessage(context, "AST response: " + response);
 
 
+	return _getHtmlForWebview(context, response);
+}
 
 async function updateAndCheckRequests(context: vscode.ExtensionContext) {
 	// get the stored values from the workspace state

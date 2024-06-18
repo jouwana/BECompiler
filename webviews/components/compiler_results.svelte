@@ -13,8 +13,6 @@ import { onMount } from "svelte";
 
 	let fullscreen = webviewState.fullscreen;
 
-	let ast_results = webviewState.ast_results;
-
 	function collapsibleClickHandler(this: HTMLElement) {
 		this.classList.toggle("active");
 		const content = this.nextElementSibling as HTMLElement;
@@ -59,11 +57,6 @@ import { onMount } from "svelte";
 					}, 200);
 					break;
 				}
-				case 'ast_results':{
-					ast_results = message.value;
-					state = 'ast_results';
-					break;
-				}
 			}
 		});
 	});
@@ -83,9 +76,9 @@ import { onMount } from "svelte";
 	ai_results = "";
 	compilation_results = "";
 	flow_results = "";
-	ast_results = "";
 }}> recompile file </button>
 </div>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <img class='fullscreen_clicker' on:click={() => {
 	fullscreen = !fullscreen;
 	tsvscode.postMessage({
@@ -95,8 +88,7 @@ import { onMount } from "svelte";
 			compilation_results: compilation_results,
 			flow_results: flow_results,
 			ai_results: ai_results,
-			state: state,
-			ast_results: ast_results
+			state: state
 		}
 	});
 	}}
@@ -124,16 +116,11 @@ import { onMount } from "svelte";
 		state = 'loading';
 	}}> flow type errors </button>
 
-	<button class:disabled={state == 'ast_results'} on:click={() =>{
-		if(ast_results != ""){
-			state = 'ast_results';
-			return;
-		}
+	<button on:click={() => {
 		tsvscode.postMessage({
 			command: 'ast',
-			value: 'checking ast'
+			value: ""
 		});
-		state = 'loading';
 	}}> AST </button>
 
 	<button class:disabled={state == 'ai_results'} on:click={() =>{
@@ -158,10 +145,6 @@ import { onMount } from "svelte";
 
 <div class:hidden={state != 'flow_results'} class="main_container">
 	<pre>{flow_results}</pre>
-</div>
-
-<div class:hidden={state != 'ast_results'} class="main_container">
-	<pre>{ast_results}</pre>
 </div>
 
 <div class:hidden={state != 'ai_results'} class="resp main_container">

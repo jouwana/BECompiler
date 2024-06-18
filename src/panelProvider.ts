@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import { getNonce } from "./nonce";
 import { sequentialUtopSpawn } from "./compilers";
-import { checkAndRunRequests } from "./ai_helpers";
+import { checkAndRunRequests, updateAndRequestAST } from "./ai_helpers";
 import { PROMPT_CODE_EXAMPLE, PROMPT_ERROR_EXAMPLE } from "./consts";
 import { WebviewState } from "./helpers";
 import * as ChildProcess from "child_process";
@@ -165,6 +165,7 @@ export class ResultPanel {
 					break;
 				}
 				case 'ast':{
+
 					//check if saved filepath still exists
 					if (!ResultPanel.currentFilePath) {
 						vscode.window.showErrorMessage("no saved file path");
@@ -177,14 +178,7 @@ export class ResultPanel {
 					const parsedTree = ChildProcess.spawnSync("ocamlc", ["-dparsetree", ResultPanel.currentFilePath]);
 					const parsedTreeOutput = parsedTree.stderr.toString();
 
-					//send the parsed tree output to the AI
-					checkAndRunRequests(
-						ResultPanel.extensionContext!,
-						parsedTreeOutput,
-						"",
-						this._panel,
-						true
-					);
+					updateAndRequestAST(ResultPanel.extensionContext!, parsedTreeOutput);
 					break;
 				}
 
@@ -211,6 +205,12 @@ export class ResultPanel {
 			vscode.Uri.joinPath(this._extensionUri, "media", "results.css")
 		);
 
+		// join path with xyflow in node modules
+		const xyflowUri = webview.asWebviewUri(
+		 vscode.Uri.joinPath(this._extensionUri, "node_modules", "x@yflow", "svelte", "dist", "lib", "index.js")
+		)
+
+
 		// Use a nonce to only allow specific scripts to be run
 		const nonce = getNonce();
 
@@ -223,8 +223,8 @@ export class ResultPanel {
 					and only allow scripts that have a specific nonce.
         -->
         <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src 'unsafe-inline' ${
-			webview.cspSource
-		}; script-src 'nonce-${nonce}';">
+					webview.cspSource
+				}; script-src 'nonce-${nonce}';">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<link href="${stylesResetUri}" rel="stylesheet">
 				<link href="${stylesMainUri}" rel="stylesheet">
@@ -234,6 +234,16 @@ export class ResultPanel {
 		const tsvscode = acquireVsCodeApi();
 		webviewState = ${JSON.stringify(ResultPanel._webviewState)};
         </script>
+		<script nonce="${nonce}" type="module">
+		import  {SvelteFlow,
+		Controls,
+		Background,
+		BackgroundVariant,
+		MiniMap,
+		type NodeTypes,
+		type Node,
+		type Edge} from '${xyflowUri}';
+		</script>
 		</head>
 		<body>
 		</body>

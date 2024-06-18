@@ -1,0 +1,144 @@
+
+[
+  {
+    "id": 0,
+    "parentId": -1,
+    "type": "function",
+    "value": "show_major",
+    "return_type": "string",
+    "param": true
+  },
+  {
+    "id": 1,
+    "parentId": 0,
+    "type": "variable",
+    "value": "s",
+    "param": true
+  },
+  {
+    "id": 2,
+    "parentId": 0,
+    "type": "constant",
+    "value": "string",
+    "param": true
+  },
+  {
+    "id": 3,
+    "parentId": 0,
+    "type": "function",
+    "value": "show_major",
+    "return_type": "string",
+    "param": true
+  },
+  {
+    "id": 4,
+    "parentId": 3,
+    "type": "variable",
+    "value": "x",
+    "param": true
+  },
+  {
+    "id": 5,
+    "parentId": 3,
+    "type": "constant",
+    "value": "string",
+    "param": true
+  },
+  {
+    "id": 6,
+    "parentId": 3,
+    "type": "operator",
+    "value": "^"
+  },
+  {
+    "id": 7,
+    "parentId": 6,
+    "type": "constant",
+    "value": "Major version: ",
+    "param": true
+  },
+  {
+    "id": 8,
+    "parentId": 6,
+    "type": "operator",
+    "value": "^"
+  },
+  {
+    "id": 9,
+    "parentId": 8,
+    "type": "variable",
+    "value": "s",
+    "param": true
+  },
+  {
+    "id": 10,
+    "parentId": 8,
+    "type": "variable",
+    "value": "x",
+    "param": true
+  },
+  {
+    "id": 11,
+    "parentId": -1,
+    "type": "function_definition",
+    "value": "show_major"
+  },
+  {
+    "id": 12,
+    "parentId": -1,
+    "type": "tuple",
+    "value": "appInfo"
+  },
+  {
+    "id": 13,
+    "parentId": 12,
+    "type": "constant",
+    "value": "My Application",
+    "param": true
+  },
+  {
+    "id": 14,
+    "parentId": 12,
+    "type": "constant",
+    "value": "1.5",
+    "param": true
+  },
+  {
+    "id": 15,
+    "parentId": -1,
+    "type": "function_call",
+    "value": "print_int"
+  },
+  {
+    "id": 16,
+    "parentId": 15,
+    "type": "constant_int",
+    "value": "4",
+    "param": true
+  },
+  {
+    "id": 17,
+    "parentId": -1,
+    "type": "function_call",
+    "value": "print_int"
+  },
+  {
+    "id": 18,
+    "parentId": 17,
+    "type": "function_call",
+    "value": "String.length"
+  },
+  {
+    "id": 19,
+    "parentId": 18,
+    "type": "function_call",
+    "value": "show_major"
+  },
+  {
+    "id": 20,
+    "parentId": 19,
+    "type": "constant",
+    "value": "string",
+    "param": true
+  }
+]

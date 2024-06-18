@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"></head><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  .svg-chart-container{
+    height: 90vh;
+  }
+  button {
+	border: none;
+  width: 20%;
+  height: 22px;
+	padding: var(--input-padding-vertical) var(--input-padding-horizontal);
+	text-align: center;
+	outline: 1px solid transparent;
+	outline-offset: 2px !important;
+	color: var(--vscode-button-foreground);
+	background: var(--vscode-button-background);
+}
+
+button:hover {
+	cursor: pointer;
+	background: var(--vscode-button-hoverBackground);
+}
+
+button:focus {
+	outline-color: var(--vscode-focusBorder);
+}
+
+button.secondary {
+	color: var(--vscode-button-secondaryForeground);
+	background: var(--vscode-button-secondaryBackground);
+}
+
+button.secondary:hover {
+	background: var(--vscode-button-secondaryHoverBackground);
+}
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+#nodeId {
+  width: 30px;
+}
+#search {
+  width: 20%;
+}
+#param_text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-wrap: pretty;
+}
+</style>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-org-chart@3.1.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-flextree@2.1.2/build/d3-flextree.js"></script>
+
+
+<!--
+  This is the code which is used to show of feature , other parts of the code are part of the boilerplate
+
+  Except for nodeUpdate and nodeContent
+
+  In nodeUpdate we got rid of default behavior of highlighting and in nodeContent we used `_highlighted` and `_upToTheRootHighlighted` properties for dynamic styling. These properties are assigned automatically
+
+-->
+
+</head><body>
+<div class="controls">
+  <div>Node ID: <input type="number" placeholder="0" value="0" id="nodeId"/></div>
+  <button onclick="chart.setHighlighted(getInputValue()).render()">Highlight Node</button>
+  <button onclick="chart.setUpToTheRootHighlighted(getInputValue()).render().fit()">
+    Highlight Node to root
+  </button>
+  <button onclick="chart.clearHighlighting()">clear</button>
+  <input type="search" placeholder="search by name/value" id="search" oninput="filterChart(event)">
+</div>
+
+<!--
+  End of adding node functionality
+-->
+
+<div class="chart-container"></div>
+
+<script>
+  var chart = null;
+
+  function getInputValue() {
+    return document.getElementById('nodeId').value;
+  }
+
+  function filterChart(e) {
+    // Get input value
+    const value = e.srcElement.value;
+
+    // Clear previous higlighting
+    chart.clearHighlighting();
+
+    // Get chart nodes
+    const data = chart.data();
+
+    // Mark all previously expanded nodes for collapse
+    data.forEach((d) => (d._expanded = false));
+
+    // Loop over data and check if input value matches any name
+    data.forEach((d) => {
+      if (value != '' && d.value.toLowerCase().includes(value.toLowerCase())) {
+        // If matches, mark node as highlighted
+        d._highlighted = true;
+        d._expanded = true;
+      }
+    });
+
+    // Update data and rerender graph
+    chart.data(data).render().fit();
+
+    console.log('filtering chart', e.srcElement.value);
+  }
+
+  let data = [
+  {
+  "id": 0,
+  "parentId": "",
+  "type": "root",
+  "value": "root"
+},
+{
+  "id": 1,
+  "parentId": 0,
+  "type": "function_definition",
+  "value": "show_major",
+  "return_type": "string",
+  "parameters": [
+    {
+      "type": "variable",
+      "value": "s",
+      "constraint":'string',
+      "parameters": []
+    },
+    {
+      "type": "variable",
+      "value": "x",
+      "constraint":'string',
+      "parameters": []
+    }
+  ]
+},
+{
+  "id": 2,
+  "parentId": 1,
+  "type": "operator_symbol",
+  "value": "^"
+},
+{
+  "id": 3,
+  "parentId": 2,
+  "type": "constant_string",
+  "value": "Major version: "
+},
+{
+  "id": 4,
+  "parentId": 2,
+  "type": "operator_symbol",
+  "value": "^"
+},
+{
+  "id": 5,
+  "parentId": 4,
+  "type": "variable",
+  "value": "s"
+},
+{
+  "id": 6,
+  "parentId": 4,
+  "type": "variable",
+  "value": "x"
+},
+{
+  "id": 7,
+  "parentId": 0,
+  "type": "tuple",
+  "value": "appInfo"
+},
+{
+  "id": 8,
+  "parentId": 7,
+  "type": "constant_string",
+  "value": "My Application"
+},
+{
+  "id": 9,
+  "parentId": 7,
+  "type": "constant_string",
+  "value": "1.5"
+},
+{
+  "id": 10,
+  "parentId": 0,
+  "type": "function_call",
+  "value": "print_int"
+},
+{
+  "id": 11,
+  "parentId": 10,
+  "type": "constant_int",
+  "value": "4"
+},
+{
+  "id": 12,
+  "parentId": 0,
+  "type": "function_call",
+  "value": "print_int"
+},
+{
+  "id": 13,
+  "parentId": 12,
+  "type": "function_call",
+  "value": "String.length"
+},
+{
+  "id": 14,
+  "parentId": 13,
+  "type": "function_call",
+  "value": "show_major"
+},
+{
+  "id": 15,
+  "parentId": 14,
+  "type": "constant_string",
+  "value": "string"
+}
+];
+
+  data = 'PLACEHOLDER_DATA';
+
+  console.log('data:', data);
+
+  // This is the data used - https://github.com/bumbeishvili/sample-data/blob/main/data-oracle.csv
+
+  chart = new d3.OrgChart()
+    .nodeHeight((d) => 150 + 25)
+    .nodeWidth((d) => 250 + 2)
+    .childrenMargin((d) => 65)
+    .compactMarginBetween((d) => 45)
+    .compactMarginPair((d) => 40)
+    .neighbourMargin((a, b) => 30)
+    .nodeUpdate(function () {
+      // Needed to disable default highlight behavior
+      d3.select(this).select('.node-rect').attr('stroke', 'none');
+    })
+    .nodeContent(function (d, i, arr, state) {
+      const color = '#FFFFFF';
+      const imageDiffVert = 25 + 2;
+      return `
+              <div style='width:${
+                d.width
+              }px;height:${d.height}px;
+              padding-top:${imageDiffVert - 2}px;padding-left:1px;padding-right:1px'>
+                      <div style="font-family: 'Inter', sans-serif;background-color:${color};  margin-left:-1px;width:${d.width - 2}px;height:${d.height - imageDiffVert}px;border-radius:10px;border: ${d.data._highlighted || d.data._upToTheRootHighlighted ? '5px solid #E27396"' : '1px solid #E4E2E9"'} >
+                          <div style="display:flex;justify-content:flex-end;margin-top:5px;margin-right:8px">#${
+                            d.data.id
+                          }</div>
+                          <div style="background-color:${color};margin-top:${-imageDiffVert - 20}px;margin-left:${15}px;border-radius:100px;width:50px;height:50px;" ></div>
+                          <div style="margin-top:${
+                              -imageDiffVert - 20
+                            }px;">   <img src="https://cdn-icons-png.flaticon.com/512/6528/6528597.png" style="margin-left:${20}px;border-radius:100px;width:40px;height:40px;" /></div>
+                          <div style="font-size:17px;color:#08011E;margin-left:20px;margin-top:10px">  Value: ${
+                            d.data.value
+                          } </div>
+                          <div style="font-size:14 px;color:#08011E;margin-left:20px;margin-top:10px">  Type: ${
+                            d.data.type
+                          }${ d.data.return_type? ',  Returns: '+d.data.return_type: ''
+                        } </div>
+                          <div style="color:#716E7B;margin-left:20px;margin-top:3px;font-size:12px; width:${d.width-20};"><span id="param_text">${
+                            d.data.parameters? 'Parameters: \n' + d.data.parameters.map((p) => { return [p.type, p.value, p.constraint];}).join('\n') : ''
+                          }<span> </div>
+
+                      </div>
+                  </div>
+                          `;
+    })
+    .container('.chart-container')
+    .data(data)
+    .render();
+
+</script>
+</body></html>

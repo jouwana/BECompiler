@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import * as fs from "fs";
+import path from "path";
 
 
 export function splitOcamlCodeIntoSnippets(ocamlCode: string) : string[] {
@@ -104,3 +105,39 @@ export function splitResultFromError(output: string) : { error: string, result: 
 	result = lines.slice(0, errorLine).join("\n");
 	return { error, result };
 }
+
+
+export function _getHtmlForWebview(context: vscode.ExtensionContext, data: string) {
+
+		//create webview panel
+		const panel = vscode.window.createWebviewPanel(
+			"webview",
+			"Webview",
+			vscode.ViewColumn.One,
+			{
+				enableScripts: true,
+				localResourceRoots: [
+					vscode.Uri.joinPath(context.extensionUri, "out/compiled"),
+					vscode.Uri.joinPath(context.extensionUri, "media"),
+					vscode.Uri.joinPath(context.extensionUri, "out"),
+				],
+			}
+		);
+		const webview = panel.webview;
+		const extensionUri = context.extensionUri;
+		
+		let htmlContent = fs.readFileSync(
+			path.resolve(context.extensionPath, "src//tree.html"),
+			"utf8"
+		);
+		console.log("is html content null? ", htmlContent === null);
+
+		//change the placeholder to use the jsonpath
+		htmlContent = htmlContent.replace("'PLACEHOLDER_DATA'", data);
+		
+		webview.html = htmlContent;
+
+		//show the panel
+		panel.reveal();
+		
+	}
