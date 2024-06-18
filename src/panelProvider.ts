@@ -4,6 +4,7 @@ import { sequentialUtopSpawn } from "./compilers";
 import { checkAndRunRequests } from "./ai_helpers";
 import { PROMPT_CODE_EXAMPLE, PROMPT_ERROR_EXAMPLE } from "./consts";
 import { WebviewState } from "./helpers";
+import * as ChildProcess from "child_process";
 
 export class ResultPanel {
 	/**
@@ -161,7 +162,32 @@ export class ResultPanel {
 					ResultPanel._webviewState.setWebviewState(new_state);
 					console.log("new state fullscreen: ", new_state.fullscreen);
 					ResultPanel.createOrShow(ResultPanel.extensionContext!, new_state.fullscreen);
+					break;
 				}
+				case 'ast':{
+					//check if saved filepath still exists
+					if (!ResultPanel.currentFilePath) {
+						vscode.window.showErrorMessage("no saved file path");
+						return;
+					}
+
+					//use sync spawn child process to execute ocamlc with flad -dparsetree
+					//and take the stderr output from it
+					
+					const parsedTree = ChildProcess.spawnSync("ocamlc", ["-dparsetree", ResultPanel.currentFilePath]);
+					const parsedTreeOutput = parsedTree.stderr.toString();
+
+					//send the parsed tree output to the AI
+					checkAndRunRequests(
+						ResultPanel.extensionContext!,
+						parsedTreeOutput,
+						"",
+						this._panel,
+						true
+					);
+					break;
+				}
+
 			}
 		});
 	}

@@ -114,3 +114,42 @@ export const PROMPT_CODE_EXAMPLE =
 	'let appInfo = ("My Application", 1.5)\n\n' +
 	"let process (name, vers) = name ^ show_major (parse_version vers)\n\n" +
 	"let test = process appInfo\n\n";
+
+
+export const PARSE_PROMPT_HEADER = `You are an OCAML AST parser, that takes and OCAML AST and converts
+ it into a human readable format in JSON style\n
+You will be given an OCAML AST that is given using the dumped compiler -dparsetree\n
+The sent tree might include extra ERROR lines, you  MUST IGNORE THEM\n\n
+`
+
+export const PARSE_PROMPT_REQUEST_EXPLANATION = `we are interested in the following information:\n
+1. The expression type of the node, for example, function, variable, constant, tuple, operator symbols.... \n
+2. The expression value of the node, for example, the name of the variable, the value of the constant, the function name.... \n
+3. For a function, we are interested in the function name, the parameters, and the body of the function and return type\n
+4. for each expression that has arguments, we want them to be listen as well\n
+5. for any argument or paramtere with constraints visbile, we want them to be listed as well\n
+5. if the type of the variables or argument is visible, we want them to be listed as well\n\n
+each node in the provided ast starts with 'structure_item' then opens [] blocks\n
+you must base your node information based on the inside of that block\n\n
+for the 'value' section, you cannot simply put the type or pstr/ppat values, but the value in quotations\n\n
+`
+
+export const PARSE_PROMPT_RESPONSE_DESIGN = `your response needs to be in json format, and follow the following format:\n
+1. for each node in the AST, create a new object\n
+2. the object must have the following
+	- a key called "type" with the value of the type of the node
+	- a key called "value" with the value of the value of the node
+	- a key called "children" with the value of an array of objects, where each object is a child node of the current node\n
+3. if an object has no children, the children key should be an empty array\n
+4. ONLY a function object should have these extra keys:
+	- a key called "params" with the value of an array of objects, where each object is a parameter of the function
+	- a key called "return_type" with the value of the return type of the function, which we can find\n
+	in the value insider quotation after the 'ptyp_constr', in the line under core_type\n
+5. for constants, you must use 'constant_int' or 'constant_string'... based on the constant value\n
+	and not simply write 'constant' as the type\n
+6. for objects with no children, do not include the children key\n
+7. you must differentiate between a function definition or a function call, and set the type based on that\n
+8. for function calls, do not add the key 'params'\n
+`
+
+export const PARSE_PRE_AST = `this is the AST that you need to parse:\n\n`

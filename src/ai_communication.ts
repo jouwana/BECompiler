@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { logMessage } from "./helpers";
-import { PROMPT_REQUEST_EXPLANATION, PRMOPT_PRE_CODE, PRMOPT_PRE_ERROR, PROMPT_RESPONSE_DESIGN, PROMPT_HEADER, ERRORS_NOT_SEPARATED_FROM_CODE } from "./consts";
+import { PROMPT_REQUEST_EXPLANATION, PRMOPT_PRE_CODE, PRMOPT_PRE_ERROR, PROMPT_RESPONSE_DESIGN, PROMPT_HEADER, ERRORS_NOT_SEPARATED_FROM_CODE, PARSE_PROMPT_HEADER, PARSE_PROMPT_REQUEST_EXPLANATION, PARSE_PROMPT_RESPONSE_DESIGN, PARSE_PRE_AST } from "./consts";
 import { GoogleGenerativeAI, GoogleGenerativeAIError } from "@google/generative-ai";
 
 const AWANLLM_API_KEY = "b79fefdf-fd1e-48cb-b943-c560c240916b";
@@ -43,33 +43,39 @@ export async function sendAwanllmRequest(context: vscode.ExtensionContext, code:
 	}
 }
 
-export let sendGeminiRequest = async (context: vscode.ExtensionContext, code: string, errors: string): Promise<string> => {
-	let prompt = PROMPT_HEADER +
-		PROMPT_REQUEST_EXPLANATION;
-
-	if (errors !== "") {
-		prompt +=
-			PRMOPT_PRE_CODE +
-			code +
-			PRMOPT_PRE_ERROR +
-			errors;
+export let sendGeminiRequest = async (context: vscode.ExtensionContext, code: string, errors: string, treeParse?:boolean): Promise<string> => {
+	let prompt = ''
+	if(treeParse === true){
+		prompt = PARSE_PROMPT_HEADER + PARSE_PROMPT_REQUEST_EXPLANATION + PARSE_PROMPT_RESPONSE_DESIGN + PARSE_PRE_AST + code;
 	}
 	else{
-		prompt += ERRORS_NOT_SEPARATED_FROM_CODE +
-		PRMOPT_PRE_CODE +
-		code;
+		prompt = PROMPT_HEADER +
+			PROMPT_REQUEST_EXPLANATION;
+
+		if (errors !== "") {
+			prompt +=
+				PRMOPT_PRE_CODE +
+				code +
+				PRMOPT_PRE_ERROR +
+				errors;
+		}
+		else{
+			prompt += ERRORS_NOT_SEPARATED_FROM_CODE +
+			PRMOPT_PRE_CODE +
+			code;
+		}
+		prompt += PROMPT_RESPONSE_DESIGN;
 	}
-	prompt += PROMPT_RESPONSE_DESIGN;
 	console.log("sending to api, time:" + Date.now());
 	logMessage(context, "Sent request to Google Generative AI");
 
 	try{
 	const result = await model.generateContent(prompt);
-	const response = await result.response;
+	const response = result.response;
 	let text = response.text();
 	logMessage(context, "Recieved response from Google Generative AI");
-	//if text starts with ```html, remove it and the ``` at the end
-	if (text.startsWith("```html")) {
+	//if text starts with ```html or ```json, remove it and the ``` at the end
+	if (text.startsWith("```html") || text.startsWith("```json")) {
 		text = text.slice(7, text.length - 3);
 	}
     return text;

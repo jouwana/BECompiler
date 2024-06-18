@@ -12,11 +12,12 @@ let requestsPerDay: number = 0;
 let lastResetDate: string = "";
 let lastMinuteResetTime: number = Date.now();
 
-export async function checkAndRunRequests(context: vscode.ExtensionContext, code: string, errors: string, panel: vscode.WebviewPanel) {
+export async function checkAndRunRequests(context: vscode.ExtensionContext, code: string, errors: string, 
+	panel: vscode.WebviewPanel, treeParse?: boolean) {
 	//if there are errors, and run the AI and show the results
 	let response = "";
 
-	if (errors == "" && !code.includes("Error")) {
+	if (treeParse !== true && errors == "" && !code.includes("Error")) {
 		response =  `<h2>No Errors found in the code</h2>`
 	}
 	else{
@@ -27,12 +28,12 @@ export async function checkAndRunRequests(context: vscode.ExtensionContext, code
 			response = `<h2>Request limit reached</h2>`
 		}
 		//let response = await sendAwanllmRequest(context);
-		else response = await sendGeminiRequest(context, code, errors);
+		else response = await sendGeminiRequest(context, code, errors, treeParse);
 	}
 
 
 	panel.webview.postMessage({
-		command: "ai_results",
+		command: treeParse === true ? "ast_results" : "ai_results",
 		value: response,
 	});
 }

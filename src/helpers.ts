@@ -107,6 +107,7 @@ export class WebviewState {
 	private flow_results: string = "";
 	private ai_results: string = "";
 	private fullscreen: boolean = false;
+	private ast_results: string = "";
 
 	public getWebviewState(): any {
 		return {
@@ -115,6 +116,7 @@ export class WebviewState {
 			flow_results: this.flow_results,
 			ai_results: this.ai_results,
 			fullscreen: this.fullscreen,
+			ast_results: this.ast_results
 		};
 	}
 
@@ -124,6 +126,7 @@ export class WebviewState {
 		flow_results?: string;
 		ai_results?: string;
 		fullscreen?: boolean;
+		ast_results?: string;
 	}) {
 		this.state = new_state.state ? new_state.state : this.state;
 		this.compilation_results = new_state.compilation_results
@@ -135,8 +138,12 @@ export class WebviewState {
 		this.ai_results = new_state.ai_results
 			? new_state.ai_results
 			: this.ai_results;
-		this.fullscreen = new_state.fullscreen !== undefined
-			? new_state.fullscreen
-			: this.fullscreen;
+		this.fullscreen =
+			new_state.fullscreen !== undefined
+				? new_state.fullscreen
+				: this.fullscreen;
+		this.ast_results = new_state.ast_results
+				? new_state.ast_results 
+				: this.ast_results;
 	}
 }
