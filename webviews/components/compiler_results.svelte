@@ -13,6 +13,8 @@ import { onMount } from "svelte";
 
 	let fullscreen = webviewState.fullscreen;
 
+	let ast_was_called = false;
+
 	function collapsibleClickHandler(this: HTMLElement) {
 		this.classList.toggle("active");
 		const content = this.nextElementSibling as HTMLElement;
@@ -57,6 +59,10 @@ import { onMount } from "svelte";
 					}, 200);
 					break;
 				}
+				case 'ast':{
+					ast_was_called = false;
+					break;
+				}
 			}
 		});
 	});
@@ -77,6 +83,13 @@ import { onMount } from "svelte";
 	compilation_results = "";
 	flow_results = "";
 }}> recompile file </button>
+<button class:disabled={ast_was_called} on:click={() => {
+	ast_was_called = true;
+	tsvscode.postMessage({
+		command: 'ast',
+		value: ""
+	});
+}}> View AST Interactive Graph </button>
 </div>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <img class='fullscreen_clicker' on:click={() => {
@@ -115,13 +128,6 @@ import { onMount } from "svelte";
 		});
 		state = 'loading';
 	}}> flow type errors </button>
-
-	<button on:click={() => {
-		tsvscode.postMessage({
-			command: 'ast',
-			value: ""
-		});
-	}}> AST </button>
 
 	<button class:disabled={state == 'ai_results'} on:click={() =>{
 		if(ai_results != ""){

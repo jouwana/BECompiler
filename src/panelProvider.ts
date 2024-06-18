@@ -183,7 +183,7 @@ export class ResultPanel {
 						parsedTreeOutput = parsedTree.stderr.toString();
 					}
 
-					updateAndRequestAST(ResultPanel.extensionContext!, parsedTreeOutput, ResultPanel._webviewState);
+					updateAndRequestAST(ResultPanel.extensionContext!, parsedTreeOutput, ResultPanel._webviewState, this._panel);
 					break;
 				}
 

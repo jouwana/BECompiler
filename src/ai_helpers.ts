@@ -37,7 +37,7 @@ export async function checkAndRunRequests(context: vscode.ExtensionContext, code
 	});
 }
 
-export async function updateAndRequestAST(context: vscode.ExtensionContext, code: string, webstate:WebviewState) {
+export async function updateAndRequestAST(context: vscode.ExtensionContext, code: string, webstate:WebviewState, panel: vscode.WebviewPanel) {
 	//if there are errors, and run the AI and show the results
 	let response = "";
 
@@ -51,7 +51,11 @@ export async function updateAndRequestAST(context: vscode.ExtensionContext, code
 			response = `<h2>Request limit reached</h2>`
 		}
 		//let response = await sendAwanllmRequest(context);
-		else response = await sendGeminiRequest(context, code, "", true);
+		else {		
+			vscode.window.showInformationMessage(
+			"AST is being generated, please wait. This may take a few seconds.");
+			response = await sendGeminiRequest(context, code, "", true);
+		}
 		
 		//delete all lines that include ' "type": "type" ' or ' "type": "param" ' from the response
 		response = response.replace(/"type": "type",/g, "");
@@ -67,6 +71,10 @@ export async function updateAndRequestAST(context: vscode.ExtensionContext, code
 	}
 
 	logMessage(context, "AST response: " + response);
+	panel.webview.postMessage({
+		command: "ast",
+		value: "this is to allow button to be reclicked now",
+	});
 	return _getHtmlForWebview(context, response);
 }
 
