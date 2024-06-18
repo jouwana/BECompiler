@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { logMessage } from './helpers';
+import { WebviewState, logMessage } from './helpers';
 import { MINUTE_IN_MILLISECONDS, REQUESTS_PER_DAY_LIMIT, REQUESTS_PER_MINUTE_LIMIT } from './consts';
 import { sendGeminiRequest } from './ai_communication';
 import * as fs from 'fs';
@@ -37,32 +37,36 @@ export async function checkAndRunRequests(context: vscode.ExtensionContext, code
 	});
 }
 
-export async function updateAndRequestAST(context: vscode.ExtensionContext, code: string) {
+export async function updateAndRequestAST(context: vscode.ExtensionContext, code: string, webstate:WebviewState) {
 	//if there are errors, and run the AI and show the results
 	let response = "";
 
-			
-	let canContinue = await updateAndCheckRequests(context);
-
-	if (!canContinue) {
-		response = `<h2>Request limit reached</h2>`
+	if(webstate.getWebviewState().ast_results !== "") {
+		response = webstate.getWebviewState().ast_results;
 	}
-	//let response = await sendAwanllmRequest(context);
-	else response = await sendGeminiRequest(context, code, "", true);
-	
-	//delete all lines that include ' "type": "type" ' or ' "type": "param" ' from the response
-	response = response.replace(/"type": "type",/g, "");
-	response = response.replace(/"type": "param",/g, "");
+	else{
+		let canContinue = await updateAndCheckRequests(context);
 
-	//between every consecutive '}' and '{' add a ',' if there isnt any
-	response = response.replace(/}\n{/g, "},\n{");
+		if (!canContinue) {
+			response = `<h2>Request limit reached</h2>`
+		}
+		//let response = await sendAwanllmRequest(context);
+		else response = await sendGeminiRequest(context, code, "", true);
+		
+		//delete all lines that include ' "type": "type" ' or ' "type": "param" ' from the response
+		response = response.replace(/"type": "type",/g, "");
+		response = response.replace(/"type": "param",/g, "");
 
-	//add [ and ] to the start and end of the response
-	response = "[" + response + "]";
+		//between every consecutive '}' and '{' add a ',' if there isnt any
+		response = response.replace(/}\n{/g, "},\n{");
+
+		//add [ and ] to the start and end of the response
+		response = "[" + response + "]";
+
+		webstate.setWebviewState({ast_results: response});
+	}
 
 	logMessage(context, "AST response: " + response);
-
-
 	return _getHtmlForWebview(context, response);
 }
 

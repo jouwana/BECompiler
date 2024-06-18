@@ -121,6 +121,8 @@ export class ResultPanel {
 						vscode.window.showErrorMessage("no saved file path");
 						return;
 					}
+					//reset webviewState
+					ResultPanel._webviewState = new WebviewState();
 
 					//sent to compiler
 					sequentialUtopSpawn(
@@ -158,7 +160,9 @@ export class ResultPanel {
 					//create the webview state from data
 					const new_state = {
 						...data.value,
-					}
+						ast_results:
+							ResultPanel._webviewState.getWebviewState().ast_results,
+					};
 					ResultPanel._webviewState.setWebviewState(new_state);
 					console.log("new state fullscreen: ", new_state.fullscreen);
 					ResultPanel.createOrShow(ResultPanel.extensionContext!, new_state.fullscreen);
@@ -171,14 +175,15 @@ export class ResultPanel {
 						vscode.window.showErrorMessage("no saved file path");
 						return;
 					}
-
+					let parsedTreeOutput = "";
 					//use sync spawn child process to execute ocamlc with flad -dparsetree
 					//and take the stderr output from it
-					
-					const parsedTree = ChildProcess.spawnSync("ocamlc", ["-dparsetree", ResultPanel.currentFilePath]);
-					const parsedTreeOutput = parsedTree.stderr.toString();
+					if(ResultPanel._webviewState.getWebviewState().ast_results === "") {
+						const parsedTree = ChildProcess.spawnSync("ocamlc", ["-dparsetree", ResultPanel.currentFilePath]);
+						parsedTreeOutput = parsedTree.stderr.toString();
+					}
 
-					updateAndRequestAST(ResultPanel.extensionContext!, parsedTreeOutput);
+					updateAndRequestAST(ResultPanel.extensionContext!, parsedTreeOutput, ResultPanel._webviewState);
 					break;
 				}
 
