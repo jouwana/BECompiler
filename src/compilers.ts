@@ -57,7 +57,16 @@ export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile:
 			!first_read &&
 			printing_index < codeSnippets.length
 		) {
+			let span_color = data.toString().includes("Error") ? "red" :
+				data.toString().includes("Warning") ? "yellow" : 
+				data.toString().includes("Hint") ? "green" : "";
+			if(span_color !== "") {
+				output += `<span style="color: ${span_color};">`;
+			}
 			output += logAndGetOutput(context, data.toString());
+			if (span_color !== "") {
+				output += `</span>`;
+			}
 			if(data.toString().includes("Warning") || data.toString().includes("Hint")){
 				// warning or hints are printer WITH another output, so we do not add 
 				// them to the printing index

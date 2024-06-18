@@ -50,7 +50,7 @@
 		overflow-wrap: break-word;
 		width: inherit;
 	}
-	.resp pre{
+	.resp pre, pre{
 		text-wrap: pretty;
 	}
 

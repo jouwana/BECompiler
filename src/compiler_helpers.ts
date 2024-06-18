@@ -27,15 +27,16 @@ export let getCodeSnippet = (ocamlFile: string): string[] => {
 
 
 export let logAndGetOutput = (context: vscode.ExtensionContext, value: string, isSnippet:boolean = false) :string => {
-
 	let output = "";
 	if (isSnippet) {
 		output += "------------------------------------\n";
 		logMessage(context, "code snippet: " + value);
-	}
-	else logMessage(context, "output: " + value);
+	} else logMessage(context, "output: " + value);
 	//add separator to separate the output of different code snippets
 	output += value + "\n";
+	//replace all < and > with html symbols for them
+	output = output.replace(/</g, "&lt;");
+	output = output.replace(/>/g, "&gt;");
 	return output;
 }
 

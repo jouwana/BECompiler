@@ -42,7 +42,7 @@ import { onMount } from "svelte";
 			const message = event.data; // The json data that the extension sent
 			switch (message.command) {
 				case 'compilation_results':{
-					compilation_results = message.value;
+					compilation_results = '<pre>' + message.value + '</pre>';
 					state = 'main_results';
 					break;
 				}
@@ -146,7 +146,7 @@ import { onMount } from "svelte";
 
 
 <pre class:hidden={state != 'main_results'} class="main_container">
-	{compilation_results}
+	{@html compilation_results}
 </pre>
 
 <div class:hidden={state != 'flow_results'} class="main_container">
