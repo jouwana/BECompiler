@@ -36,10 +36,11 @@ export async function activate(context: vscode.ExtensionContext) {
 				return;
 			}
 
-			//ResultPanel.createOrShow(context.extensionUri);
-			//runTerminalUtopInterpreter(context, ocamlFile);
-			sequentialUtopSpawn(context, ocamlFile, ResultPanel.getWebview());
-			//runChildProcess(context, ocamlFile);
+			ResultPanel.createOrShow(context);
+			//set 0.2 second delay to allow the webview to load
+			setTimeout(() => {
+				sequentialUtopSpawn(context, ocamlFile!, ResultPanel.getWebview());
+			}, 200);
 		}
 	);
 	let svelteTrialDisposable = vscode.commands.registerCommand(
