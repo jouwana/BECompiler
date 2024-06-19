@@ -96,7 +96,6 @@
 		"@google/generative-ai": "^0.11.5",
 		"@types/node": "^20.14.2",
 		"@types/node-fetch": "^2.6.11",
-		"@xyflow/svelte": "^0.1.6",
 		"node": "^20.14.0",
 		"node-fetch": "^3.3.2"
 	}

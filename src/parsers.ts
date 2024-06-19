@@ -127,7 +127,7 @@ export function _getHtmlForWebview(context: vscode.ExtensionContext, data: strin
 		const extensionUri = context.extensionUri;
 		
 		let htmlContent = fs.readFileSync(
-			path.resolve(context.extensionPath, "src//tree.html"),
+			path.resolve(context.extensionPath, "media//tree.html"),
 			"utf8"
 		);
 		console.log("is html content null? ", htmlContent === null);
