@@ -4,7 +4,7 @@ import { logMessage, checkOCamlInstallation,
 	 isOcamlFileType,
 	 checkOcamlInstallationAndFile, 
  } from './helpers';
-import {runChildProcess, sequentialUtopSpawn } from './compilers';
+import { sequentialUtopSpawn } from './compilers';
 import { ResultPanel } from './panelProvider';
 
 let utopStatusBar: vscode.StatusBarItem;
@@ -26,8 +26,8 @@ export async function activate(context: vscode.ExtensionContext) {
 		OcamlInstalled = true;
 		return;
 	}
-	const decorationType = vscode.window.createTextEditorDecorationType({});
 
+	//currently both commands are the same
 	let ocamlUtopDisposable = vscode.commands.registerCommand(
 		"BEC.compileWithUtop",
 		async () => {
@@ -37,10 +37,10 @@ export async function activate(context: vscode.ExtensionContext) {
 			}
 
 			ResultPanel.createOrShow(context);
-			//set 0.2 second delay to allow the webview to load
+			//set 0.3 second delay to allow the webview to load
 			setTimeout(() => {
 				sequentialUtopSpawn(context, ocamlFile!, ResultPanel.getWebview());
-			}, 200);
+			}, 300);
 		}
 	);
 	let svelteTrialDisposable = vscode.commands.registerCommand(
@@ -52,10 +52,10 @@ export async function activate(context: vscode.ExtensionContext) {
 			}
 
 			ResultPanel.createOrShow(context);
-			//set 0.2 second delay to allow the webview to load
+			//set 0.2=3 second delay to allow the webview to load
 			setTimeout(() => {
 				sequentialUtopSpawn(context, ocamlFile!, ResultPanel.getWebview());
-			}, 200);
+			}, 300);
 		}
 	);
 

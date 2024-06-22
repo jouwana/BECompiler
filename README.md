@@ -58,6 +58,7 @@ After starting, a new VSCode window will open, the extension will be available f
 
 
 
+
 1. 'recompile file': recompiles the ocaml file that was in active editor *when the extension was activated* and not
     the file currently in the active editor.
 
@@ -65,10 +66,12 @@ After starting, a new VSCode window will open, the extension will be available f
    * groups each command with its evaluations, errors, warning and hints together.
    * uses colors to make it easier to view errors, warnings and hints.
    * in errors and warnings, the Line number corresponds to location relative to current command
-   * 
+   
+    **If the page is stuck in loading, try to recompile**
+
      ![image](https://github.com/jouwana/BECompiler/assets/41836591/15bb1da4-9816-43f0-a062-7491a8c8b996)
 
-3. 'data flow errors': shows the errors using **Data Flow Errors* based on the article:
+3. 'data flow errors': shows the errors using *Data Flow Errors* based on the article:
 
    **Needs the backend server activated**
    
@@ -103,11 +106,11 @@ After starting, a new VSCode window will open, the extension will be available f
 
    * can use 'highlight node' and 'highlight node to root' options with the Node ID text
     
-     ![image](https://github.com/jouwana/BECompiler/assets/41836591/10f327b9-dd3b-4029-91ce-d41201ebe303)
+    ![image](https://github.com/jouwana/BECompiler/assets/41836591/10f327b9-dd3b-4029-91ce-d41201ebe303)
 
-  * a search function which highlights blocks with the name of the searched value:
+   * a search function which highlights blocks with the name of the searched value:
     
-      ![image](https://github.com/jouwana/BECompiler/assets/41836591/818f9e24-05d7-479d-a8e8-6c1563ed036f)
+    ![image](https://github.com/jouwana/BECompiler/assets/41836591/818f9e24-05d7-479d-a8e8-6c1563ed036f)
 
 
 ## Server:

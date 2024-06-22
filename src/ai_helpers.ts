@@ -2,9 +2,8 @@ import * as vscode from 'vscode';
 import { WebviewState, logMessage } from './helpers';
 import { MINUTE_IN_MILLISECONDS, REQUESTS_PER_DAY_LIMIT, REQUESTS_PER_MINUTE_LIMIT } from './consts';
 import { sendGeminiRequest } from './ai_communication';
-import * as fs from 'fs';
 import { _getHtmlForWebview } from './parsers';
-import path from 'path';
+
 
 let requestsThisMinute: number = 0;
 let requestsPerDay: number = 0;

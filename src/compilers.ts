@@ -1,33 +1,8 @@
 import * as vscode from "vscode";
 import * as child_process from "child_process";
-import * as fs from "fs";
 import { logMessage } from "./helpers";
 import { getCodeSnippet, logAndGetOutput } from "./compiler_helpers";
-import { log } from "console";
 
-export function runChildProcess(context: vscode.ExtensionContext, ocamlFile: string) {
-
-/**this is the easiest way to get all the warnings and errors separated from the output
- * but it is not the best way to do it as it is blocking the main thread
- * and when its async, we cannot send the output to other compilers
- **/
-
-	logMessage(context, "----SYNC OCAML COMPILER----");
-	try{
-	ocamlFile = ocamlFile.replace(/\\/g, "/");
-	let buffer = child_process.execSync(`echo #use "${ocamlFile}";; | utop`);
-	let output = buffer.toString();
-	let warnings = output.match(/Warning:.*\n/g);
-	let compiledCode = output.replace(/Error:.*\n/g, "").replace(/Warning:.*\n/g, "");
-	logMessage(context, "output: " + output);
-	logMessage(context, "warnings: " + warnings);
-	logMessage(context, "compiledCode: " + compiledCode);
-	}
-	catch(e){
-		logMessage(context, "error: " + e);
-	}
-
-}
 
 export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile: string, webviewPanel: vscode.WebviewPanel) {
 	let codeSnippets = getCodeSnippet(ocamlFile);
