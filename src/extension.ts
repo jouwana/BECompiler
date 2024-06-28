@@ -2,7 +2,8 @@ import * as vscode from 'vscode';
 import { logMessage, checkOCamlInstallation, 
 	 getInstallInstructions,
 	 isOcamlFileType,
-	 checkOcamlInstallationAndFile, 
+	 checkOcamlInstallationAndFile,
+	 checkUtopInstallation, 
  } from './helpers';
 import { sequentialUtopSpawn } from './compilers';
 import { ResultPanel } from './panelProvider';
@@ -18,7 +19,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	let OcamlInstalled = true;
 
-	if (!checkOCamlInstallation()) {
+	if (!checkOCamlInstallation() && !checkUtopInstallation()) {
 		vscode.window.showErrorMessage(
 			"OCaml is not installed. " + getInstallInstructions()
 		);

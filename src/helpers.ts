@@ -69,6 +69,27 @@ export function checkOCamlInstallation(): boolean {
 
 /**
  * 
+ * @returns True if Utop is installed, false otherwise
+ */
+export function checkUtopInstallation(): boolean {
+	const platform = os.platform();
+	let command: string;
+	if (platform === "win32") {
+		command = "where utop";
+	} else {
+		command = "which utop";
+	}
+
+	try {
+		child_process.execSync(command);
+		return true;
+	} catch (error) {
+		return false;
+	}
+}
+
+/**
+ * 
  * @returns The installation instructions for OCaml based on the user's platform
  */
 export function getInstallInstructions(): string {

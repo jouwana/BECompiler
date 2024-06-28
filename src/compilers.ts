@@ -32,9 +32,13 @@ export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile:
 			!first_read &&
 			printing_index < codeSnippets.length
 		) {
-			let span_color = data.toString().includes("Error") ? "red" :
-				data.toString().includes("Warning") ? "yellow" : 
-				data.toString().includes("Hint") ? "green" : "";
+			let span_color = data.toString().includes("Error")
+				? "red"
+				: data.toString().includes("Warning")
+				? "yellow"
+				: data.toString().includes("Hint")
+				? "dodgerblue"
+				: "";
 			if(span_color !== "") {
 				output += `<span style="color: ${span_color};">`;
 			}
