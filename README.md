@@ -18,17 +18,20 @@ an extenstion that runs a better error compiler for Ocaml based on the article: 
 
 ## How To Run
 
-**VSCode needs to be started from cygwin terminal, by writing 'code .'.**
+### VSCode needs to be started from Cygwin Terminal, by writing 'code .'.
 
 in VSCode, you can use Ocaml Platfrom to make sure your switch is set up correctly.
 
 Clone the repository.
 
 ### Before First Run:
-* use npm install
+* open vscode terminal, use npm install
 * use npm run compile and wait for it to finish
 
-To run the extension, click on F5 to run in debug mode.
+### To run the extension:
+* make sure to have started vscode through cygwin terminal
+* in Ocaml Platform, choose your preferred switch, that has utop and ocaml on it
+* click on F5 to run in debug mode.
 
 After starting, a new VSCode window will open, the extension will be available for use in this new window only!
 
