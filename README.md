@@ -9,6 +9,13 @@ an extenstion that runs a better error compiler for Ocaml based on the article: 
 - LLM based solution and explanation to all the errors and warning in the code.
 
 
+## Demo
+Link to video on [youtube](https://youtu.be/g48E55Rzq2Y)
+
+https://github.com/jouwana/BECompiler/assets/41836591/edf272a8-6902-4f59-ade5-4f537e69821d
+
+
+
 ## Requirements
 
 - Install Ocaml by following https://fdopen.github.io/opam-repository-mingw/installation/
