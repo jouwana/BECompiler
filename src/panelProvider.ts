@@ -6,6 +6,7 @@ import { ERROR_NO_RETURN_VALUE, PROMPT_CODE_EXAMPLE, PROMPT_ERROR_EXAMPLE } from
 import { WebviewState } from "./helpers";
 import * as ChildProcess from "child_process";
 import { _getHtmlForWebview } from "./parsers";
+import { getDataflow } from "./dataFlow_communication";
 
 export class ResultPanel {
 	/**
@@ -224,6 +225,21 @@ export class ResultPanel {
 						return;
 					}
 					updateAndRequestAST(ResultPanel.extensionContext!, parsedTreeOutput, ResultPanel._webviewState, this._panel);
+					break;
+				}
+				case "flow":{
+					if (ResultPanel.inProcess.DataFlow) {
+						vscode.window.showErrorMessage("DataFlow already in process");
+						return;
+					}
+					//check if saved filepath still exists
+					if (!ResultPanel.currentFilePath) {
+						vscode.window.showErrorMessage("no saved file path");
+						return;
+					}
+					ResultPanel.inProcess.DataFlow = true;
+					getDataflow(ResultPanel.extensionContext!, ResultPanel.currentFilePath, this._panel);
+
 					break;
 				}
 

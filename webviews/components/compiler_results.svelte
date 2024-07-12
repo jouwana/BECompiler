@@ -48,6 +48,7 @@ import { onMount } from "svelte";
 				}
 				case 'flow_results':{
 					flow_results = message.value;
+					console.log(flow_results);
 					state = 'flow_results';
 					break;
 				}
@@ -150,7 +151,7 @@ import { onMount } from "svelte";
 </pre>
 
 <div class:hidden={state != 'flow_results'} class="main_container">
-	<pre>{flow_results}</pre>
+	{@html flow_results}
 </div>
 
 <div class:hidden={state != 'ai_results'} class="resp main_container">
