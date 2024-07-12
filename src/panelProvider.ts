@@ -2,9 +2,10 @@ import * as vscode from "vscode";
 import { getNonce } from "./nonce";
 import { sequentialUtopSpawn } from "./compilers";
 import { checkAndRunRequests, updateAndRequestAST } from "./ai_helpers";
-import { PROMPT_CODE_EXAMPLE, PROMPT_ERROR_EXAMPLE } from "./consts";
+import { ERROR_NO_RETURN_VALUE, PROMPT_CODE_EXAMPLE, PROMPT_ERROR_EXAMPLE } from "./consts";
 import { WebviewState } from "./helpers";
 import * as ChildProcess from "child_process";
+import { _getHtmlForWebview } from "./parsers";
 
 export class ResultPanel {
 	/**
@@ -26,6 +27,8 @@ export class ResultPanel {
 	public static getWebview(): vscode.WebviewPanel {
 		return ResultPanel.currentPanel!._panel;
 	}
+
+	public static inProcess = {LLM_errors: false, DataFlow: false, AST: false};
 
 	public static createOrShow(context: vscode.ExtensionContext, fullscreen?: boolean) {
 		let extensionUri = context.extensionUri;
@@ -86,6 +89,8 @@ export class ResultPanel {
 		this._panel = panel;
 		this._extensionUri = context.extensionUri;
 
+		ResultPanel.inProcess = { LLM_errors: false, DataFlow: false, AST: false };
+
 		// Set the webview's initial html content
 		this._update();
 
@@ -97,6 +102,9 @@ export class ResultPanel {
 
 	public dispose() {
 		ResultPanel.currentPanel = undefined;
+
+		// setr all processes to false
+		ResultPanel.inProcess = {LLM_errors: false, DataFlow: false, AST: false};
 
 		// Clean up our resources
 		this._panel.dispose();
@@ -116,6 +124,10 @@ export class ResultPanel {
 		webview.onDidReceiveMessage(async (data) => {
 			switch (data.command) {
 				case "recompile": {
+					//set all in process to false, as we are recompiling
+					//and want to send new data even if old one still in process
+					ResultPanel.inProcess = {LLM_errors: false, DataFlow: false, AST: false};
+
 					//check if saved filepath still exists
 					if (!ResultPanel.currentFilePath) {
 						vscode.window.showErrorMessage("no saved file path");
@@ -133,6 +145,11 @@ export class ResultPanel {
 					break;
 				}
 				case "runLLM": {
+					if(ResultPanel.inProcess.LLM_errors) {
+						vscode.window.showErrorMessage("LLM errors already in process");
+						return;
+					}
+
 					//check if saved filepath still exists
 					if (!ResultPanel.currentFilePath) {
 						vscode.window.showErrorMessage("no saved file path");
@@ -147,7 +164,8 @@ export class ResultPanel {
 					}
 
 					let compilation_results = data.value;
-
+					ResultPanel.inProcess.LLM_errors = true;
+					
 					checkAndRunRequests(
 						ResultPanel.extensionContext!,
 						compilation_results,
@@ -170,12 +188,19 @@ export class ResultPanel {
 				}
 				case 'ast':{
 
+					if(ResultPanel.inProcess.AST) {
+						vscode.window.showErrorMessage("AST already in process");
+						return;
+					}
+
 					//check if saved filepath still exists
 					if (!ResultPanel.currentFilePath) {
 						vscode.window.showErrorMessage("no saved file path");
 						return;
 					}
 					let parsedTreeOutput = "";
+					ResultPanel.inProcess.AST = true;
+					
 					//use sync spawn child process to execute ocamlc with flad -dparsetree
 					//and take the stderr output from it
 					if(ResultPanel._webviewState.getWebviewState().ast_results === "") {
@@ -183,6 +208,21 @@ export class ResultPanel {
 						parsedTreeOutput = parsedTree.stderr.toString();
 					}
 
+					// check if parsed tree value is empty
+					if(parsedTreeOutput === "" || parsedTreeOutput.includes('File "command line", line 1:')){	
+						//make a new webview with error message inside it
+						//create webview panel
+						const panel = vscode.window.createWebviewPanel(
+							"AST_ERROR",
+							"AST_ERROR",
+							vscode.ViewColumn.One,
+							{}
+						);
+						panel.webview.html ='<pre style="text-wrap: pretty;">' + ERROR_NO_RETURN_VALUE+"</pre>";
+						//in process false
+						ResultPanel.inProcess.AST = false;
+						return;
+					}
 					updateAndRequestAST(ResultPanel.extensionContext!, parsedTreeOutput, ResultPanel._webviewState, this._panel);
 					break;
 				}

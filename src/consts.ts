@@ -3,6 +3,18 @@ export const REQUESTS_PER_MINUTE_LIMIT: number = 15; //15 for gemini, 10 for awa
 export const REQUESTS_PER_DAY_LIMIT: number = 1500; // 1500 for gemini, 100 for awanllm
 export const MINUTE_IN_MILLISECONDS: number = 60000;
 
+export const ERROR_NO_RETURN_VALUE = `No output from the compiler. it is possible that:\n
+<ul>
+<li>Utop is not installed</li>
+<li>OCaml is not installed</li>
+<li>The switch is not active</li>
+<li>Ran compiler before system finished loading</li>
+</ul>\n
+Please check that you have access to opam switch and that you opened vscode through cygwin\n
+Please also make sure that Utop is installed on the current switch\n
+If all is as it should be, please try again\n`;
+
+
 export const ERRORS_NOT_SEPARATED_FROM_CODE = `the provided code compilation comes with the errors messages attached to it:\n\n
 each command/code segment and its output are enclosed inside '---------------' lines, everyting inside that block is 
 about that command/code segment\n

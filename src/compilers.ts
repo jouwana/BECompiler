@@ -2,6 +2,7 @@ import * as vscode from "vscode";
 import * as child_process from "child_process";
 import { logMessage } from "./helpers";
 import { getCodeSnippet, logAndGetOutput } from "./compiler_helpers";
+import { ERROR_NO_RETURN_VALUE } from "./consts";
 
 
 export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile: string, webviewPanel: vscode.WebviewPanel) {
@@ -72,9 +73,11 @@ export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile:
 			}, 200);
 		}
 	});
-
+	
 	spawnedInterpreter.on("close", async (code) => {
-
+		if( output === "") {
+			output = ERROR_NO_RETURN_VALUE;
+		}
 		//sent the message to the webviewPanel
 		webviewPanel.webview.postMessage({
 			command: "compilation_results",

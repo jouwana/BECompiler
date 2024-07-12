@@ -3,6 +3,7 @@ import { WebviewState, logMessage } from './helpers';
 import { MINUTE_IN_MILLISECONDS, REQUESTS_PER_DAY_LIMIT, REQUESTS_PER_MINUTE_LIMIT } from './consts';
 import { sendGeminiRequest } from './ai_communication';
 import { _getHtmlForWebview } from './parsers';
+import { ResultPanel } from './panelProvider';
 
 
 let requestsThisMinute: number = 0;
@@ -29,7 +30,7 @@ export async function checkAndRunRequests(context: vscode.ExtensionContext, code
 		else response = await sendGeminiRequest(context, code, errors);
 	}
 
-
+	ResultPanel.inProcess.LLM_errors = false;
 	panel.webview.postMessage({
 		command: "ai_results",
 		value: response,
@@ -65,6 +66,8 @@ export async function updateAndRequestAST(context: vscode.ExtensionContext, code
 
 		//add [ and ] to the start and end of the response
 		response = "[" + response + "]";
+		
+		ResultPanel.inProcess.AST = false;
 
 		webstate.setWebviewState({ast_results: response});
 	}
