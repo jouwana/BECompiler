@@ -7,8 +7,7 @@ export async function getDataflow(
 	path: string,
 	panel: vscode.WebviewPanel
 ): Promise<any> {
-	//let response = await fetchDataFlow(path);
-	let response = await fetchDataFlowTestRun(1);
+	let response = await fetchDataFlow(path);
 
 	ResultPanel.inProcess.DataFlow = false;
 	panel.webview.postMessage({
@@ -36,6 +35,23 @@ async function fetchDataFlowTestRun(number: number): Promise<any> {
 }
 
 async function fetchDataFlow(path: string) {
-	//TODO: Implement fetch dataflow with POST and sending path
+	//chane all '\' in path to $
+	path = path.replace(/\\/g, "$");
+	console.log(path);
+	const url = `http://localhost:8080/runPath/${path}`;
+	try {
+		const response = await fetch(url);
+		//check response status
+		if (!response.ok) {
+			throw new Error('Network response was not ok.<br>status: ' + response.status +
+				'<br>' + response.statusText
+			);
+		}
+		const data:any = await response.text();
+		return data;
+	} catch (error: any) {
+		console.error('Error:', error);
+		return error.message;
+	}
 	return
 }
