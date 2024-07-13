@@ -1,11 +1,14 @@
 # BEC README
 
 an extenstion that runs a better error compiler for Ocaml based on the article: Getting Into The Flow: Better Type Error Messages for Constraint-Based Type Inference 
+This is the FrontEnd extension side.
+
+**for the backend server that runs and creates the dataflow errors, go to this [repository](https://github.com/RazanDally/BECompiler/)**
 
 ### Includes:
 - In extension Ocaml Interpreter with command and evaluation separator, error and warnings, and color coding.
 - An interactive AST tree visualizer.
-- Data Flow Type Error messages / information.
+- Data Flow Type Error messages / information. (**Needs the Backend Server activated locally from [here](https://github.com/RazanDally/BECompiler/)**)
 - LLM based solution and explanation to all the errors and warning in the code.
 
 
@@ -21,6 +24,7 @@ https://github.com/jouwana/BECompiler/assets/41836591/edf272a8-6902-4f59-ade5-4f
 - Install Ocaml by following https://fdopen.github.io/opam-repository-mingw/installation/
 - Intall utop. lsp-ocaml-server and dune packages.
 - Install Ocaml Platform Extenstion in VSCode.
+- Clone the [BackEnd Repo](https://github.com/RazanDally/BECompiler/) and run it locally
   
 
 ## How To Run
@@ -124,6 +128,14 @@ After starting, a new VSCode window will open, the extension will be available f
 
 
 ## Server:
+
+Go To [BackEnd repo](https://github.com/RazanDally/BECompiler/)
+
+follow the ReadMe there to download.
+
+TL:DR; you need to have cursior / sbt downloaded
+Java version between 11-20 to use with it
+and run it via terminal using 'sbt run'
 
 
 
