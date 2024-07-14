@@ -55,7 +55,6 @@ export function _getHtmlForWebview(context: vscode.ExtensionContext, data: strin
 			}
 		);
 		const webview = panel.webview;
-		const extensionUri = context.extensionUri;
 		
 		let htmlContent = fs.readFileSync(
 			path.resolve(context.extensionPath, "media//tree.html"),

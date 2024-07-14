@@ -32,6 +32,23 @@ import { onMount } from "svelte";
 		}
 	}
 
+	function setLineLinkEventListener (this: HTMLElement) {
+		const lineInfo = this.textContent;
+			tsvscode.postMessage({
+				command: 'goToLine',
+				value: lineInfo
+			});
+	}
+
+	let setupLineLinkFunction = () => {
+		//send vscode a goToLine message with the information inside the a element
+		const lineLinks: HTMLCollectionOf<Element> = document.getElementsByClassName("line_number");
+		console.log(lineLinks);
+		for (let i = 0; i < lineLinks.length; i++) {
+			lineLinks[i].addEventListener("click", setLineLinkEventListener);
+		}
+	}
+
 	onMount(() => {
 		window.addEventListener('DOMContentLoaded', () => {
 			setupAIButtonFunctions();
@@ -48,8 +65,10 @@ import { onMount } from "svelte";
 				}
 				case 'flow_results':{
 					flow_results = message.value;
-					console.log(flow_results);
 					state = 'flow_results';
+					setTimeout(() => {
+						setupLineLinkFunction();
+					}, 200);
 					break;
 				}
 				case 'ai_results':{
@@ -151,6 +170,15 @@ import { onMount } from "svelte";
 </pre>
 
 <div class:hidden={state != 'flow_results'} class="main_container">
+	<a class:hidden={!flow_results.includes("fetch failed")}
+	href = "#" on:click={() => {
+		flow_results = "";
+		state = 'loading';
+		tsvscode.postMessage({
+			command: 'flow',
+			value: "rerun"
+		});
+	}}> Check Server and Try Again</a>
 	{@html flow_results}
 </div>
 

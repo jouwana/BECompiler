@@ -37,7 +37,6 @@ async function fetchDataFlowTestRun(number: number): Promise<any> {
 async function fetchDataFlow(path: string) {
 	//chane all '\' in path to $
 	path = path.replace(/\\/g, "$");
-	console.log(path);
 	const url = `http://localhost:8080/runPath/${path}`;
 	try {
 		const response = await fetch(url);

@@ -3,7 +3,7 @@ import { getNonce } from "./nonce";
 import { sequentialUtopSpawn } from "./compilers";
 import { checkAndRunRequests, updateAndRequestAST } from "./ai_helpers";
 import { ERROR_NO_RETURN_VALUE, PROMPT_CODE_EXAMPLE, PROMPT_ERROR_EXAMPLE } from "./consts";
-import { WebviewState } from "./helpers";
+import { revealLineInEditor, WebviewState } from "./helpers";
 import * as ChildProcess from "child_process";
 import { _getHtmlForWebview } from "./parsers";
 import { getDataflow } from "./dataFlow_communication";
@@ -228,10 +228,11 @@ export class ResultPanel {
 					break;
 				}
 				case "flow":{
-					if (ResultPanel.inProcess.DataFlow) {
+					if (ResultPanel.inProcess.DataFlow && data.value != "rerun") {
 						vscode.window.showErrorMessage("DataFlow already in process");
 						return;
 					}
+					
 					//check if saved filepath still exists
 					if (!ResultPanel.currentFilePath) {
 						vscode.window.showErrorMessage("no saved file path");
@@ -239,6 +240,33 @@ export class ResultPanel {
 					}
 					ResultPanel.inProcess.DataFlow = true;
 					getDataflow(ResultPanel.extensionContext!, ResultPanel.currentFilePath, this._panel);
+
+					break;
+				}
+				case "goToLine": {
+					let val: string = data.value;
+					let lineNumberStartIndex = val.indexOf(".") + 1;
+					//from lineNumberStartIndex to the first occurence of a non number character, not including -
+					let lineNumber = val.substring(lineNumberStartIndex).match(/\d+/);
+					console.log("line number: ", lineNumber);
+
+					if(!lineNumber) {
+						vscode.window.showErrorMessage("No line number found");
+						return;
+					}
+
+					//open the file / set editor based on path
+					let openEditor = vscode.window.visibleTextEditors.find(
+						(editor) => ResultPanel.currentFilePath?.includes(editor.document.fileName)
+					);
+
+					//if editor is not open, open it
+					if (!openEditor) {
+						openEditor = await vscode.window.showTextDocument(vscode.Uri.file(ResultPanel.currentFilePath!));
+					}
+
+					//set the selection
+					revealLineInEditor(openEditor!, parseInt(lineNumber[0])-1);
 
 					break;
 				}

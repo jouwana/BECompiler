@@ -119,7 +119,17 @@ export function logMessage(context: vscode.ExtensionContext, message: string, fi
     fs.appendFileSync(logFilePath, message + '\n');
 }
 
-
+/**
+ *  Reveal a line in the active text editor
+ * @param editor The active text editor
+ * @param lineNumber  The line number to reveal in the editor
+ */
+export function revealLineInEditor(editor: vscode.TextEditor, lineNumber: number) {
+	const position = new vscode.Position(lineNumber, 0);
+	const range = new vscode.Range(position, position);
+	editor.revealRange(range, vscode.TextEditorRevealType.InCenter);
+	editor.selection = new vscode.Selection(position, position);
+}
 
 //helper class for the state of the webview
 export class WebviewState {
