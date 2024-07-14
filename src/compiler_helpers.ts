@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as vscode from "vscode";
-import { logMessage } from "./helpers";
+import { logMessage, replaceGTsymbols, replaceLTsymbols } from "./helpers";
 
 export let getCodeSnippet = (ocamlFile: string): string[] => {
 	//read the ocaml file using fs
@@ -35,8 +35,8 @@ export let logAndGetOutput = (context: vscode.ExtensionContext, value: string, i
 	//add separator to separate the output of different code snippets
 	output += value + "\n";
 	//replace all < and > with html symbols for them
-	output = output.replace(/</g, "&lt;");
-	output = output.replace(/>/g, "&gt;");
+	output = replaceLTsymbols(output);
+	output = replaceGTsymbols(output);
 	return output;
 }
 

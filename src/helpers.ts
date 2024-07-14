@@ -4,6 +4,56 @@ import * as fs from 'fs';
 import * as child_process from 'child_process';
 import * as os from 'os';
 
+
+//helper class for the state of the webview
+export class WebviewState {
+	private state: string = "loading";
+	private compilation_results: string = "";
+	private flow_results: string = "";
+	private ai_results: string = "";
+	private fullscreen: boolean = false;
+	private ast_results: string = "";
+
+	public getWebviewState(): any {
+		return {
+			state: this.state,
+			compilation_result: this.compilation_results,
+			flow_results: this.flow_results,
+			ai_results: this.ai_results,
+			fullscreen: this.fullscreen,
+			ast_results: this.ast_results
+		};
+	}
+
+	public setWebviewState(new_state: {
+		state?: string;
+		compilation_results?: string;
+		flow_results?: string;
+		ai_results?: string;
+		fullscreen?: boolean;
+		ast_results?: string;
+	}) {
+		this.state = new_state.state ? new_state.state : this.state;
+		this.compilation_results = new_state.compilation_results
+			? new_state.compilation_results
+			: this.compilation_results;
+		this.flow_results = new_state.flow_results
+			? new_state.flow_results
+			: this.flow_results;
+		this.ai_results = new_state.ai_results
+			? new_state.ai_results
+			: this.ai_results;
+		this.fullscreen =
+			new_state.fullscreen !== undefined
+				? new_state.fullscreen
+				: this.fullscreen;
+		this.ast_results = new_state.ast_results
+				? new_state.ast_results 
+				: this.ast_results;
+	}
+}
+
+
 export function getWebviewOptions(extensionUri: vscode.Uri): vscode.WebviewOptions {
 	return {
 		// Enable javascript in the webview
@@ -131,50 +181,38 @@ export function revealLineInEditor(editor: vscode.TextEditor, lineNumber: number
 	editor.selection = new vscode.Selection(position, position);
 }
 
-//helper class for the state of the webview
-export class WebviewState {
-	private state: string = "loading";
-	private compilation_results: string = "";
-	private flow_results: string = "";
-	private ai_results: string = "";
-	private fullscreen: boolean = false;
-	private ast_results: string = "";
+export function highlightUnknownTypes(inputString: String): String {
+	// Regex to match (?letters) where letters can be any sequence of alphabets
+	const regex = /\(\?([a-zA-Z]+[)]?(\s)?(->)?)/g;
 
-	public getWebviewState(): any {
-		return {
-			state: this.state,
-			compilation_result: this.compilation_results,
-			flow_results: this.flow_results,
-			ai_results: this.ai_results,
-			fullscreen: this.fullscreen,
-			ast_results: this.ast_results
-		};
-	}
+	// Replace matches with <abbr> tags
+	const result = inputString.replace(regex, (match, unknownType) => {
+		// Create abbr element with title attribute
+		const title = "an unknown type, function type or block type found during unification process.\n"+
+		"If seen multiple times with the same identifier, those appearances share the same type.";
+		let hasArrow = unknownType.includes("->");
+		if(hasArrow) {
+			unknownType = unknownType.replace("->", "");
+		}
+		return `<abbr style="color:lightYellow" title="${title}">(?${unknownType}</abbr> ${hasArrow ? "->" : ""}`;
+	});
 
-	public setWebviewState(new_state: {
-		state?: string;
-		compilation_results?: string;
-		flow_results?: string;
-		ai_results?: string;
-		fullscreen?: boolean;
-		ast_results?: string;
-	}) {
-		this.state = new_state.state ? new_state.state : this.state;
-		this.compilation_results = new_state.compilation_results
-			? new_state.compilation_results
-			: this.compilation_results;
-		this.flow_results = new_state.flow_results
-			? new_state.flow_results
-			: this.flow_results;
-		this.ai_results = new_state.ai_results
-			? new_state.ai_results
-			: this.ai_results;
-		this.fullscreen =
-			new_state.fullscreen !== undefined
-				? new_state.fullscreen
-				: this.fullscreen;
-		this.ast_results = new_state.ast_results
-				? new_state.ast_results 
-				: this.ast_results;
-	}
+	return result;
+}
+
+
+export function fixSomeTooManyTabs(inputString: string): string {
+	const regex = /(\t{4,}|\s{15,})[^\^]+\n/g;
+
+	return inputString.replace(regex, (match) => {
+		return match.replace(/\t{4,}|\s{15,}/g, "	");
+	});
+}
+
+export function replaceLTsymbols(inputString: string): string {
+		return inputString.replace(/</g, "&lt;");
+}
+
+export function replaceGTsymbols(inputString: string): string {
+	return inputString.replace(/>/g, "&gt;");
 }

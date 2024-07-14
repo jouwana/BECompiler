@@ -62,11 +62,12 @@ export const PROMPT_RESPONSE_DESIGN =
 	'under the button tag, create a <div class="content"> tag.\n' +
 	'inside the <div class="content"> tag, do the following:\n' +
 	"for the title of each subsection, use the following format\n" +
-	"<h2> title </h2> <br>\n\n" +
+	"<h2> title </h2>\n " +
+	" having a subsection title is VERY IMPORTANT, plase do not forget them \n\n" +
 	"for the bullet points, use the following format:\n" +
 	"<ul>\n" +
 	"<li>bullet point </li>\n" +
-	"</ul>\n" +
+	"</ul> <br>\n" +
 	"for the code snippets, use the following format:\n" +
 	'<code style="text-wrap: pretty">\n' +
 	"code snippet\n" +
@@ -96,7 +97,7 @@ export const PROMPT_RESPONSE_DESIGN =
 	"replace all semicolons with '%3B'\n\n" +
 	"2. <li> add <a href witht the generated link> Google Search</a> for:\n" +
 	'3. start a new line, tab it, then write the error/warning message (without the location of the error) inside <pre><code style="text-wrap: pretty"> ' +
-	'code snippet </code></pre>. and close it off with </li>. make sure to not change anything about the message\n' +
+	"code snippet </code></pre>. and close it off with </li>. make sure to not change anything about the message\n" +
 	'4. add <li><a href="https://ocaml.org/docs/common-errors">Common OCaml Errors</a></li>\n' +
 	'5. add <li><a href="https://ocaml.org/manual/5.2/index.html">OCaml Manual</a></li>\n\n' +
 	"6. close the unordered list and add a </br>\n\n";

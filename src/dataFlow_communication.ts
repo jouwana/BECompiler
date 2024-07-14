@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { ResultPanel } from './panelProvider';
+import { fixSomeTooManyTabs, highlightUnknownTypes, replaceGTsymbols, replaceLTsymbols } from './helpers';
 
 
 export async function getDataflow(
@@ -8,6 +9,9 @@ export async function getDataflow(
 	panel: vscode.WebviewPanel
 ): Promise<any> {
 	let response = await fetchDataFlow(path);
+	response = highlightUnknownTypes(response);
+	response = fixSomeTooManyTabs(response);
+
 
 	ResultPanel.inProcess.DataFlow = false;
 	panel.webview.postMessage({
