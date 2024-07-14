@@ -22,7 +22,9 @@ https://github.com/jouwana/BECompiler/assets/41836591/edf272a8-6902-4f59-ade5-4f
 ## Requirements
 
 - Install Ocaml by following https://fdopen.github.io/opam-repository-mingw/installation/
-- Intall utop. lsp-ocaml-server and dune packages.
+- Intall lsp-ocaml-server and dune packages,  utop. 
+  * Utop version: 2.10.0
+  * Ocaml version 4.14.0 preferable
 - Install Ocaml Platform Extenstion in VSCode.
 - Clone the [BackEnd Repo](https://github.com/RazanDally/BECompiler/) and run it locally
   
