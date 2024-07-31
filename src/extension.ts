@@ -7,6 +7,7 @@ import { logMessage, checkOCamlInstallation,
  } from './helpers';
 import { sequentialUtopSpawn } from './compilers';
 import { ResultPanel } from './panelProvider';
+import { runServer } from './dataFlow_communication';
 
 let utopStatusBar: vscode.StatusBarItem;
 
@@ -27,6 +28,9 @@ export async function activate(context: vscode.ExtensionContext) {
 		OcamlInstalled = true;
 		return;
 	}
+
+	//run the backend server
+	runServer(context);
 
 	//currently both commands are the same
 	let ocamlUtopDisposable = vscode.commands.registerCommand(
