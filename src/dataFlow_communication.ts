@@ -36,7 +36,7 @@ let dealWithServerResponse = (context: vscode.ExtensionContext, response: string
 				"The Server could be online, in this case ignore this error. \n" +
 				"OR another server is using the port, in which case close that server"
 		);
-	} else if (response.toString().toLowerCase().includes("error")) {
+	} else if (response.toLowerCase().includes("error") && !response.toLowerCase().includes("[warn]")) {
 		vscode.window.showInformationMessage("DataFlow Server Error:\n" + response);
 	}
 }
