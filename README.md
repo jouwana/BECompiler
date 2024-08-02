@@ -59,7 +59,7 @@ Java version between 11-19 to use with it
 
 ### Manual Server Run:
 * use CMD, vscode terminal or intellij terminal (or other IDEs)
-* Type SBT and enter
+* Type sbt and enter
 * when SBT opens, write run and enter
 
 this will run the server on port 8080, make sure to close the server properly so you dont get issues next time you run it
