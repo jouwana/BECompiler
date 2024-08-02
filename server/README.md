@@ -10,6 +10,8 @@ and making sure that it runs okay / everything needed is installed.
 2. copy the entirety of the contents of the repository into the this folder
 3. now when running the code, the extenstion will auto run the server
 
+** The Server will give prompt and erros about running it, and its state, please wait until it tells you dataflow server is running, to start using it**
+
 
 ## Possible Issues:
 1. the server is open in the background already
