@@ -44,9 +44,28 @@ Clone the repository.
 ### To run the extension:
 * make sure to have started vscode through cygwin terminal
 * in Ocaml Platform, choose your preferred switch, that has utop and ocaml on it
-* click on F5 to run in debug mode.
+* click on F5 to run in debug mode if you want to view console log for unexpected errors
+* **run in non debug mode for normal uses**
 
 After starting, a new VSCode window will open, the extension will be available for use in this new window only!
+
+## Using the Backend Server:
+Go To [BackEnd repo](https://github.com/RazanDally/BECompiler/)
+
+follow the ReadMe there to download.
+
+TL:DR; you need to have cursior / sbt downloaded
+Java version between 11-19 to use with it
+
+### Manual Server Run:
+* use CMD, vscode terminal or intellij terminal (or other IDEs)
+* Type SBT and enter
+* when SBT opens, write run and enter
+
+this will run the server on port 8080, make sure to close the server properly so you dont get issues next time you run it
+
+### Auto Server Run:
+read the 'ReadMe' in the [server folder](https://github.com/jouwana/BECompiler/tree/main/server) on this repo, and follow along.
 
 ## How To Use
 
@@ -129,15 +148,6 @@ After starting, a new VSCode window will open, the extension will be available f
     ![image](https://github.com/jouwana/BECompiler/assets/41836591/818f9e24-05d7-479d-a8e8-6c1563ed036f)
 
 
-## Server:
-
-Go To [BackEnd repo](https://github.com/RazanDally/BECompiler/)
-
-follow the ReadMe there to download.
-
-TL:DR; you need to have cursior / sbt downloaded
-Java version between 11-20 to use with it
-and run it via terminal using 'sbt run'
 
 
 
