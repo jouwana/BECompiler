@@ -72,8 +72,8 @@ function updateUtopStatusBarVisibility() {
 
 function setupUtopStatusBar(context: vscode.ExtensionContext) {
 	utopStatusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 2);
-	utopStatusBar.command = "BEC.compileWithUtop";
-	utopStatusBar.text = "$(debug-console) BEC-U";
+	utopStatusBar.command = "BEC.runBEC";
+	utopStatusBar.text = "$(debug-console) BEC";
 	utopStatusBar.tooltip = "Better Errors Compiler Using Utop";
 	utopStatusBar.backgroundColor = "green";
 
