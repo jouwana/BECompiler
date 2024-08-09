@@ -18,27 +18,17 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "BEC.compileWithUtop",
-				"title": "BE compile With Utop TopLevel",
-				"category": "BEC"
-			},
-			{
-				"command": "BEC.svelteTrial",
-				"title": "BE Svelte webview trial",
+				"command": "BEC.runBEC",
+				"title": "BEC run compiler",
 				"category": "BEC"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "BEC.compileWithUtop",
-				"key": "ctrl+alt+u",
-				"mac": "cmd+opt+u",
+				"command": "BEC.runBEC",
+				"key": "ctrl+alt+b",
+				"mac": "cmd+opt+b",
 				"when": "editorTextFocus"
-			},
-			{
-				"command": "BEC.svelteTrial",
-				"key": "ctrl+alt+s",
-				"mac": "cmd+opt+s"
 			}
 		],
 		"configuration": {

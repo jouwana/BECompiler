@@ -34,7 +34,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	//currently both commands are the same
 	let ocamlUtopDisposable = vscode.commands.registerCommand(
-		"BEC.compileWithUtop",
+		"BEC.runBEC",
 		async () => {
 			let ocamlFile = checkOcamlInstallationAndFile(OcamlInstalled);
 			if (!ocamlFile) {
@@ -48,24 +48,8 @@ export async function activate(context: vscode.ExtensionContext) {
 			}, 300);
 		}
 	);
-	let svelteTrialDisposable = vscode.commands.registerCommand(
-		"BEC.svelteTrial",
-		async () => {
-			let ocamlFile = checkOcamlInstallationAndFile(OcamlInstalled);
-			if (!ocamlFile) {
-				return;
-			}
-
-			ResultPanel.createOrShow(context);
-			//set 0.2=3 second delay to allow the webview to load
-			setTimeout(() => {
-				sequentialUtopSpawn(context, ocamlFile!, ResultPanel.getWebview());
-			}, 300);
-		}
-	);
 
 	context.subscriptions.push(ocamlUtopDisposable);
-	context.subscriptions.push(svelteTrialDisposable);
 }
 
 // This method is called when your extension is deactivated
