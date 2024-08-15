@@ -3,7 +3,7 @@ import { getNonce } from "./nonce";
 import { sequentialUtopSpawn } from "./compilers";
 import { checkAndRunRequests, updateAndRequestAST } from "./ai_helpers";
 import { ERROR_NO_RETURN_VALUE, PROMPT_CODE_EXAMPLE, PROMPT_ERROR_EXAMPLE } from "./consts";
-import { revealLineInEditor, WebviewState } from "./helpers";
+import { logMessage, revealLineInEditor, WebviewState } from "./helpers";
 import * as ChildProcess from "child_process";
 import { _getHtmlForWebview } from "./parsers";
 import { getDataflow } from "./dataFlow_communication";
@@ -159,7 +159,7 @@ export class ResultPanel {
 
 					if (!data.value) {
 						vscode.window.showErrorMessage(
-							"no compilation resutls found, please recompile first"
+							"No DataFlow results resutls found, please run it first"
 						);
 						return;
 					}
@@ -201,28 +201,30 @@ export class ResultPanel {
 					}
 					let parsedTreeOutput = "";
 					ResultPanel.inProcess.AST = true;
+
+					logMessage(ResultPanel.extensionContext!, `prev ASt = ${ResultPanel._webviewState.getWebviewState().ast_results}`);
 					
 					//use sync spawn child process to execute ocamlc with flad -dparsetree
 					//and take the stderr output from it
 					if(ResultPanel._webviewState.getWebviewState().ast_results === "") {
 						const parsedTree = ChildProcess.spawnSync("ocamlc", ["-dparsetree", ResultPanel.currentFilePath]);
 						parsedTreeOutput = parsedTree.stderr.toString();
-					}
 
-					// check if parsed tree value is empty
-					if(parsedTreeOutput === "" || parsedTreeOutput.includes('File "command line", line 1:')){	
-						//make a new webview with error message inside it
-						//create webview panel
-						const panel = vscode.window.createWebviewPanel(
-							"AST_ERROR",
-							"AST_ERROR",
-							vscode.ViewColumn.One,
-							{}
-						);
-						panel.webview.html ='<pre style="text-wrap: pretty;">' + ERROR_NO_RETURN_VALUE+"</pre>";
-						//in process false
-						ResultPanel.inProcess.AST = false;
-						return;
+						// check if parsed tree value is empty
+						if(parsedTreeOutput === "" || parsedTreeOutput.includes('File "command line", line 1:')){	
+							//make a new webview with error message inside it
+							//create webview panel
+							const panel = vscode.window.createWebviewPanel(
+								"AST_ERROR",
+								"AST_ERROR",
+								vscode.ViewColumn.One,
+								{}
+							);
+							panel.webview.html ='<pre style="text-wrap: pretty;">' + ERROR_NO_RETURN_VALUE+"</pre>";
+							//in process false
+							ResultPanel.inProcess.AST = false;
+							return;
+						}
 					}
 					updateAndRequestAST(ResultPanel.extensionContext!, parsedTreeOutput, ResultPanel._webviewState, this._panel);
 					break;

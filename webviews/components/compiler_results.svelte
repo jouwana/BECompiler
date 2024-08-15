@@ -103,8 +103,7 @@ import { onMount } from "svelte";
 	compilation_results = "";
 	flow_results = "";
 }}> recompile file </button>
-<button class:disabled={ast_was_called} on:click={() => {
-	ast_was_called = true;
+<button on:click={() => {
 	tsvscode.postMessage({
 		command: 'ast',
 		value: ""
@@ -169,6 +168,10 @@ import { onMount } from "svelte";
 			command: 'runLLM',
 			value: flow_results
 		});
+		if(flow_results == ""){
+			state = 'main_results';
+			return;
+		}
 		state = 'loading';
 	}}> AI error details </button>
 

@@ -4,6 +4,7 @@ import { MINUTE_IN_MILLISECONDS, REQUESTS_PER_DAY_LIMIT, REQUESTS_PER_MINUTE_LIM
 import { sendGeminiRequest } from './ai_communication';
 import { _getHtmlForWebview } from './parsers';
 import { ResultPanel } from './panelProvider';
+import { log } from 'console';
 
 
 let requestsThisMinute: number = 0;
@@ -43,37 +44,42 @@ export async function updateAndRequestAST(context: vscode.ExtensionContext, code
 		let canContinue = await updateAndCheckRequests(context);
 
 		if (!canContinue) {
-			response = `<h2>Request limit reached</h2>`
+			response = `<h2>Request limit reached</h2>`;
 		}
 		//let response = await sendAwanllmRequest(context);
-		else {		
+		else {
 			vscode.window.showInformationMessage(
-			"AST is being generated, please wait. This may take a few seconds.");
+				"AST is being generated, please wait. This may take a few seconds."
+			);
 			response = await sendGeminiRequest(context, code, "", true);
 		}
-		
+
 		//delete all lines that include ' "type": "type" ' or ' "type": "param" ' from the response
 		response = response.replace(/"type": "type",/g, "");
 		response = response.replace(/"type": "param",/g, "");
 
 		//between every consecutive '}' and '{' add a ',' if there isnt any
 		response = response.replace(/}\n{/g, "},\n{");
+		
+		//remove extra } at the end of the response if it exists
+		response = response.replace(/}[^{,\]]*}/gm, "}");
+
+		//remove extra { at the start of the response if it exists
+		response = response.replace(/{[^{,\]]*{/gm, "{");
+
+		logMessage(context, "AST response: " + response);
 
 		//add [ and ] to the start and end of the response
 		response = "[" + response + "]";
-		
-		ResultPanel.inProcess.AST = false;
 
 		webstate.setWebviewState({ast_results: response});
 	}
 
-	logMessage(context, "AST response: " + response);
-	panel.webview.postMessage({
-		command: "ast",
-		value: "this is to allow button to be reclicked now",
-	});
+	ResultPanel.inProcess.AST = false;
 	return _getHtmlForWebview(context, response);
 }
+
+/** DEAL WITH CALL LIMITATION NUMBER */
 
 async function updateAndCheckRequests(context: vscode.ExtensionContext) {
 	// get the stored values from the workspace state
