@@ -142,6 +142,16 @@ import { onMount } from "svelte";
 			state = 'flow_results';
 			return;
 		}
+		if(compilation_results == ""){
+			state = 'flow_results';
+			flow_results = "Please Compile the code first";
+			return;
+		}
+		if (!compilation_results.includes("Error")) {
+			state = 'flow_results';
+			flow_results =  `<h2>No Errors found in the code to use DataFlow on</h2>`
+			return;
+		}
 		tsvscode.postMessage({
 			command: 'flow',
 			value: 'checking flow type errors'
@@ -157,7 +167,7 @@ import { onMount } from "svelte";
 
 		tsvscode.postMessage({
 			command: 'runLLM',
-			value: compilation_results
+			value: flow_results
 		});
 		state = 'loading';
 	}}> AI error details </button>

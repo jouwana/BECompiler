@@ -16,19 +16,14 @@ export async function checkAndRunRequests(context: vscode.ExtensionContext, code
 	//if there are errors, and run the AI and show the results
 	let response = "";
 
-	if (errors == "" && !code.includes("Error")) {
-		response =  `<h2>No Errors found in the code</h2>`
-	}
-	else{
-			
-		let canContinue = await updateAndCheckRequests(context);
+	let canContinue = await updateAndCheckRequests(context);
 
-		if (!canContinue) {
-			response = `<h2>Request limit reached</h2>`
-		}
-		//let response = await sendAwanllmRequest(context);
-		else response = await sendGeminiRequest(context, code, errors);
+	if (!canContinue) {
+		response = `<h2>Request limit reached</h2>`
 	}
+	//let response = await sendAwanllmRequest(context);
+	else response = await sendGeminiRequest(context, code, errors);
+
 
 	ResultPanel.inProcess.LLM_errors = false;
 	panel.webview.postMessage({
