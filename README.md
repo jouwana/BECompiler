@@ -11,6 +11,8 @@ This is the FrontEnd extension side.
 - Data Flow Type Error messages / information. (**Needs the Backend Server activated locally from [here](https://github.com/RazanDally/BECompiler/)**)
 - LLM based solution and explanation to all the errors and warning in the code.
 
+**IMPORTANT: The API key for the LLMs uses a free plan, it would be best for you to get your own free plan API key from gemini, so you dont get limited easily. you can change it in src/ai_communication.ts,
+you can also use a paid plan key if you have one. you can change the LLM version used easily as well**
 
 ## Contents:
 - [Demos](https://github.com/jouwana/BECompiler?tab=readme-ov-file#demo)
