@@ -6,13 +6,13 @@ This is the FrontEnd extension side.
 **for the backend server that runs and creates the dataflow errors, go to this [repository](https://github.com/RazanDally/BECompiler/)**
 
 ### Includes:
-- In extension Ocaml Interpreter with command and evaluation separator, error and warnings, and color coding.
+- a built-into the extension Ocaml Interpreter with command and evaluation separator, error and warnings, and color coding. **for best use, separate blocks with ';;' at the end**.
 - An interactive AST tree visualizer.
 - Data Flow Type Error messages / information. (**Needs the Backend Server activated locally from [here](https://github.com/RazanDally/BECompiler/)**)
 - LLM based solution and explanation to all the errors and warning in the code.
 
-**IMPORTANT: The API key for the LLMs uses a free plan, it would be best for you to get your own free plan API key from gemini, so you dont get limited easily. you can change it in src/ai_communication.ts,
-you can also use a paid plan key if you have one. you can change the LLM version used easily as well**
+**IMPORTANT: The API key for the LLMs uses a free plan, it would be best for you to get your own free plan API key from gemini, so you dont get limited easily. you can change it in src/ai_communication.ts.
+you can also use a paid plan key if you have one. you can change the LLM version used easily as well.**
 
 ## Contents:
 - [Demos](https://github.com/jouwana/BECompiler?tab=readme-ov-file#demo)
@@ -123,9 +123,11 @@ read the 'ReadMe' in the [server folder](https://github.com/jouwana/BECompiler/t
     the file currently in the active editor.
 
 2. 'interpreter results': show the interpreter results for the entire file even if errors occur
-   * groups each command with its evaluations, errors, warning and hints together.
+   * groups each command with its evaluations, errors, warning and hints together
+        * make sure to separate code blocks with ';;', so that they can be grouped separately   
    * uses colors to make it easier to view errors, warnings and hints.
    * in errors and warnings, the Line number corresponds to location relative to current command
+  
    
     **If the page is stuck in loading, try to recompile**
 
