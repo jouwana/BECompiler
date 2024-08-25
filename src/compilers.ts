@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import * as child_process from "child_process";
 import { logMessage } from "./helpers";
-import { getCodeSnippet, logAndGetOutput } from "./compiler_helpers";
+import { colorErrors, getCodeSnippet, logAndGetOutput } from "./compiler_helpers";
 import { ERROR_NO_RETURN_VALUE } from "./consts";
 
 
@@ -47,7 +47,8 @@ export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile:
 			if (span_color !== "") {
 				output += `</span>`;
 			}
-			if(data.toString().includes("Warning") || data.toString().includes("Hint")){
+			if((data.toString().includes("Warning") || data.toString().includes("Hint"))
+			&& !data.toString().includes("Error")){
 				// warning or hints are printer WITH another output, so we do not add 
 				// them to the printing index
 				return;
@@ -77,6 +78,10 @@ export function sequentialUtopSpawn(context: vscode.ExtensionContext, ocamlFile:
 	spawnedInterpreter.on("close", async (code) => {
 		if( output === "") {
 			output = ERROR_NO_RETURN_VALUE;
+		}
+		else {
+			// color errors
+			output = colorErrors(context, output);
 		}
 		//sent the message to the webviewPanel
 		webviewPanel.webview.postMessage({
