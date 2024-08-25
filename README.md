@@ -6,14 +6,39 @@ This is the FrontEnd extension side.
 **for the backend server that runs and creates the dataflow errors, go to this [repository](https://github.com/RazanDally/BECompiler/)**
 
 ### Includes:
-- In extension Ocaml Interpreter with command and evaluation separator, error and warnings, and color coding.
+- a built-into the extension Ocaml Interpreter with command and evaluation separator, error and warnings, and color coding. **for best use, separate blocks with ';;' at the end**.
 - An interactive AST tree visualizer.
 - Data Flow Type Error messages / information. (**Needs the Backend Server activated locally from [here](https://github.com/RazanDally/BECompiler/)**)
 - LLM based solution and explanation to all the errors and warning in the code.
 
+**IMPORTANT: The API key for the LLMs uses a free plan, it would be best for you to get your own free plan API key from gemini, so you dont get limited easily. you can change it in src/ai_communication.ts.
+you can also use a paid plan key if you have one. you can change the LLM version used easily as well.**
 
-## Demo
-Link to video on [youtube](https://youtu.be/g48E55Rzq2Y)
+## Contents:
+- [Demos](https://github.com/jouwana/BECompiler?tab=readme-ov-file#demo)
+- [Requirements](https://github.com/jouwana/BECompiler?tab=readme-ov-file#requirements)
+- [How To Run](https://github.com/jouwana/BECompiler?tab=readme-ov-file#how-to-run)
+   - [First Run](https://github.com/jouwana/BECompiler?tab=readme-ov-file#before-first-run)
+   - [Run Extension](https://github.com/jouwana/BECompiler?tab=readme-ov-file#to-run-the-extension)
+- [BackEnd Server](https://github.com/jouwana/BECompiler?tab=readme-ov-file#using-the-backend-server)
+   - [Backend Server Repo](https://github.com/RazanDally/BECompiler/)
+   - [Manually Run Backend Server](https://github.com/jouwana/BECompiler?tab=readme-ov-file#manual-server-run)
+   - [Set Up Auto Run](https://github.com/jouwana/BECompiler/tree/main/server#this-is-a-placeholder-folder-for-the-server)
+- [How To Use](https://github.com/jouwana/BECompiler?tab=readme-ov-file#how-to-use)
+- [Feature Summary](https://github.com/jouwana/BECompiler?tab=readme-ov-file#feature-summary)
+
+
+## Demos
+
+### Test Showcase - How to Solve Errors Using BEC
+Link to HD video on [youtube](https://youtu.be/7G8k5g0dTT8)
+
+https://github.com/user-attachments/assets/08bd28be-d602-4021-bcd8-f25a90ad1213
+
+<hr>
+
+### General Capabilities Showcase + How to Run
+Link to HD video on [youtube](https://youtu.be/g48E55Rzq2Y)
 
 https://github.com/jouwana/BECompiler/assets/41836591/edf272a8-6902-4f59-ade5-4f537e69821d
 
@@ -98,9 +123,11 @@ read the 'ReadMe' in the [server folder](https://github.com/jouwana/BECompiler/t
     the file currently in the active editor.
 
 2. 'interpreter results': show the interpreter results for the entire file even if errors occur
-   * groups each command with its evaluations, errors, warning and hints together.
+   * groups each command with its evaluations, errors, warning and hints together
+        * make sure to separate code blocks with ';;', so that they can be grouped separately   
    * uses colors to make it easier to view errors, warnings and hints.
    * in errors and warnings, the Line number corresponds to location relative to current command
+  
    
     **If the page is stuck in loading, try to recompile**
 
@@ -113,6 +140,15 @@ read the 'ReadMe' in the [server folder](https://github.com/jouwana/BECompiler/t
    [Getting Into The Flow: Better Type Error Messages for Constraint-Based Type Inference (Artifact)](https://dl.acm.org/doi/10.1145/3622812)
 
     to view article Github page, click [here](https://github.com/hkust-taco/hmloc/tree/main)
+
+    * Shows the DataFlow of the Type Errors:
+      ![image](https://github.com/user-attachments/assets/c315d1f7-11ea-4aea-b7dd-2cba1efc8aae)
+    * Clicking on Line Buttons quick selects the problematic line in file:
+      ![image](https://github.com/user-attachments/assets/245dd346-9f00-4ce4-8d2c-8d7684134425)
+    * Shows a summary of the functions, types and number of errors at the bottom:
+      ![image](https://github.com/user-attachments/assets/fde459c3-a348-4a9d-a1ef-7d2de5ff54e4)
+
+
 
 5. 'AI error details': uses Gemini LLM to explain the errors, its origin, dataflow and suggest a solution to the error.
    This is done for all the errors and warning in the interepreter results.
